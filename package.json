@@ -1,0 +1,27 @@
+{
+  "name": "ny",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prettier": "prettier '**/*.{js,ts,tsx,css,md,yml}' --write",
+    "lint:prettier": "prettier '**/*.{js,css,md,ts,tsx}' --check"
+  },
+  "dependencies": {
+    "@types/node": "18.16.0",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0",
+    "eslint": "8.39.0",
+    "eslint-config-next": "13.3.1",
+    "next": "13.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "prettier": "2.8.4"
+  }
+}
