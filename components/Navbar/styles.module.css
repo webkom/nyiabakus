@@ -1,0 +1,16 @@
+.navbar {
+  background-color: #c0392b;
+  padding: 1rem 2rem;
+  color: white;
+  justify-content: center;
+  display: flex;
+}
+
+.navbar a {
+  display: inline-block;
+  width: 25%;
+}
+
+.navbar div {
+  width: 80%;
+}
