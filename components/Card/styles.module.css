@@ -1,0 +1,6 @@
+.card {
+    border: 10px;
+    justify-content: center;
+    display: flex;
+    background-color: blueviolet;
+}
