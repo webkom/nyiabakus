@@ -1,11 +1,12 @@
 import Link from "next/link";
-import Card from "../Card";
+import Card from "@/components/Card";
 import styles from "./styles.module.css";
+import InfoSectionWrapper from "@/components/InfoSectionWrapper";
 
 const Header = () => {
   return (
-    <div className={styles.header}>
-      <h1>Velkommen til Abakus</h1>
+    <InfoSectionWrapper className={styles.header}>
+      <h1>Velkommen til Abakus!</h1>
       <p>
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -15,36 +16,36 @@ const Header = () => {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum."
       </p>
-      <div>
-        <h3>Hopp til det du vil lese om eller scroll videre</h3>
+      <div className={styles.quickLinksWrapper}>
+        <h3>Hopp direkte til det du vil lese om</h3>
         <div>
-          <Link href={"/"}>Før du kommer til Trondheim</Link>
-          <Link href={"/"}>I Trondheim</Link>
-          <Link href={"/"}>Fadderperioden</Link>
-          <Link href={"/"}>Studiestart</Link>
+          <Link href={"#før-trondheim"}>Før du kommer til Trondheim</Link>
+          <Link href={"#trondheim"}>I Trondheim</Link>
+          <Link href={"#fadderperioden"}>Fadderperioden</Link>
+          <Link href={"#studiestart"}>Studiestart</Link>
         </div>
       </div>
-      <div>
+      <div className={styles.cardContainer}>
         <Card
           title={"Lag bruker på abakus.no"}
-          text={
-            "Meld deg på arrangementer og følg med på hva som skjr i Abakus!"
+          description={
+            "Meld deg på arrangementer og følg med på hva som skjer i Abakus!"
           }
         />
         <Card
           title={"Bli med på Slack"}
-          text={
+          description={
             "Hold kontakten med resten av Abakus! Heer har vi alt fra event-reminders, kjøp og salg, memes og fprum for å finne sted å bo."
           }
         />
         <Card
           title={"Meldeskjema"}
-          text={
-            "Hold kontakten med resten av Abakus! Her er meldeskjema om det skulle skje no."
+          description={
+            "Har du blitt utsatt for en ubehagelig hendelse? Meld fra gjennom meldeskjemaet vårt! Du kan være helt anonym derson du ønsker det."
           }
         />
       </div>
-    </div>
+    </InfoSectionWrapper>
   );
 };
 

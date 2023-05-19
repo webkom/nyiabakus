@@ -1,17 +1,19 @@
 import styles from "./styles.module.css";
 
-interface CardProps {
-  title: string;
-  text: string;
-}
-
-const Card: React.FC<CardProps> = ({ title, text }) => {
-  return (
-    <div className={styles.card}>
-      <p>{title}</p>
-      <p>{text}</p>
-    </div>
-  );
+type CardProps = {
+  title: String;
+  description: String;
 };
 
-export default Card;
+export default function Card(props: CardProps) {
+  return (
+    <div className={styles.card}>
+      <h3 className={styles.title}>{props.title}</h3>
+      <div className={styles.description}>
+        {props.description.split("\n").map((line) => (
+          <p key={line}>{line}</p>
+        ))}
+      </div>
+    </div>
+  );
+}

@@ -1,16 +1,43 @@
 .navbar {
   background-color: #c0392b;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   color: white;
   justify-content: center;
   display: flex;
 }
 
-.navbar a {
-  display: inline-block;
-  width: 25%;
+.contentWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  gap: 0.5em;
 }
 
-.navbar div {
-  width: 80%;
+@media (max-width: 800px) {
+  .contentWrapper {
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .contentWrapper {
+    width: 100%;
+  }
+}
+
+.logoWrapper {
+  flex-grow: 1;
+}
+
+.navLinksWrapper {
+  display: flex;
+  gap: 2em;
+}
+
+.contentWrapper a {
+  color: #f0f0f0;
+}
+
+.contentWrapper a:hover {
+  color: #afafaf;
 }

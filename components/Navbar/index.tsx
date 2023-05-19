@@ -4,11 +4,15 @@ import styles from "./styles.module.css";
 const Navbar = () => {
   return (
     <div className={styles.navbar}>
-      <div>
-        <Link href={"/"}>Ta meg til Abakus</Link>
-        <Link href={"/"}>Startside</Link>
-        <Link href={"/"}>Arrangementer</Link>
-        <Link href={"/"}>FAQ</Link>
+      <div className={styles.contentWrapper}>
+        <div className={styles.logoWrapper}>
+          <Link href={"https://abakus.no"}>Gå til abakus.no</Link>
+        </div>
+        <div className={styles.navLinksWrapper}>
+          <Link href={"/"}>Startside</Link>
+          <Link href={"/events"}>Arrangementer</Link>
+          <Link href={"/faq"}>FAQ</Link>
+        </div>
       </div>
     </div>
   );

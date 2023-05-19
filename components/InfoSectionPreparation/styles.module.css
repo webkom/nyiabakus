@@ -1,0 +1,24 @@
+.preparationSection {
+  background-color: #c0392b;
+  color: white;
+  box-shadow: 0 0 10px -5px #c0392b;
+}
+
+.title {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.preparationSection > h1,
+.preparationSection > p {
+  margin: 0.3em 0;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 2em;
+}
