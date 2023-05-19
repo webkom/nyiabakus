@@ -1,5 +1,24 @@
-.header div {
-    width: 80%;
+.header {
+  text-align: center;
+}
 
-  }
-  
+.header > h1,
+.header > p,
+.header > div {
+  margin: 2rem 0;
+}
+
+.quickLinksWrapper h3 {
+  margin-bottom: 0.5rem;
+}
+
+.quickLinksWrapper a {
+  margin: 0 1em;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 10px;
+}
