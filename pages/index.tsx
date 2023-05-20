@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import InfoSectionPreparation from "@/components/InfoSectionPreparation";
 import InfoSectionFP from "@/components/InfoSectionFP";
 import InfoSectionStudy from "@/components/InfoSectionStudy";
+import InfoSectionStudentPub from "@/components/InfoSectionStudentPub";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function Home() {
         <Header />
         <InfoSectionPreparation />
         <InfoSectionTrondheim />
+        <InfoSectionStudentPub />
         <InfoSectionFP />
         <InfoSectionStudy />
       </main>

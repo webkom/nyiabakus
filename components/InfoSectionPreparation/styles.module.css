@@ -1,7 +1,7 @@
 .preparationSection {
-  background-color: #c0392b;
+  background-color: var(--red-1);
   color: white;
-  box-shadow: 0 0 10px -5px #c0392b;
+  box-shadow: 0 0 10px -5px var(--red-1);
 }
 
 .title {
