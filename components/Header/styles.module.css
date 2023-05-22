@@ -8,14 +8,6 @@
   margin: 2rem 0;
 }
 
-.quickLinksWrapper h3 {
-  margin-bottom: 0.5rem;
-}
-
-.quickLinksWrapper a {
-  margin: 0 1em;
-}
-
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
