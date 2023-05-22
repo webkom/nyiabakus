@@ -1,0 +1,16 @@
+.eventsViewSelector {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 2em;
+}
+
+.eventsViewSelector > p {
+  flex-grow: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.active {
+  font-weight: bold;
+}

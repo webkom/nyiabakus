@@ -1,0 +1,35 @@
+.eventsList {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.eventsList > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.eventsList .dayTitle {
+  font-weight: bold;
+}
+
+.eventItem {
+  padding: 0.8em;
+  border-radius: 0.4em;
+  box-shadow: 0 0 9px -5px #8b8b8b;
+}
+
+.eventItem.past {
+  opacity: 0.6;
+}
+
+.eventTitle {
+  font-size: large;
+  margin-bottom: 0.5em;
+}
+
+.eventDetails {
+  display: flex;
+  gap: 1em;
+}
