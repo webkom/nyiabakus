@@ -1,4 +1,10 @@
-interface ApiBase {
+export type ApiResponse<T> = {
+  next: string | null;
+  previous: string | null;
+  results: T;
+};
+
+type ApiBase = {
   id: number;
   title: string;
   description: string;
@@ -7,14 +13,14 @@ interface ApiBase {
   location: string;
   /* Allow extra values */
   [x: string | number | symbol]: unknown;
-}
+};
 
-export interface ApiEvent extends ApiBase {
+export type ApiEvent = ApiBase & {
   startTime: string;
   endTime: string;
-}
+};
 
-export interface Event extends ApiBase {
+export type Event = ApiBase & {
   startTime: Date;
   endTime: Date;
-}
+};

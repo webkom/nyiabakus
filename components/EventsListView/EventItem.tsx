@@ -1,3 +1,4 @@
+import { dateToTimeString } from "@/utils/date";
 import { Event } from "@/utils/types";
 import styles from "./styles.module.css";
 
@@ -15,15 +16,8 @@ const EventItem: React.FC<EventItemProps> = ({ event }) => {
       <p className={styles.eventTitle}>{event.title}</p>
       <div className={styles.eventDetails}>
         <p>
-          {event.startTime.toLocaleTimeString(["no-NB"], {
-            hour: "2-digit",
-            minute: "2-digit",
-          })}{" "}
-          -{" "}
-          {event.endTime.toLocaleTimeString(["no-NB"], {
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
+          {dateToTimeString(event.startTime)} -{" "}
+          {dateToTimeString(event.endTime)}
         </p>
         <p>{event.location}</p>
       </div>

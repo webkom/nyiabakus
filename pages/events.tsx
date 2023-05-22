@@ -3,25 +3,22 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Navbar from "@/components/Navbar";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
-import { SetStateAction, useState } from "react";
-import EventsViewSelector from "@/components/EventsViewSelector";
+import { useMemo } from "react";
 import EventsListView from "@/components/EventsListView";
-import { mockEvents } from "@/utils/mockData";
-import EventsCalendarView from "@/components/EventsCalendarView";
+import { deserializeEvents, fetchEvents } from "@/utils/api";
+import { NextPage } from "next";
+import { ApiEvent } from "@/utils/types";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export enum EVENT_LIST_VIEWS {
-  Calendar,
-  List,
-}
+type EventsProps = {
+  apiEvents: ApiEvent[];
+  apiError: boolean;
+};
 
-export default function Events() {
-  const [selectedView, setSelectedView] = useState<EVENT_LIST_VIEWS>(
-    EVENT_LIST_VIEWS.List
-  );
-  // TODO Replace this with actual API fetching later on
-  const events = mockEvents;
+export const Events: NextPage<EventsProps> = ({ apiEvents, apiError }) => {
+  const events = useMemo(() => deserializeEvents(apiEvents), [apiEvents]);
 
   return (
     <>
@@ -37,18 +34,33 @@ export default function Events() {
       <main className={`${styles.main} ${inter.className}`}>
         <Navbar />
         <InfoSectionWrapper>
-          <EventsViewSelector
-            selectedView={selectedView}
-            setSelectedView={setSelectedView}
-          />
-          {selectedView === EVENT_LIST_VIEWS.List && (
+          {!apiError ? (
             <EventsListView events={events} />
-          )}
-          {selectedView === EVENT_LIST_VIEWS.Calendar && (
-            <EventsCalendarView events={events} />
+          ) : (
+            <p>
+              Klarte ikke hente arrangementene. Hvis problemet vedvarer, sjekk{" "}
+              <Link href={"https://abakus.no"}>abakus.no</Link> eller
+              facebook-gruppa for nye studenter.
+            </p>
           )}
         </InfoSectionWrapper>
       </main>
     </>
   );
+};
+
+export default Events;
+
+export async function getServerSideProps() {
+  let apiEvents: ApiEvent[] = [];
+  let apiError = false;
+  try {
+    apiEvents = await fetchEvents();
+  } catch (error) {
+    apiError = true;
+    console.error(error);
+  }
+  return {
+    props: { apiEvents, apiError },
+  };
 }
