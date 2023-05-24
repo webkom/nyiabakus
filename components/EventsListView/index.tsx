@@ -1,45 +1,51 @@
+import { dateToDayString, numberOfDaysBetweenDates } from "@/utils/date";
 import { Event } from "@/utils/types";
+import { useMemo } from "react";
 import EventItem from "./EventItem";
 import styles from "./styles.module.css";
 
-interface EventsListViewProps {
+type EventsListViewProps = {
   events: Event[];
-}
+};
+
+type Day = {
+  title: string;
+  events: Event[];
+};
 
 const EventsListView: React.FC<EventsListViewProps> = ({ events }) => {
-  // Iterate through the relevant days
-  const firstDate = events[0].startTime;
-  const lastDate = events[events.length - 1].startTime;
-  const dayCount =
-    Math.ceil((lastDate.getTime() - firstDate.getTime()) / (1000 * 3600 * 24)) +
-    1;
+  const days = useMemo<Day[]>(() => {
+    const dayCount = numberOfDaysBetweenDates(
+      events[0].startTime,
+      events[events.length - 1].startTime
+    );
+    // Initialize a date object to represent the current date in the loop
+    let currentDate = new Date(events[0].startTime);
+    currentDate.setDate(currentDate.getDate() - 1);
+    // Iterate over all the days
+    return new Array(dayCount).fill(0).map(() => {
+      currentDate.setDate(currentDate.getDate() + 1);
+      return {
+        title: dateToDayString(currentDate),
+        events: events.filter(
+          (event) =>
+            event.startTime.toDateString() === currentDate.toDateString()
+        ),
+      };
+    });
+  }, [events]);
 
   return (
     <div className={styles.eventsList}>
-      {new Array(dayCount).fill(0).map((_, index) => {
-        const date = new Date(firstDate);
-        date.setDate(date.getDate() + index);
-        const dateDisplayString = date.toLocaleDateString(["no-NB"], {
-          weekday: "long",
-          day: "numeric",
-          month: "long",
-        });
-        const capitalizedDateString =
-          dateDisplayString.charAt(0).toUpperCase() +
-          dateDisplayString.slice(1);
-        const dateEvents = events.filter(
-          (event) => event.startTime.toDateString() === date.toDateString()
-        );
-        return (
-          <div key={date.getDate()}>
-            <p className={styles.dayTitle}>{capitalizedDateString}</p>
-            {dateEvents.map((event) => (
-              <EventItem key={event.id} event={event} />
-            ))}
-            {dateEvents.length === 0 && <p>Ingen arrangementer</p>}
-          </div>
-        );
-      })}
+      {days.map((day) => (
+        <div key={day.title}>
+          <p className={styles.dayTitle}>{day.title}</p>
+          {day.events.map((event) => (
+            <EventItem key={event.id} event={event} />
+          ))}
+          {day.events.length === 0 && <p>Ingen arrangementer</p>}
+        </div>
+      ))}
     </div>
   );
 };
