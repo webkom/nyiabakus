@@ -8,6 +8,8 @@ import InfoSectionPreparation from "@/components/InfoSectionPreparation";
 import InfoSectionFP from "@/components/InfoSectionFP";
 import InfoSectionStudy from "@/components/InfoSectionStudy";
 import InfoSectionStudentPub from "@/components/InfoSectionStudentPub";
+import QuickLinks from "@/components/QuickLinks";
+import HeaderCards from "@/components/Header/HeaderCards";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +28,8 @@ export default function Home() {
       <main className={`${styles.main} ${inter.className}`}>
         <Navbar />
         <Header />
+        <QuickLinks />
+        <HeaderCards />
         <InfoSectionPreparation />
         <InfoSectionTrondheim />
         <InfoSectionStudentPub />

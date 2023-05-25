@@ -1,0 +1,65 @@
+.quickLinksHeader {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.stickyWrapper {
+  position: sticky;
+  top: -1px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+
+  background-color: white;
+  transition: 0.15s linear background-color;
+  overflow-x: hidden;
+}
+
+.quickLinks {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  text-align: center;
+}
+
+.toTopLink {
+  color: white;
+  text-decoration: underline;
+  position: absolute;
+  padding: 0 10px;
+  right: 0;
+  transform: translateX(100%);
+}
+
+@media (max-width: 800px) {
+  .stickyWrapper {
+    position: relative;
+    top: initial;
+  }
+}
+
+.quickLink {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+
+  box-shadow: var(--shadow-1);
+}
+
+@media not all and (max-width: 800px) {
+  .isSticky {
+    background-color: var(--red-1);
+    box-shadow: var(--shadow-red-1);
+  }
+}
