@@ -15,12 +15,21 @@ const InfoSectionPreparation = () => {
       </p>
       <div className={styles.cardContainer}>
         <Card
-          title={"Pakkeliste"}
+          icon={"cash"}
+          title={"Betal semesteravgift"}
           description={
-            "Meld deg på arrangementer og følg med på hva som skjer i Abakus!"
+            "Etter du har fått plass på studiet kan du betale semesteravgift på studentweb, det trenger du for å få studentmail+++, så det er greit å gjøre så fort som mulig"
           }
         />
         <Card
+          icon={"bag"}
+          title={"Pakkeliste"}
+          description={
+            "Vi har samlet våre beste tips til hva du burde pakke med deg når du reiser til Trondheim!"
+          }
+        />
+        <Card
+          icon={"call"}
           title={"Kontaktinformasjon"}
           description={
             "Her har kan du finne kontaktinformasjonen til diverse personer i Abakus dersom du lurer på noe"

@@ -10,9 +10,16 @@
 }
 
 .title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: medium;
   font-weight: 500;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
+}
+
+.title .icon {
+  font-size: 20px;
 }
 
 .description {
