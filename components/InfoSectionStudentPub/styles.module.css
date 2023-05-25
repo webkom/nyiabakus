@@ -1,0 +1,68 @@
+.studentPubSection {
+  padding: 3vw 0;
+  margin: 2em 0;
+  background-color: var(--labamba-yellow);
+  transform: skew(0, -2deg);
+}
+
+.studentPubSectionContent {
+  transform: skew(0, 2deg);
+}
+
+.studentPubSection * p {
+  margin: 0.3em 0;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.splitContent {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.textWrapper,
+.imageWrapper {
+  flex: 1;
+  display: flex;
+  max-width: 100%;
+  min-width: 200px;
+}
+
+.textWrapper {
+  flex-direction: column;
+  word-break: break-all;
+  hyphens: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.imageWrapper {
+  justify-content: center;
+  align-items: center;
+}
+
+.textWrapper h2 {
+  width: 100%;
+}
+
+.imageWrapper img {
+  height: 100%;
+  width: 90%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: var(--shadow-1);
+  max-height: 300px;
+  min-height: 300px;
+  max-width: 100%;
+}
+
+.laBambaLogo {
+  height: 125px;
+  width: 100%;
+  padding: 20px;
+}

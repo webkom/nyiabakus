@@ -14,3 +14,12 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+:root {
+  --red-1: #c0392b;
+  --abakus-red: #e21617;
+  --labamba-yellow: #ffcb20;
+
+  --shadow-1: 0 2px 8px 2px rgba(104, 112, 118, 7%),
+    0 2px 4px -1px rgba(104, 112, 118, 4%);
+}
