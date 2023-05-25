@@ -1,11 +1,14 @@
 import React from "react";
-import styles from "./styles.module.css";
-import InfoSectionWrapper from "@/components/InfoSectionWrapper";
+
+type IconProps = {
+  name: string;
+  className: string;
+};
 
 // prettier-ignore
-const Icon: React.FC<{ name: string }> = (props) => {
-  {/* @ts-ignore*/}
-  return <ion-icon {...props}></ion-icon>;
+const Icon: React.FC<IconProps> = ({name, className}) => {
+  {/* @ts-ignore */}
+  return <span className={className}><ion-icon name={name} suppressHydrationWarning={true}></ion-icon></span>;
 };
 
 export default Icon;
