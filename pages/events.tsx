@@ -9,6 +9,7 @@ import { deserializeEvents, fetchEvents } from "@/utils/api";
 import { NextPage } from "next";
 import { ApiEvent } from "@/utils/types";
 import Link from "next/link";
+import FullscreenImage from "@/components/FullscreenImage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,15 @@ export const Events: NextPage<EventsProps> = ({ apiEvents, apiError }) => {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <Navbar />
+        <InfoSectionWrapper>
+          <FullscreenImage
+            src="/uc.jpg"
+            alt="Under konstruksjon"
+            width={530}
+            height={355}
+            className={styles.fullscreenImage}
+          />
+        </InfoSectionWrapper>
         <InfoSectionWrapper>
           {!apiError ? (
             <EventsListView events={events} />
