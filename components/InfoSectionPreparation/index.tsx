@@ -14,27 +14,14 @@ const InfoSectionPreparation = () => {
         hjemmefra
       </p>
       <div className={styles.cardContainer}>
-        <Card
-          icon={"cash"}
-          title={"Betal semesteravgift"}
-          description={
-            "Etter du har fått plass på studiet kan du betale semesteravgift på studentweb, det trenger du for å få studentmail+++, så det er greit å gjøre så fort som mulig"
-          }
-        />
-        <Card
-          icon={"bag"}
-          title={"Pakkeliste"}
-          description={
-            "Vi har samlet våre beste tips til hva du burde pakke med deg når du reiser til Trondheim!"
-          }
-        />
-        <Card
-          icon={"call"}
-          title={"Kontaktinformasjon"}
-          description={
-            "Her har kan du finne kontaktinformasjonen til diverse personer i Abakus dersom du lurer på noe"
-          }
-        />
+        {cardData.map(({ title, icon, description }) => (
+          <Card
+            key={title}
+            icon={icon}
+            title={title}
+            description={description}
+          />
+        ))}
       </div>
       <p>
         <br />
@@ -45,3 +32,24 @@ const InfoSectionPreparation = () => {
 };
 
 export default InfoSectionPreparation;
+
+const cardData = [
+  {
+    title: "Betal semesteravgift",
+    icon: "cash",
+    description:
+      "Etter du har fått plass på studiet kan du betale semesteravgift på studentweb, det trenger du for å få studentmail+++, så det er greit å gjøre så fort som mulig",
+  },
+  {
+    title: "Pakkeliste",
+    icon: "bag",
+    description:
+      "Vi har samlet våre beste tips til hva du burde pakke med deg når du reiser til Trondheim!",
+  },
+  {
+    title: "Kontaktinformasjon",
+    icon: "call",
+    description:
+      "Her har kan du finne kontaktinformasjonen til diverse personer i Abakus dersom du lurer på noe",
+  },
+];

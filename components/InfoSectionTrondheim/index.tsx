@@ -3,39 +3,7 @@ import Link from "next/link";
 import InfoSectionWrapper from "../InfoSectionWrapper";
 import styles from "./styles.module.css";
 
-const infoCardData = [
-  {
-    icon: "cafe",
-    title: "Abakus-kontoret",
-    description:
-      "I Abakus har vi vårt eget kontor på Realfagsbygget! Her kan du slappe av med Smash/Mariokart, spise lunsj eller kjøpe noe billig snacks fra kiosken vår Snack Overflow",
-  },
-  {
-    icon: "tv",
-    title: "Komtek-loungen",
-    description:
-      "Kommunikasjonsteknologi sitt eget hvileområde, med kjøkkenkrok, sofa, bordtennisbord og TV",
-  },
-  {
-    icon: "tennisball",
-    title: "A3",
-    description:
-      "A3 (3. etasje på A-blokka i Realfagsbygget) er der kontoret vårt er, i tillegg til bordtennisbord og leserom der du garantert finner mange av dine medstudenter",
-  },
-  {
-    icon: "beer",
-    title: "Kjelleren LaBamba",
-    description:
-      "Vi har også vårt eget utested som heter LaBamba! Det ligger på Moholt, og publiserer arrangementer på abakus.no når det er åpent!",
-  },
-  {
-    icon: "school",
-    title: "Immatrikulering",
-    description:
-      "Immatrikuleringen er velkomstseremonien til NTNU. Du kan lese mer om det på NTNU og instituttene sine nettsider",
-  },
-];
-export default function InfoSectionTrondheim() {
+const InfoSectionTrondheim: React.FC = () => {
   return (
     <InfoSectionWrapper id={"trondheim"}>
       <h2 className={styles.title}>Når du kommer til Trondheim</h2>
@@ -48,15 +16,50 @@ export default function InfoSectionTrondheim() {
         <Link href={"https://nyitrondheim.no"}>nyitrondheim.no</Link>.
       </p>
       <div className={styles.cardContainer}>
-        {infoCardData.map((info) => (
+        {cardData.map(({ title, icon, description }) => (
           <Card
-            key={info.title}
-            icon={info.icon}
-            title={info.title}
-            description={info.description}
+            key={title}
+            icon={icon}
+            title={title}
+            description={description}
           />
         ))}
       </div>
     </InfoSectionWrapper>
   );
-}
+};
+
+export default InfoSectionTrondheim;
+
+const cardData = [
+  {
+    title: "Abakus-kontoret",
+    icon: "cafe",
+    description:
+      "I Abakus har vi vårt eget kontor på Realfagsbygget! Her kan du slappe av med Smash/Mariokart, spise lunsj eller kjøpe noe billig snacks fra kiosken vår Snack Overflow",
+  },
+  {
+    title: "Komtek-loungen",
+    icon: "tv",
+    description:
+      "Kommunikasjonsteknologi sitt eget hvileområde, med kjøkkenkrok, sofa, bordtennisbord og TV",
+  },
+  {
+    title: "A3",
+    icon: "tennisball",
+    description:
+      "A3 (3. etasje på A-blokka i Realfagsbygget) er der kontoret vårt er, i tillegg til bordtennisbord og leserom der du garantert finner mange av dine medstudenter",
+  },
+  {
+    title: "Kjelleren LaBamba",
+    icon: "beer",
+    description:
+      "Vi har også vårt eget utested som heter LaBamba! Det ligger på Moholt, og publiserer arrangementer på abakus.no når det er åpent!",
+  },
+  {
+    title: "Immatrikulering",
+    icon: "school",
+    description:
+      "Immatrikuleringen er velkomstseremonien til NTNU. Du kan lese mer om det på NTNU og instituttene sine nettsider",
+  },
+];
