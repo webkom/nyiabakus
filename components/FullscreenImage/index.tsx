@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 
@@ -9,6 +9,16 @@ type Props = Omit<React.ComponentProps<typeof Image>, "alt"> & {
 
 const FullscreenImage: React.FC<Props> = (props) => {
   const [fullscreen, setFullscreen] = useState(false);
+
+  useEffect(() => {
+    const listener = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setFullscreen(false);
+    };
+    addEventListener("keydown", listener);
+    return () => {
+      removeEventListener("keydown", listener);
+    };
+  }, [fullscreen]);
 
   return (
     <>

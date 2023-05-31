@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Navbar from "@/components/Navbar";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import EventsListView from "@/components/EventsListView";
 import { deserializeEvents, fetchEvents } from "@/utils/api";
 import { NextPage } from "next";
@@ -18,8 +18,22 @@ type EventsProps = {
   apiError: boolean;
 };
 
-export const Events: NextPage<EventsProps> = ({ apiEvents, apiError }) => {
+export const Events: NextPage<EventsProps> = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [apiEvents, setApiEvents] = useState<ApiEvent[]>([]);
   const events = useMemo(() => deserializeEvents(apiEvents), [apiEvents]);
+  useEffect(() => {
+    (async () => {
+      try {
+        const apiEvents = await fetchEvents();
+        setApiEvents(apiEvents);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, []);
 
   return (
     <>
@@ -44,7 +58,9 @@ export const Events: NextPage<EventsProps> = ({ apiEvents, apiError }) => {
           />
         </InfoSectionWrapper>
         <InfoSectionWrapper>
-          {!apiError ? (
+          {isLoading ? (
+            <p>Laster inn Abakus-arrangement ...</p>
+          ) : events.length ? (
             <EventsListView events={events} />
           ) : (
             <p>
@@ -60,17 +76,3 @@ export const Events: NextPage<EventsProps> = ({ apiEvents, apiError }) => {
 };
 
 export default Events;
-
-export async function getServerSideProps() {
-  let apiEvents: ApiEvent[] = [];
-  let apiError = false;
-  try {
-    apiEvents = await fetchEvents();
-  } catch (error) {
-    apiError = true;
-    console.error(error);
-  }
-  return {
-    props: { apiEvents, apiError },
-  };
-}
