@@ -22,7 +22,8 @@ export const removeBlackListedEvents = (apiEvents: ApiEvent[]) =>
  */
 export const fetchEvents = async () => {
   const res = await fetch(
-    `https://lego.abakus.no/api/v1/events?date_after=${fromDate}&date_before=${toDate}`
+    `https://lego.abakus.no/api/v1/events?date_after=${fromDate}&date_before=${toDate}`,
+    { mode: "cors" }
   );
   const data: ApiResponse<ApiEvent[]> = await res.json();
   return removeBlackListedEvents(data.results);
