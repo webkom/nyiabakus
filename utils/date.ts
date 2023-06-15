@@ -42,3 +42,13 @@ export const numberOfDaysBetweenDates = (
 ) =>
   Math.ceil((date2.getTime() - date1.getTime()) / (1000 * 3600 * 24)) +
   (inclusive ? 1 : 0);
+
+/**
+ * Compare year, month and date
+ *
+ * @param date1 Date object
+ * @param date2 Date object
+ * @returns true if they are equal
+ */
+export const isSameCalendarDate = (date1: Date, date2: Date) =>
+  date1.toLocaleDateString() === date2.toLocaleDateString();
