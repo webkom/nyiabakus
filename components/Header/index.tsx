@@ -1,18 +1,26 @@
 import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
+import Link from "next/link";
 
 const Header = () => {
   return (
     <InfoSectionWrapper className={styles.header}>
       <h1>Velkommen til Abakus!</h1>
       <p>
-        &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.&quot;
+        Vi er linjeforeningen for studentene ved Datateknologi og
+        Kommunikasjonsteknologi og digital sikkerhet på NTNU, og drives av
+        studenter ved disse studiene. Som linjeforening jobber vi for at du som
+        student har det bra under studietiden din. Dette gjør vi blandt annet
+        ved å arrangere fadderperiode, bedriftspresentasjoner, kurs, fester,
+        lavterskel arrangementer og mye mer!
+      </p>
+      <p>
+        Denne nettsiden er spesielt rettet mot deg som er ny student, for å
+        hjelpe deg med å samle alt du trenger å vite de første ukene av
+        studdenttilværelsen din. Vi håper du får en helt nydelig start på
+        studiet, og at vi får bli godt kjent med deg de neste fem årene! <br />
+        Ikke nøl med å <Link href="/faq#kontakt">kontakte oss</Link> dersom det
+        er noe du ikke finner svar på her!
       </p>
     </InfoSectionWrapper>
   );

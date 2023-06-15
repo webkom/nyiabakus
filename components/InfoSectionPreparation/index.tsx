@@ -23,10 +23,7 @@ const InfoSectionPreparation = () => {
           />
         ))}
       </div>
-      <p>
-        <br />
-        TODO: Legge til TODO-liste
-      </p>
+      <p>{/* TODO: Legge til TODO-liste */}</p>
     </InfoSectionWrapper>
   );
 };

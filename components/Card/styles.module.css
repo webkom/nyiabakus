@@ -1,8 +1,7 @@
 .card {
   border-radius: 25px;
-  padding: 10px 20px;
-  width: 250px;
-  height: 150px;
+  padding: 20px;
+  width: 270px;
   box-shadow: var(--shadow-1);
   text-align: left;
   background-color: white;

@@ -9,8 +9,12 @@ html {
   scroll-behavior: smooth !important;
 }
 
+p {
+  line-height: 1.5;
+}
+
 a {
-  color: inherit;
+  color: var(--red-1);
   text-decoration: none;
 }
 

@@ -1,0 +1,23 @@
+.faqItem {
+  margin-bottom: 1.5em;
+  border-radius: 0.4em;
+  box-shadow: 0 0 12px -5px #8b8b8b;
+}
+
+.faqItem summary {
+  padding: 1em;
+  cursor: pointer;
+}
+
+.faqItem details[open] {
+  padding: 1em;
+}
+
+.faqItem details[open] summary {
+  padding: 0;
+  margin-bottom: 1em;
+}
+
+.faqItem p {
+  margin-top: 0.5em;
+}

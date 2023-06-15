@@ -10,7 +10,7 @@ const Navbar = () => {
         </div>
         <div className={styles.navLinksWrapper}>
           <Link href={"/"}>Startside</Link>
-          <Link href={"/events"}>Arrangementer</Link>
+          <Link href={"/events"}>Fadderperioden</Link>
           <Link href={"/faq"}>FAQ</Link>
         </div>
       </div>

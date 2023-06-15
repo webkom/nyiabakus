@@ -38,6 +38,6 @@ const cardData = [
     title: "Meldeskjema",
     icon: "chatbox",
     description:
-      "Har du blitt utsatt for en ubehagelig hendelse? Meld fra gjennom meldeskjemaet vårt! \nDu kan være helt anonym derson du ønsker det.",
+      "Har du blitt utsatt for en ubehagelig hendelse? Meld fra gjennom meldeskjemaet vårt! \nDu kan være helt anonym dersom du ønsker det.",
   },
 ];

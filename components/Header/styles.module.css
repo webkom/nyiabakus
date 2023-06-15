@@ -3,9 +3,14 @@
 }
 
 .header > h1,
-.header > p,
 .header > div {
   margin: 2rem 0;
+}
+
+.header > p {
+  margin: 1rem auto;
+  max-width: 50em;
+  line-height: 1.7;
 }
 
 .cardContainer {
