@@ -1,0 +1,8 @@
+.button {
+  display: inline-block;
+  padding: 6px 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1.5px solid var(--red-1);
+  font-size: smaller;
+}

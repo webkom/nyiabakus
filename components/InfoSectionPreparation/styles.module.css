@@ -15,10 +15,3 @@
 .preparationSection > p {
   margin: 0.3em 0;
 }
-
-.cardContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 2em;
-}
