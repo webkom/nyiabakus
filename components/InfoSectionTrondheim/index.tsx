@@ -46,9 +46,9 @@ const cardData = [
   },
   {
     title: "A3",
-    icon: "tennisball",
+    icon: "business",
     description:
-      "A3 (3. etasje på A-blokka i Realfagsbygget) er der kontoret vårt er, i tillegg til bordtennisbord og leserom der du garantert finner mange av dine medstudenter",
+      "A3 (3. etasje på A-blokka i Realfagsbygget) er der kontoret vårt er, i tillegg til bordtennisbord og leserom der du garantert finner mange av medstudentene dine!",
   },
   {
     title: "Kjelleren LaBamba",

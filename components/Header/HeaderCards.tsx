@@ -32,12 +32,12 @@ const cardData = [
     title: "Bli med på Slack",
     icon: "logo-slack",
     description:
-      "Hold kontakten med resten av Abakus! Heer har vi alt fra event-reminders, kjøp og salg, memes og forum for å finne sted å bo.",
+      "Hold kontakten med resten av Abakus! Her har vi alt fra event-reminders, kjøp og salg, memes og forum for å finne sted å bo.",
   },
   {
     title: "Meldeskjema",
     icon: "chatbox",
     description:
-      "Har du blitt utsatt for en ubehagelig hendelse? Meld fra gjennom meldeskjemaet vårt! \nDu kan være helt anonym derson du ønsker det.",
+      "Har du blitt utsatt for en ubehagelig hendelse? Meld fra gjennom meldeskjemaet vårt! \nDu kan være helt anonym dersom du ønsker det.",
   },
 ];
