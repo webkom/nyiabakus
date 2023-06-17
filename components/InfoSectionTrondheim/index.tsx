@@ -1,4 +1,4 @@
-import Card from "@/components/Card";
+import Card, { CardWrapper } from "@/components/Card";
 import Link from "next/link";
 import InfoSectionWrapper from "../InfoSectionWrapper";
 import styles from "./styles.module.css";
@@ -15,7 +15,7 @@ const InfoSectionTrondheim: React.FC = () => {
         en samling på{" "}
         <Link href={"https://nyitrondheim.no"}>nyitrondheim.no</Link>.
       </p>
-      <div className={styles.cardContainer}>
+      <CardWrapper>
         {cardData.map(({ title, icon, description }) => (
           <Card
             key={title}
@@ -24,7 +24,7 @@ const InfoSectionTrondheim: React.FC = () => {
             description={description}
           />
         ))}
-      </div>
+      </CardWrapper>
     </InfoSectionWrapper>
   );
 };
@@ -49,12 +49,6 @@ const cardData = [
     icon: "business",
     description:
       "A3 (3. etasje på A-blokka i Realfagsbygget) er der kontoret vårt er, i tillegg til bordtennisbord og leserom der du garantert finner mange av medstudentene dine!",
-  },
-  {
-    title: "Kjelleren LaBamba",
-    icon: "beer",
-    description:
-      "Vi har også vårt eget utested som heter LaBamba! Det ligger på Moholt, og publiserer arrangementer på abakus.no når det er åpent!",
   },
   {
     title: "Immatrikulering",

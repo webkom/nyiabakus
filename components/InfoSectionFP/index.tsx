@@ -21,13 +21,14 @@ const InfoSectionFP = () => {
       <p>Oppmøte for Kommunikasjonsteknologi: TBD</p>
       <p>&nbsp; </p>
       <p>
-        Facebook-gruppe for nye abakuler:{" "}
+        Facebook-gruppe for nye abakuler{" "}
         <Link
           href={"https://www.facebook.com/groups/280352384450789/"}
           target={"_blank"}
         >
-          https://www.facebook.com/groups/280352384450789/
+          finner du her
         </Link>
+        .
       </p>
       <p>&nbsp; </p>
       <p>

@@ -36,7 +36,7 @@ const InfoSectionStudentPub = () => {
           </p>
           <p>
             Vi oppfordrer til å følge{" "}
-            <Link href={"https://www.instagram.com/_u/labambakjelleren/"}>
+            <Link href={"https://instagram.com/_u/labambakjelleren"}>
               @labambakjelleren
             </Link>{" "}
             på instagram for oppdateringer om når de holder åpent i løpet av

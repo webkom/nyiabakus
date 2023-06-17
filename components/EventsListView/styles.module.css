@@ -15,9 +15,17 @@
 }
 
 .eventItem {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7em;
   padding: 0.8em;
   border-radius: 0.4em;
   box-shadow: var(--shadow-event-1);
+}
+
+.eventText {
+  flex-grow: 1;
 }
 
 .eventItem.past {
@@ -35,7 +43,7 @@
 }
 
 .eventLink {
-  color: black;
+  margin-right: 10px;
 }
 
 .description {

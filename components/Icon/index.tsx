@@ -2,7 +2,7 @@ import React from "react";
 
 type IconProps = {
   name: string;
-  className: string;
+  className?: string;
 };
 
 // prettier-ignore
