@@ -17,7 +17,7 @@
 .eventItem {
   padding: 0.8em;
   border-radius: 0.4em;
-  box-shadow: 0 0 9px -5px #8b8b8b;
+  box-shadow: var(--shadow-event-1);
 }
 
 .eventItem.past {
@@ -32,4 +32,39 @@
 .eventDetails {
   display: flex;
   gap: 1em;
+}
+
+.eventLink {
+  color: black;
+}
+
+.description {
+  background-color: var(--day-description);
+  font-size: 1.2em;
+  padding: 0.8em;
+}
+
+.description * p {
+  padding-bottom: 0.35em;
+}
+
+.collapsibleItemParent {
+  position: relative;
+  overflow: hidden;
+  transition: 0.33s ease-in-out height;
+  cursor: pointer;
+}
+
+.collapsibleItem {
+  position: relative;
+  overflow: hidden;
+}
+
+.collapsibleItemGradient {
+  transition: 0.33s ease-out box-shadow;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }

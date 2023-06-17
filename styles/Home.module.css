@@ -9,3 +9,10 @@
   height: fit-content;
   object-fit: contain;
 }
+
+.title {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}

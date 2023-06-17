@@ -1,6 +1,6 @@
+import Link from "next/link";
 import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
-import Link from "next/link";
 
 const InfoSectionFP = () => {
   return (

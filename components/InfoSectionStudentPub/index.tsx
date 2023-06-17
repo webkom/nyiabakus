@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
 import Image from "next/image";
+import Link from "next/link";
 
 const InfoSectionStudentPub = () => {
   return (
@@ -34,9 +35,12 @@ const InfoSectionStudentPub = () => {
             det på forhånd!
           </p>
           <p>
-            Vi oppfordrer til å følge @labambakjelleren på instagram for
-            oppdateringer om når de holder åpent i løpet av semesteret, og
-            gleder oss til å se dere på kjelleren fremover🍻🌴
+            Vi oppfordrer til å følge{" "}
+            <Link href={"https://www.instagram.com/_u/labambakjelleren/"}>
+              @labambakjelleren
+            </Link>{" "}
+            på instagram for oppdateringer om når de holder åpent i løpet av
+            semesteret, og gleder oss til å se dere på kjelleren fremover🍻🌴
           </p>
         </div>
         <div className={styles.imageWrapper}>
