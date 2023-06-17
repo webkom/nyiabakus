@@ -2,6 +2,7 @@
   background-color: var(--red-1);
   padding: 1rem 1.5rem;
   color: white;
+  font-weight: 600;
   justify-content: center;
   display: flex;
 }
@@ -25,19 +26,18 @@
   }
 }
 
-.logoWrapper {
-  flex-grow: 1;
-}
-
 .navLinksWrapper {
   display: flex;
+  flex-grow: 1;
   gap: 2em;
 }
 
 .contentWrapper a {
   color: #f0f0f0;
+  text-decoration: underline 0.13em rgba(0, 0, 0, 0);
+  transition: text-decoration-color 0.3s;
 }
 
 .contentWrapper a:hover {
-  color: #afafaf;
+  text-decoration: underline 0.13em white;
 }
