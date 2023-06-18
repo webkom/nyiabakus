@@ -4,7 +4,7 @@ const fromDate = "2023-08-14"; // First day of FP
 const toDate = "2023-09-04"; // One day after Immball
 
 // For events in the time period that are not included in FP
-const blackListedEventIds: number[] = [3446, 3420];
+const blackListedEventIds: number[] = [3446, 3420, 3452];
 
 /**
  * Remove events from the list that are not included in FP
