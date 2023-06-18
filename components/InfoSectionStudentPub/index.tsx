@@ -21,10 +21,11 @@ const InfoSectionStudentPub = () => {
           />
           <p>
             Abakus har vår egen kjeller som heter LaBamba, som også drives av
-            komitéen LaBamba. Denne kjelleren ligger på Moholt, og holder åpent
-            for diverse fester både i Fadderperioden og utover resten av
-            semesteret. Kjelleren har egen skjenkebevilgning, og selger alkohol
-            til VELDIG studentvennlige priser 🥳
+            komitéen LaBamba. Denne kjelleren ligger på{" "}
+            <Link href={"https://goo.gl/maps/V1hbbkWmoi5BMub5A"}>Moholt</Link>,
+            og holder åpent for diverse fester både i Fadderperioden og utover
+            resten av semesteret. Kjelleren har egen skjenkebevilgning, og
+            selger alkohol til VELDIG studentvennlige priser 🥳
           </p>
           <p>
             LaBamba kommer til å arrangere vors for faddergrupper under
@@ -43,14 +44,14 @@ const InfoSectionStudentPub = () => {
             semesteret, og gleder oss til å se dere på kjelleren fremover🍻🌴
           </p>
         </div>
-        <div className={styles.imageWrapper}>
+        {/* <div className={styles.imageWrapper}>
           <Image
             alt="LaBamba-kjelleren"
             src="/uc.jpg"
             width={530}
             height={355}
           />
-        </div>
+        </div> */}
       </div>
     </InfoSectionWrapper>
   );

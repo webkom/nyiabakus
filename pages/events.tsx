@@ -67,7 +67,7 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           .
         </p>
       </InfoSectionWrapper>
-      <InfoSectionWrapper>
+      {/* <InfoSectionWrapper>
         <FullscreenImage
           src="/uc.jpg"
           alt="Under konstruksjon"
@@ -75,7 +75,7 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           height={355}
           className={styles.fullscreenImage}
         />
-      </InfoSectionWrapper>
+      </InfoSectionWrapper> */}
       <InfoSectionWrapper>
         {isLoading ? (
           <p>Laster inn Abakus-arrangement ...</p>
