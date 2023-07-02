@@ -15,8 +15,8 @@ export default function Home() {
       <HeaderCards />
       <InfoSectionPreparation />
       <InfoSectionTrondheim />
-      <InfoSectionStudentPub />
       <InfoSectionFP />
+      <InfoSectionStudentPub />
       <InfoSectionStudy />
     </>
   );

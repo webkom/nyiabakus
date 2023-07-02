@@ -3,7 +3,6 @@
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 2em;
-  justify-content: space-between;
 }
 
 .card {

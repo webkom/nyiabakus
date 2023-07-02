@@ -7,6 +7,15 @@ const InfoSectionFP = () => {
     <InfoSectionWrapper id="fadderperioden" className={styles.fpInfo}>
       <h2 className={styles.title}>Fadderperioden</h2>
       <p>
+        NB! Dette er en plan fra linjeforeningen din, Abakus, som ikke
+        inkluderer alle detaljer om det obligatoriske opplegget fra
+        instituttet/fakultetet. For å være sikker på at du ikke går glipp av
+        noe, sjekk <a href="https://www.ntnu.no/studier/mtkom">denne siden</a>{" "}
+        hvis du skal gå Kommunikasjonsteknologi og digital sikkerhet (Komtek)
+        eller <a href="https://www.ntnu.no/studier/mtdt">denne</a> hvis du skal
+        gå Datateknologi (Data).
+      </p>
+      <p>
         Fadderperioden for datateknologi og kommunikasjonsteknologi er arrangert
         av Abakus.
       </p>

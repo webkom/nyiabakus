@@ -70,10 +70,14 @@ const EventsListView: React.FC<EventsListViewProps> = ({
               <EventItem key={event.id} event={event} />
             ))
           ) : (
-            <p>Ingen abakus-arrangementer</p>
+            <p>Ingen fadderperiode-arrangementer</p>
           )}
         </div>
       ))}
+      <p>
+        Se alle Abakus sine arrangementer på{" "}
+        <a href="https://abakus.no/events">abakus.no/events</a>
+      </p>
     </div>
   );
 };

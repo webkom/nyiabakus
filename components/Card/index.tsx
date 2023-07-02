@@ -8,17 +8,13 @@ export type CardData = {
   icon: string;
   title: string;
   description: string;
-  buttonHref?: string;
-  buttonText?: string;
+  buttons?: {
+    href: string;
+    text: string;
+  }[];
 };
 
-const Card: React.FC<CardData> = ({
-  icon,
-  title,
-  description,
-  buttonHref,
-  buttonText,
-}) => {
+const Card: React.FC<CardData> = ({ icon, title, description, buttons }) => {
   return (
     <div className={styles.card}>
       <h3 className={styles.title}>
@@ -30,11 +26,12 @@ const Card: React.FC<CardData> = ({
           <p key={line}>{line}</p>
         ))}
       </div>
-      {buttonHref && buttonText && (
-        <Button href={buttonHref} className={styles.button}>
-          {buttonText}
-        </Button>
-      )}
+      {buttons &&
+        buttons.map(({ href, text }) => (
+          <Button key={href + text} href={href} className={styles.button}>
+            {text}
+          </Button>
+        ))}
     </div>
   );
 };
