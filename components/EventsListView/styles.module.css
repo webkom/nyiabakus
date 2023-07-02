@@ -48,12 +48,12 @@
 
 .description {
   background-color: var(--day-description);
-  font-size: 1.2em;
+  font-size: 1em;
   padding: 0.8em;
 }
 
-.description * p {
-  padding-bottom: 0.35em;
+.description > p {
+  padding-bottom: 0.4em;
 }
 
 .collapsibleItemParent {
