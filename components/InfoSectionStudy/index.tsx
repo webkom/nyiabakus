@@ -19,18 +19,15 @@ const InfoSectionStudy = () => {
         sjekk ut <Link href={"https://nyitrondheim.no"}>nyitrondheim.no</Link>.
       </p>
       <CardWrapper>
-        {cardData.map(
-          ({ title, icon, description, buttonHref, buttonText }) => (
-            <Card
-              key={title}
-              icon={icon}
-              title={title}
-              description={description}
-              buttonHref={buttonHref}
-              buttonText={buttonText}
-            />
-          )
-        )}
+        {cardData.map(({ title, icon, description, buttons }) => (
+          <Card
+            key={title}
+            icon={icon}
+            title={title}
+            description={description}
+            buttons={buttons}
+          />
+        ))}
       </CardWrapper>
     </InfoSectionWrapper>
   );
@@ -44,31 +41,71 @@ const cardData: CardData[] = [
     icon: "ellipse",
     description:
       "Bedriftspresentasjoner, fester, kurs, lavterskel arrangementer, artikler, jobbannonser og mye mer!",
-    buttonHref: "https://abakus.no",
-    buttonText: "Gå til abakus.no",
+    buttons: [
+      {
+        href: "https://abakus.no",
+        text: "Gå til abakus.no",
+      },
+    ],
   },
   {
     title: "Instabart",
     icon: "link",
     description:
       "Du finner en rask samling av lenker til ting du har bruk for på instabart.no",
-    buttonHref: "https://instabart.no",
-    buttonText: "Gå til instabart",
+    buttons: [
+      {
+        href: "https://instabart.no",
+        text: "Gå til instabart",
+      },
+    ],
+  },
+  {
+    title: "Ababart",
+    icon: "link",
+    description:
+      "Overskt over de forskjellige tjenestene som er laget av og for Abakus på aba.wtf",
+    buttons: [
+      {
+        href: "https://aba.wtf",
+        text: "Gå til aba.wtf",
+      },
+    ],
   },
   {
     title: "Data-start",
     icon: "link",
     description:
-      "Lignende instabart, men er litt nyere og rettet mot studenter innen IT.",
-    buttonHref: "https://data-start.vercel.app",
-    buttonText: "Gå til data-start",
+      "Lignende instabart, men er litt nyere og rettet mot studenter innen IT",
+    buttons: [
+      {
+        href: "https://data-start.vercel.app",
+        text: "Gå til data-start",
+      },
+    ],
+  },
+  {
+    title: "Tips og triks abakus.no",
+    icon: "build",
+    description:
+      "Tips&triks som kan gjøre det enklere å holde kontroll på hva som skjer i linjeforeningen",
+    buttons: [
+      {
+        href: "/faq#tips",
+        text: "Les mer",
+      },
+    ],
   },
   {
     title: "Verv",
     icon: "people",
     description:
       "Omtrent mot slutten av fadderperioden finnes det masse verv som har opptak. I Abakus er det opptak til Komitéer og revy, men det er også mye som skjer på Samfundet, UKA, NTNUI, +++",
-    buttonHref: "https://nyitrondheim.no/verv-deg",
-    buttonText: "Les mer på nyitrondheim.no",
+    buttons: [
+      {
+        href: "https://nyitrondheim.no/verv-deg",
+        text: "Les mer på nyitrondheim.no",
+      },
+    ],
   },
 ];

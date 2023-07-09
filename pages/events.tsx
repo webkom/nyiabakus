@@ -42,6 +42,16 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
       <InfoSectionWrapper>
         <h2 className={styles.title}>Fadderperioden</h2>
         <p>
+          NB! Dette er en plan fra linjeforeningen din, Abakus, som ikke
+          inkluderer alle detaljer om det obligatoriske opplegget fra
+          instituttet/fakultetet. For å være sikker på at du ikke går glipp av
+          noe, sjekk <a href="https://www.ntnu.no/studier/mtkom">denne siden</a>{" "}
+          hvis du skal gå Kommunikasjonsteknologi og digital sikkerhet (Komtek)
+          eller <a href="https://www.ntnu.no/studier/mtdt">denne</a> hvis du
+          skal gå Datateknologi (Data).
+        </p>
+        <br />
+        <p>
           Fadderperioden for datateknologi og kommunikasjonsteknologi er
           arrangert av Abakus.
         </p>
@@ -52,10 +62,10 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           <a href="mailto:arrkom@abakus.no">arrkom@abakus.no</a> for å få en
           faddergruppe.
         </p>
-        <p>&nbsp; </p>
+        <br />
         <p>Oppmøte for Datateknologi: TBD</p>
         <p>Oppmøte for Kommunikasjonsteknologi: TBD</p>
-        <p>&nbsp; </p>
+        <br />
         <p>
           Facebook-gruppe for nye abakuler{" "}
           <Link
@@ -78,7 +88,7 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
       </InfoSectionWrapper> */}
       <InfoSectionWrapper>
         {isLoading ? (
-          <p>Laster inn Abakus-arrangement ...</p>
+          <p>Laster inn fadderperiode-arrangementer ...</p>
         ) : events.length ? (
           <EventsListView events={events} dayDescriptions={dayDescriptions} />
         ) : (

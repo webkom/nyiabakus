@@ -1,4 +1,4 @@
-import Card, { CardWrapper } from "@/components/Card";
+import Card, { CardData, CardWrapper } from "@/components/Card";
 import Link from "next/link";
 import InfoSectionWrapper from "../InfoSectionWrapper";
 import styles from "./styles.module.css";
@@ -16,12 +16,13 @@ const InfoSectionTrondheim: React.FC = () => {
         <Link href={"https://nyitrondheim.no"}>nyitrondheim.no</Link>.
       </p>
       <CardWrapper>
-        {cardData.map(({ title, icon, description }) => (
+        {cardData.map(({ title, icon, description, buttons }) => (
           <Card
             key={title}
             icon={icon}
             title={title}
             description={description}
+            buttons={buttons}
           />
         ))}
       </CardWrapper>
@@ -31,29 +32,54 @@ const InfoSectionTrondheim: React.FC = () => {
 
 export default InfoSectionTrondheim;
 
-const cardData = [
+const cardData: CardData[] = [
   {
-    title: "Abakus-kontoret",
-    icon: "cafe",
+    title: "Immatrikulering",
+    icon: "school",
     description:
-      "I Abakus har vi vårt eget kontor på Realfagsbygget! Her kan du slappe av med Smash/Mariokart, spise lunsj eller kjøpe noe billig snacks fra kiosken vår Snack Overflow",
-  },
-  {
-    title: "Komtek-loungen",
-    icon: "tv",
-    description:
-      "Kommunikasjonsteknologi sitt eget hvileområde, med kjøkkenkrok, sofa, bordtennisbord og TV",
+      "Immatrikuleringen er velkomstseremonien til NTNU. Du kan lese mer om det, samt obligatorisk opplegg, på NTNU og instituttene sine nettsider",
+    buttons: [
+      {
+        href: "https://www.ntnu.no/studier/mtdt",
+        text: "Info for Datateknologi",
+      },
+      {
+        href: "https://www.ntnu.no/studier/mtkom",
+        text: "Info for Kommunikasjonsteknologi",
+      },
+    ],
   },
   {
     title: "A3",
     icon: "business",
     description:
       "A3 (3. etasje på A-blokka i Realfagsbygget) er der kontoret vårt er, i tillegg til bordtennisbord og leserom der du garantert finner mange av medstudentene dine!",
+    buttons: [
+      { href: "https://link.mazemap.com/DNpjwD7X", text: "Finn med Mazemap" },
+    ],
   },
   {
-    title: "Immatrikulering",
-    icon: "school",
+    title: "Abakus-kontoret",
+    icon: "cafe",
     description:
-      "Immatrikuleringen er velkomstseremonien til NTNU. Du kan lese mer om det på NTNU og instituttene sine nettsider",
+      "I Abakus har vi vårt eget kontor på Realfagsbygget! Her kan du slappe av med Smash/Mariokart, spise lunsj eller kjøpe noe billig snacks fra kiosken vår Snack Overflow",
+    buttons: [
+      { href: "https://link.mazemap.com/3IOdPx0q", text: "Finn med Mazemap" },
+    ],
+  },
+  {
+    title: "Komtek-loungen",
+    icon: "tv",
+    description:
+      "Kommunikasjonsteknologi sitt eget hvileområde, med kjøkkenkrok, sofa, bordtennisbord og TV",
+    buttons: [
+      { href: "https://link.mazemap.com/IXgO7HUW", text: "Finn med Mazemap" },
+    ],
+  },
+  {
+    title: "Teknostart",
+    icon: "laptop",
+    description:
+      "Teknostart er det obligatoriske faglige oppstarts-opplegget til instituttene. Her vil dere jobbe med faglig relevante ting i grupper, for å få en god start på studiehverdagen. Dette vil foregå på dagtid, tirsdag-fredag første uken.",
   },
 ];
