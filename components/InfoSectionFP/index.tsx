@@ -16,7 +16,7 @@ const InfoSectionFP = () => {
         gå Datateknologi (Data).
       </p>
       <p>
-        Fadderperioden for datateknologi og kommunikasjonsteknologi er arrangert
+        Fadderperioden for Datateknologi og Kommunikasjonsteknologi er arrangert
         av Abakus.
       </p>
       <p>
@@ -41,7 +41,7 @@ const InfoSectionFP = () => {
       </p>
       <p>&nbsp; </p>
       <p>
-        Du kan se alle arrangementene i fadderperioden som arrangeres av Abakus
+        Du kan se alle arrangementene i Fadderperioden som arrangeres av Abakus
         på <Link href={"/events"}>Fadderperiode-siden</Link>. Resten av
         arrangementene Abakus arrangerer finner du på{" "}
         <Link href={"https://abakus.no/events"}>abakus.no/events</Link>.

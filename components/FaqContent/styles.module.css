@@ -1,7 +1,16 @@
+.faqSectionHeader {
+  margin-bottom: 0.25em;
+}
+
 .faqItem {
   margin-bottom: 1.5em;
   border-radius: 0.4em;
   box-shadow: 0 0 12px -5px #8b8b8b;
+  line-height: 1.5;
+}
+
+.faqItem.subItem {
+  margin-left: 1em;
 }
 
 .faqItem summary {
@@ -18,6 +27,32 @@
   margin-bottom: 1em;
 }
 
+.faqItem h2 {
+  margin: 0.5em 0 0.25em;
+}
+
 .faqItem p {
   margin-top: 0.5em;
+}
+
+.faqItem ul {
+  margin-left: 1em;
+  list-style-type: "- ";
+}
+
+.faqItem ul li {
+  margin: 0.3em 0;
+}
+
+.faqItem dl {
+  margin: 0.25em 0;
+}
+
+.faqItem dl dt {
+  font-weight: 500;
+}
+
+.faqItem dl dd {
+  margin-left: 1em;
+  margin-bottom: 0.5em;
 }

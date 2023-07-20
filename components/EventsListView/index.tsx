@@ -70,7 +70,7 @@ const EventsListView: React.FC<EventsListViewProps> = ({
               <EventItem key={event.id} event={event} />
             ))
           ) : (
-            <p>Ingen fadderperiode-arrangementer</p>
+            <p>Ingen Fadderperiode-arrangementer</p>
           )}
         </div>
       ))}

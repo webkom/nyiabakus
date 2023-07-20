@@ -47,7 +47,7 @@ const cardData: CardData[] = [
     title: "Betal semesteravgift",
     icon: "cash",
     description:
-      "Etter du har fått plass på studiet kan du betale semesteravgift på studentweb, det trenger du for å få studentmail+++, så det er greit å gjøre så fort som mulig",
+      "Etter du har fått plass på studiet, kan du betale semesteravgift på studentweb. Det trenger du for å få studentmail+++, så det er greit å gjøre så fort som mulig",
     buttons: [
       {
         href: "https://ntnu.no/studentweb",
