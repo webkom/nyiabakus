@@ -52,7 +52,7 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
         </p>
         <br />
         <p>
-          Fadderperioden for datateknologi og kommunikasjonsteknologi er
+          Fadderperioden for Datateknologi og Kommunikasjonsteknologi er
           arrangert av Abakus.
         </p>
         <p>
@@ -88,7 +88,7 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
       </InfoSectionWrapper> */}
       <InfoSectionWrapper>
         {isLoading ? (
-          <p>Laster inn fadderperiode-arrangementer ...</p>
+          <p>Laster inn Fadderperiode-arrangementer ...</p>
         ) : events.length ? (
           <EventsListView events={events} dayDescriptions={dayDescriptions} />
         ) : (

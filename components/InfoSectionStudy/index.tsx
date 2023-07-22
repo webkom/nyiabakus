@@ -8,7 +8,7 @@ const InfoSectionStudy = () => {
     <InfoSectionWrapper id="studiestart">
       <h2 className={styles.title}>Studiestart</h2>
       <p>
-        Etterhvert som fadderperioden går mot slutten starter din nye hverdag
+        Etterhvert som Fadderperioden går mot slutten starter din nye hverdag
         som student. Da vil det meste av faglig informasjon komme via{" "}
         <Link href={"https://ntnu.blackboard.com"}>BlackBoard</Link>, men det
         finnes også en del andre spennende ressurser vi anbefaler deg å sjekke
@@ -100,7 +100,7 @@ const cardData: CardData[] = [
     title: "Verv",
     icon: "people",
     description:
-      "Omtrent mot slutten av fadderperioden finnes det masse verv som har opptak. I Abakus er det opptak til Komitéer og revy, men det er også mye som skjer på Samfundet, UKA, NTNUI, +++",
+      "Omtrent mot slutten av Fadderperioden finnes det masse verv som har opptak. I Abakus er det opptak til Komitéer og revy, men det er også mye som skjer på Samfundet, UKA, NTNUI, +++",
     buttons: [
       {
         href: "https://nyitrondheim.no/verv-deg",

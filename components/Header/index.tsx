@@ -11,7 +11,7 @@ const Header = () => {
         Kommunikasjonsteknologi og digital sikkerhet på NTNU, og drives av
         studenter ved disse studiene. Som linjeforening jobber vi for at du som
         student har det bra under studietiden din. Dette gjør vi blandt annet
-        ved å arrangere fadderperiode, bedriftspresentasjoner, kurs, fester,
+        ved å arrangere Fadderperioden, bedriftspresentasjoner, kurs, fester,
         lavterskel arrangementer og mye mer!
       </p>
       <p>
