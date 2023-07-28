@@ -77,7 +77,7 @@ const cardData: CardData[] = [
     ],
   },
   {
-    title: "Teknostart",
+    title: "Teknostart (kun 5-årig master)",
     icon: "laptop",
     description:
       "Teknostart er det obligatoriske faglige oppstarts-opplegget til instituttene. Her vil dere jobbe med faglig relevante ting i grupper, for å få en god start på studiehverdagen. Dette vil foregå på dagtid, tirsdag-fredag første uken.",

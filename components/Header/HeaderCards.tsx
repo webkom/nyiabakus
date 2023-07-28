@@ -31,7 +31,7 @@ const cardData: CardData[] = [
     buttons: [
       {
         href: "https://www.facebook.com/groups/280352384450789/",
-        text: "Gå til Facebook-gruppe",
+        text: "Gruppe for 5-årig master",
       },
     ],
   },
@@ -74,5 +74,11 @@ const cardData: CardData[] = [
         text: "Gå til varslingsportal",
       },
     ],
+  },
+  {
+    title: "Følg oss på Instagram",
+    icon: "logo-instagram",
+    description:
+      "@abakusntnu - For jevnlig oppdateringer i både fadderuken og det påfølgende semesteret\n@abakusbedrift - For å holde deg oppdatert på relevante bedrifter og bedriftsarrangementer\n@labambakjelleren - Kjelleren til linjeforeningen",
   },
 ];
