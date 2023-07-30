@@ -10,10 +10,23 @@ const InfoSectionFP = () => {
         NB! Dette er en plan fra linjeforeningen din, Abakus, som ikke
         inkluderer alle detaljer om det obligatoriske opplegget fra
         instituttet/fakultetet. For å være sikker på at du ikke går glipp av
-        noe, sjekk <a href="https://www.ntnu.no/studier/mtkom">denne siden</a>{" "}
-        hvis du skal gå Kommunikasjonsteknologi og digital sikkerhet (Komtek)
-        eller <a href="https://www.ntnu.no/studier/mtdt">denne</a> hvis du skal
-        gå Datateknologi (Data).
+        noe, sjekk ut NTNU sin side som hører til ditt studie;
+        <br />
+        <a href="https://www.ntnu.no/studier/mtkom">
+          5-årig: Kommunikasjonsteknologi og digital sikkerhet (Komtek)
+        </a>
+        <br />
+        <a href="https://www.ntnu.no/studier/mtdt">
+          5-årig: Datateknologi (Data)
+        </a>
+        <br />
+        <a href="https://www.ntnu.no/studier/mstcnns">
+          2-årig: Digital Infrastructure and Cyber Security (Komtek)
+        </a>{" "}
+        <br />
+        <a href="https://www.ntnu.no/studier/midt">
+          2-årig: Datateknologi (Data)
+        </a>
       </p>
       <p>
         Fadderperioden for Datateknologi og Kommunikasjonsteknologi er arrangert
@@ -22,15 +35,19 @@ const InfoSectionFP = () => {
       <p>
         For å bli med må du møte opp på immatrikuleringen, hvor du blir plassert
         i en faddergruppe og får mer informasjon. Hvis du ikke får møtt opp,
-        send en epost til <a href="mailto:arrkom@abakus.no">arrkom@abakus.no</a>{" "}
-        for å få en faddergruppe.
+        send en epost til{" "}
+        <a href="mailto:fadderperioden@abakus.no">fadderperioden@abakus.no</a>{" "}
+        (5-årig integrert master) eller{" "}
+        <a href="mailto:masterfadderperioden@abakus.no">
+          masterfadderperioden@abakus.no
+        </a>{" "}
+        (2-årig master) for å få en faddergruppe.
       </p>
-      <p>&nbsp; </p>
+      <h3 className={styles.subTitle}>5-årig integrert master</h3>
       <p>Oppmøte for Datateknologi: TBD</p>
       <p>Oppmøte for Kommunikasjonsteknologi: TBD</p>
-      <p>&nbsp; </p>
       <p>
-        Facebook-gruppe for nye abakuler{" "}
+        Facebook-gruppe for nye abakuler på 5-årig integrert master{" "}
         <Link
           href={"https://www.facebook.com/groups/280352384450789/"}
           target={"_blank"}
@@ -39,7 +56,11 @@ const InfoSectionFP = () => {
         </Link>
         .
       </p>
-      <p>&nbsp; </p>
+      <h3 className={styles.subTitle}>2-årig master</h3>
+      <p>Oppmøte for Datateknologi: TBD</p>
+      <p>Oppmøte for Digital Infrastructure and Cyber Security: TBD</p>
+      <p>Facebook-gruppe for nye abakuler på 2-årig master: TBD</p>
+      <h3 className={styles.subTitle}>Arrangementer</h3>
       <p>
         Du kan se alle arrangementene i Fadderperioden som arrangeres av Abakus
         på <Link href={"/events"}>Fadderperiode-siden</Link>. Resten av
