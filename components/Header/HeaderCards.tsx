@@ -33,6 +33,10 @@ const cardData: CardData[] = [
         href: "https://www.facebook.com/groups/280352384450789/",
         text: "Gruppe for 5-årig master",
       },
+      {
+        href: "https://www.facebook.com/groups/175376555487442/",
+        text: "Gruppe for 2-årig master",
+      },
     ],
   },
   {
