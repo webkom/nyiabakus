@@ -79,8 +79,14 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           (2-årig master) for å få en faddergruppe.
         </p>
         <h3 className={styles.subTitle}>5-årig integrert master</h3>
-        <p>Oppmøte for Datateknologi: TBD</p>
-        <p>Oppmøte for Kommunikasjonsteknologi: TBD</p>
+        <p>
+          Oppmøte for Datateknologi: Mandag 14. August 12:00 på{" "}
+          <Link href={"https://link.mazemap.com/gqncrU4T"}>Kjel 5</Link>
+        </p>
+        <p>
+          Oppmøte for Kommunikasjonsteknologi: Mandag 14. August 10:00 på{" "}
+          <Link href={"https://link.mazemap.com/Kpd4nMvI"}>EL2</Link>
+        </p>
         <p>
           Facebook-gruppe for nye abakuler på 5-årig integrert master{" "}
           <Link
@@ -94,7 +100,16 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
         <h3 className={styles.subTitle}>2-årig master</h3>
         <p>Oppmøte for Datateknologi: TBD</p>
         <p>Oppmøte for Digital Infrastructure and Cyber Security: TBD</p>
-        <p>Facebook-gruppe for nye abakuler på 2-årig master: TBD</p>
+        <p>
+          Facebook-gruppe for nye abakuler på 2-årig master{" "}
+          <Link
+            href={"https://www.facebook.com/groups/175376555487442/"}
+            target={"_blank"}
+          >
+            finner du her
+          </Link>
+          .
+        </p>
       </InfoSectionWrapper>
       {/* <InfoSectionWrapper>
         <FullscreenImage
