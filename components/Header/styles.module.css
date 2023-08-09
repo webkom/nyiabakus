@@ -12,3 +12,8 @@
   max-width: 50em;
   line-height: 1.7;
 }
+
+.logo {
+  width: 50%;
+  min-width: 20rem;
+}
