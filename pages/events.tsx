@@ -9,11 +9,13 @@ import Link from "next/link";
 import FullscreenImage from "@/components/FullscreenImage";
 import { createClient, groq } from "next-sanity";
 import { TypedObject } from "sanity";
+import { FPGroups } from "@/schemas/dayDescription";
 
 export type DayDescription = {
   date: string;
   title: string;
   content: TypedObject[];
+  fpGroup?: (typeof FPGroups)[number]["value"];
 };
 
 type EventsProps = {

@@ -19,7 +19,7 @@ type EventsListViewProps = {
 type Day = {
   title: string;
   events: Event[];
-  description?: DayDescription;
+  descriptions?: DayDescription[];
 };
 
 const EventsListView: React.FC<EventsListViewProps> = ({
@@ -43,12 +43,18 @@ const EventsListView: React.FC<EventsListViewProps> = ({
         events: events.filter((event) =>
           isSameCalendarDate(event.startTime, currentDate)
         ),
-        description: dayDescriptions.find((d) => {
-          return (
-            isSameCalendarDate(new Date(d.date), currentDate) &&
-            d.content.length
-          );
-        }),
+        descriptions: dayDescriptions
+          .filter((d) => {
+            return (
+              isSameCalendarDate(new Date(d.date), currentDate) &&
+              d.content.length
+            );
+          })
+          .sort((d1, d2) => {
+            if (!d2.fpGroup) return -1;
+            if (!d1.fpGroup) return 0;
+            return -d1.fpGroup.localeCompare(d2.fpGroup);
+          }),
       };
     });
   }, [events, dayDescriptions]);
@@ -58,13 +64,14 @@ const EventsListView: React.FC<EventsListViewProps> = ({
       {days.map((day) => (
         <div key={day.title}>
           <p className={styles.dayTitle}>{day.title}</p>
-          {day.description && (
-            <CollapsibleItem title="" minHeight="60px">
-              <div className={styles.description}>
-                <PortableText value={day.description.content} />
-              </div>
-            </CollapsibleItem>
-          )}
+          {day.descriptions?.length &&
+            day.descriptions.map((dd) => (
+              <CollapsibleItem key={dd.fpGroup} title="" minHeight="60px">
+                <div className={styles.description}>
+                  <PortableText value={dd.content} />
+                </div>
+              </CollapsibleItem>
+            ))}
           {day.events.length > 0 ? (
             day.events.map((event) => (
               <EventItem key={event.id} event={event} />
