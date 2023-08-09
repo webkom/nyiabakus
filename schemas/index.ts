@@ -1,3 +1,3 @@
-import dayDescription from "./dayDescription";
+import { FPSchema, MFPSchema } from "./dayDescription";
 
-export const schemaTypes = [dayDescription];
+export const schemaTypes = [FPSchema, MFPSchema];

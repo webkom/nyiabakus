@@ -3,10 +3,10 @@ export const FPGroups = [
   { title: "5-årig", value: "5_YEAR" },
 ];
 
-export default {
+const baseSchema = {
   name: "dayDescription",
   type: "document",
-  title: "Day Description",
+  title: "Fadderperioden",
   preview: {
     select: {
       date: "date",
@@ -23,11 +23,7 @@ export default {
         dateDisplayString.charAt(0).toUpperCase() + dateDisplayString.slice(1);
 
       return {
-        title:
-          (selection.fpGroup
-            ? FPGroups.find((fpg) => fpg.value === selection.fpGroup)?.title +
-              " "
-            : "") + capitalizedDateString,
+        title: capitalizedDateString,
       };
     },
   },
@@ -43,14 +39,29 @@ export default {
       type: "array",
       of: [{ type: "block" }],
     },
+  ],
+  orderings: [
     {
-      title: "Faddergruppe",
-      name: "fpGroup",
-      type: "string",
-      options: {
-        list: FPGroups.map(({ title, value }) => ({ title, value })),
-        layout: "select",
-      },
+      title: "Dato stigende",
+      name: "dateAsc",
+      by: [{ field: "date", direction: "asc" }],
+    },
+    {
+      title: "Dato synkende",
+      name: "dateDesc",
+      by: [{ field: "date", direction: "desc" }],
     },
   ],
+};
+
+export const FPSchema = {
+  ...baseSchema,
+  name: "fpDayDescription",
+  title: "Fadderperioden",
+};
+
+export const MFPSchema = {
+  ...baseSchema,
+  name: "mfpDayDescription",
+  title: "Masterfadderperioden",
 };

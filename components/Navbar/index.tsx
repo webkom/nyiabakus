@@ -8,6 +8,7 @@ const Navbar = () => {
         <div className={styles.navLinksWrapper}>
           <Link href={"/"}>Startside</Link>
           <Link href={"/events"}>Fadderperioden</Link>
+          <Link href={"/masterfadderperioden"}>Masterfadderperioden</Link>
           <Link href={"/faq"}>FAQ</Link>
         </div>
         <div className={styles.logoWrapper}>

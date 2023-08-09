@@ -14,25 +14,46 @@ import { DayDescription } from "@/pages/events";
 type EventsListViewProps = {
   events: Event[];
   dayDescriptions: DayDescription[];
+  isLoadingEvents: boolean;
+  expandDayDescriptionsByDefault?: boolean;
 };
 
 type Day = {
   title: string;
   events: Event[];
-  descriptions?: DayDescription[];
+  description?: DayDescription;
 };
 
 const EventsListView: React.FC<EventsListViewProps> = ({
   events,
   dayDescriptions,
+  isLoadingEvents,
+  expandDayDescriptionsByDefault,
 }) => {
   const days = useMemo<Day[]>(() => {
-    const dayCount = numberOfDaysBetweenDates(
-      events[0].startTime,
-      events[events.length - 1].startTime
-    );
+    if (events.length === 0 && dayDescriptions.length === 0) return [];
+    let firstDate: Date;
+    let lastDate: Date;
+    if (events.length === 0) {
+      firstDate = new Date(dayDescriptions[0].date);
+      lastDate = new Date(dayDescriptions[dayDescriptions.length - 1].date);
+    } else if (dayDescriptions.length === 0) {
+      firstDate = events[0].startTime;
+      lastDate = events[events.length - 1].startTime;
+    } else {
+      firstDate =
+        new Date(dayDescriptions[0].date) < events[0].startTime
+          ? new Date(dayDescriptions[0].date)
+          : events[0].startTime;
+      lastDate =
+        new Date(dayDescriptions[dayDescriptions.length - 1].date) >
+        events[events.length - 1].startTime
+          ? new Date(dayDescriptions[dayDescriptions.length - 1].date)
+          : events[events.length - 1].startTime;
+    }
+    const dayCount = numberOfDaysBetweenDates(firstDate, lastDate);
     // Initialize a date object to represent the current date in the loop
-    let currentDate = new Date(events[0].startTime);
+    let currentDate = new Date(firstDate);
     currentDate.setDate(currentDate.getDate() - 1);
 
     // Iterate over all the days
@@ -43,18 +64,12 @@ const EventsListView: React.FC<EventsListViewProps> = ({
         events: events.filter((event) =>
           isSameCalendarDate(event.startTime, currentDate)
         ),
-        descriptions: dayDescriptions
-          .filter((d) => {
-            return (
-              isSameCalendarDate(new Date(d.date), currentDate) &&
-              d.content.length
-            );
-          })
-          .sort((d1, d2) => {
-            if (!d2.fpGroup) return -1;
-            if (!d1.fpGroup) return 0;
-            return -d1.fpGroup.localeCompare(d2.fpGroup);
-          }),
+        description: dayDescriptions.find((d) => {
+          return (
+            isSameCalendarDate(new Date(d.date), currentDate) &&
+            d.content.length
+          );
+        }),
       };
     });
   }, [events, dayDescriptions]);
@@ -64,20 +79,23 @@ const EventsListView: React.FC<EventsListViewProps> = ({
       {days.map((day) => (
         <div key={day.title}>
           <p className={styles.dayTitle}>{day.title}</p>
-          {day.descriptions?.length
-            ? day.descriptions.map((dd) => (
-                <CollapsibleItem key={dd.fpGroup} title="" minHeight="60px">
-                  <div className={styles.description}>
-                    <PortableText value={dd.content} />
-                  </div>
-                </CollapsibleItem>
-              ))
-            : null}
-          {day.events.length > 0 ? (
+          {day.description && (
+            <CollapsibleItem
+              title=""
+              minHeight={expandDayDescriptionsByDefault ? undefined : "80px"}
+              initiallyOpen={expandDayDescriptionsByDefault}
+            >
+              <div className={styles.description}>
+                <PortableText value={day.description.content} />
+              </div>
+            </CollapsibleItem>
+          )}
+          {isLoadingEvents && <p>Laster inn arrangementer fra abakus.no...</p>}
+          {day.events &&
             day.events.map((event) => (
               <EventItem key={event.id} event={event} />
-            ))
-          ) : (
+            ))}
+          {!day.description && day.events.length === 0 && (
             <p>Ingen Fadderperiode-arrangementer</p>
           )}
         </div>
