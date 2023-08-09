@@ -108,7 +108,6 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           isLoadingEvents={isLoading}
           events={events}
           dayDescriptions={dayDescriptions}
-          expandDayDescriptionsByDefault
         />
       </InfoSectionWrapper>
     </>

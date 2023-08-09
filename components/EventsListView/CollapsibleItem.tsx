@@ -39,7 +39,11 @@ const CollapsibleItem: React.FC<PropsWithChildren<Props>> = ({
             : { height: minHeight || "0px" }
         }
       >
-        <div className={styles.collapsibleItem} ref={contentRef}>
+        <div
+          className={styles.collapsibleItem}
+          style={{ minHeight: minHeight }}
+          ref={contentRef}
+        >
           {children}
         </div>
 
