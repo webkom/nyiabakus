@@ -1,3 +1,8 @@
+export const FPGroups = [
+  { title: "2-årig", value: "2_YEAR" },
+  { title: "5-årig", value: "5_YEAR" },
+];
+
 export default {
   name: "dayDescription",
   type: "document",
@@ -5,6 +10,7 @@ export default {
   preview: {
     select: {
       date: "date",
+      fpGroup: "fpGroup",
     },
     prepare(selection: Record<string, any>) {
       const { date } = selection;
@@ -17,7 +23,11 @@ export default {
         dateDisplayString.charAt(0).toUpperCase() + dateDisplayString.slice(1);
 
       return {
-        title: capitalizedDateString,
+        title:
+          (selection.fpGroup
+            ? FPGroups.find((fpg) => fpg.value === selection.fpGroup)?.title +
+              " "
+            : "") + capitalizedDateString,
       };
     },
   },
@@ -32,6 +42,15 @@ export default {
       name: "content",
       type: "array",
       of: [{ type: "block" }],
+    },
+    {
+      title: "Faddergruppe",
+      name: "fpGroup",
+      type: "string",
+      options: {
+        list: FPGroups.map(({ title, value }) => ({ title, value })),
+        layout: "select",
+      },
     },
   ],
 };
