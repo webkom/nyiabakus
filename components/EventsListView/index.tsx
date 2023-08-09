@@ -82,7 +82,7 @@ const EventsListView: React.FC<EventsListViewProps> = ({
           {day.description && (
             <CollapsibleItem
               title=""
-              minHeight={expandDayDescriptionsByDefault ? undefined : "80px"}
+              minHeight={expandDayDescriptionsByDefault ? undefined : "60px"}
               initiallyOpen={expandDayDescriptionsByDefault}
             >
               <div className={styles.description}>

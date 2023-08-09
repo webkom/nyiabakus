@@ -50,6 +50,7 @@
   background-color: var(--day-description);
   font-size: 1em;
   padding: 0.8em;
+  min-height: inherit;
 }
 
 .description > p {
@@ -73,6 +74,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: inherit;
   width: 100%;
 }
