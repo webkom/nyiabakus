@@ -6,7 +6,6 @@ import { deserializeEvents, fetchEvents } from "@/utils/api";
 import { NextPage } from "next";
 import { ApiEvent } from "@/utils/types";
 import Link from "next/link";
-import FullscreenImage from "@/components/FullscreenImage";
 import { createClient, groq } from "next-sanity";
 import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
@@ -29,7 +28,7 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
   useEffect(() => {
     (async () => {
       try {
-        const apiEvents = await fetchEvents("fp");
+        const apiEvents = await fetchEvents("mfp");
         setApiEvents(apiEvents);
       } catch (error) {
         console.error(error);
@@ -42,11 +41,11 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
   return (
     <>
       <InfoSectionWrapper contentClassName={styles.fpInfo}>
-        <h2 className={styles.title}>Fadderperioden</h2>
+        <h2 className={styles.title}>Masterfadderperioden</h2>
         <p>
-          Fadderperioden er for alle som begynner på{" "}
-          <b>5-årig integrert master</b>. Begynner du på 2-årig master? Gå til{" "}
-          <Link href={"/masterfadderperioden"}>Masterfadderperioden</Link>.
+          Masterfadderperioden er for alle som begynner på <b>2-årig master</b>.
+          Begynner du på 5-årig integrert master? Gå til{" "}
+          <Link href={"/events"}>Fadderperioden</Link>.
         </p>
         <p>
           NB! Dette er en plan fra linjeforeningen din, Abakus, som ikke
@@ -54,14 +53,13 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           instituttet/fakultetet. For å være sikker på at du ikke går glipp av
           noe, sjekk ut NTNU sin side som hører til ditt studie;
           <br />
-          <a href="https://www.ntnu.no/studier/mtkom">
-            5-årig: Kommunikasjonsteknologi og digital sikkerhet (Komtek)
-          </a>
+          <a href="https://www.ntnu.no/studier/mstcnns">
+            2-årig: Digital Infrastructure and Cyber Security (Komtek)
+          </a>{" "}
           <br />
-          <a href="https://www.ntnu.no/studier/mtdt">
-            5-årig: Datateknologi (Data)
+          <a href="https://www.ntnu.no/studier/midt">
+            2-årig: Datateknologi (Data)
           </a>
-          <br />
         </p>
         <p>
           Fadderperioden for Datateknologi og Kommunikasjonsteknologi er
@@ -72,21 +70,17 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           For å bli med må du møte opp på immatrikuleringen, hvor du blir
           plassert i en faddergruppe og får mer informasjon. Hvis du ikke får
           møtt opp, send en epost til{" "}
-          <a href="mailto:fadderperioden@abakus.no">fadderperioden@abakus.no</a>{" "}
+          <a href="mailto:masterfadderperioden@abakus.no">
+            masterfadderperioden@abakus.no
+          </a>{" "}
           for å få en faddergruppe.
         </p>
+        <p>Oppmøte for Datateknologi: TBD</p>
+        <p>Oppmøte for Digital Infrastructure and Cyber Security: TBD</p>
         <p>
-          Oppmøte for Datateknologi: Mandag 14. August 12:00 på{" "}
-          <Link href={"https://link.mazemap.com/gqncrU4T"}>Kjel 5</Link>
-        </p>
-        <p>
-          Oppmøte for Kommunikasjonsteknologi: Mandag 14. August 10:00 på{" "}
-          <Link href={"https://link.mazemap.com/Kpd4nMvI"}>EL2</Link>
-        </p>
-        <p>
-          Facebook-gruppe for nye abakuler på 5-årig integrert master{" "}
+          Facebook-gruppe for nye abakuler på 2-årig master{" "}
           <Link
-            href={"https://www.facebook.com/groups/280352384450789/"}
+            href={"https://www.facebook.com/groups/175376555487442/"}
             target={"_blank"}
           >
             finner du her
@@ -94,15 +88,6 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           .
         </p>
       </InfoSectionWrapper>
-      {/* <InfoSectionWrapper>
-        <FullscreenImage
-          src="/uc.jpg"
-          alt="Under konstruksjon"
-          width={530}
-          height={355}
-          className={styles.fullscreenImage}
-        />
-      </InfoSectionWrapper> */}
       <InfoSectionWrapper>
         {!isLoading && events.length == 0 && dayDescriptions.length !== 0 && (
           <p>
@@ -123,6 +108,7 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           isLoadingEvents={isLoading}
           events={events}
           dayDescriptions={dayDescriptions}
+          expandDayDescriptionsByDefault
         />
       </InfoSectionWrapper>
     </>
@@ -144,7 +130,7 @@ export async function getStaticProps() {
   let dayDescriptions: DayDescription[] = [];
   try {
     dayDescriptions = await client.fetch(
-      groq`*[_type == "fpDayDescription"] | order(date asc)`
+      groq`*[_type == "mfpDayDescription"] | order(date asc)`
     );
   } catch (e) {}
   return {
