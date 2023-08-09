@@ -64,14 +64,15 @@ const EventsListView: React.FC<EventsListViewProps> = ({
       {days.map((day) => (
         <div key={day.title}>
           <p className={styles.dayTitle}>{day.title}</p>
-          {day.descriptions?.length &&
-            day.descriptions.map((dd) => (
-              <CollapsibleItem key={dd.fpGroup} title="" minHeight="60px">
-                <div className={styles.description}>
-                  <PortableText value={dd.content} />
-                </div>
-              </CollapsibleItem>
-            ))}
+          {day.descriptions?.length
+            ? day.descriptions.map((dd) => (
+                <CollapsibleItem key={dd.fpGroup} title="" minHeight="60px">
+                  <div className={styles.description}>
+                    <PortableText value={dd.content} />
+                  </div>
+                </CollapsibleItem>
+              ))
+            : null}
           {day.events.length > 0 ? (
             day.events.map((event) => (
               <EventItem key={event.id} event={event} />
