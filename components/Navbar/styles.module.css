@@ -23,6 +23,12 @@
 @media (max-width: 600px) {
   .contentWrapper {
     width: 100%;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .navLinksWrapper, .logoWrapper {
+    justify-content: center;
   }
 }
 
@@ -30,6 +36,10 @@
   display: flex;
   flex-grow: 1;
   gap: 2em;
+}
+
+.logoWrapper {
+  display: flex;
 }
 
 .contentWrapper a {
