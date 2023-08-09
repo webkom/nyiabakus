@@ -5,6 +5,7 @@ import Link from "next/link";
 const Header = () => {
   return (
     <InfoSectionWrapper className={styles.header}>
+      <img src="/abakus_logo_black.png" alt="Abakus" className={styles.logo} />
       <h1>Velkommen til Abakus!</h1>
       <p>
         Vi er linjeforeningen for studentene ved Datateknologi og
