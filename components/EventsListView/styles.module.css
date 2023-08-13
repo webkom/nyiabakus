@@ -71,6 +71,7 @@
 
 .collapsibleItemGradient {
   transition: 0.33s ease-out box-shadow;
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;

@@ -7,7 +7,7 @@ import { Event } from "@/utils/types";
 import { useMemo } from "react";
 import EventItem from "./EventItem";
 import styles from "./styles.module.css";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
 import CollapsibleItem from "./CollapsibleItem";
 import { DayDescription } from "@/pages/events";
 
@@ -22,6 +22,26 @@ type Day = {
   title: string;
   events: Event[];
   description?: DayDescription;
+};
+
+const components: PortableTextComponents = {
+  marks: {
+    // Ex. 2: rendering a custom `link` annotation
+    link: ({ value, children }) => {
+      const target = (value?.href || "").startsWith("http")
+        ? "_blank"
+        : undefined;
+      return (
+        <a
+          href={value?.href}
+          target={target}
+          rel={target === "_blank" ? "noindex nofollow" : undefined}
+        >
+          {children}
+        </a>
+      );
+    },
+  },
 };
 
 const EventsListView: React.FC<EventsListViewProps> = ({
@@ -86,7 +106,10 @@ const EventsListView: React.FC<EventsListViewProps> = ({
               initiallyOpen={expandDayDescriptionsByDefault}
             >
               <div className={styles.description}>
-                <PortableText value={day.description.content} />
+                <PortableText
+                  value={day.description.content}
+                  components={components}
+                />
               </div>
             </CollapsibleItem>
           )}
