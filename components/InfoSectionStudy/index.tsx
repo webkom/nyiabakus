@@ -64,7 +64,7 @@ const cardData: CardData[] = [
     title: "Ababart",
     icon: "link",
     description:
-      "Overskt over de forskjellige tjenestene som er laget av og for Abakus på aba.wtf",
+      "Oversikt over de forskjellige tjenestene som er laget av og for Abakus på aba.wtf",
     buttons: [
       {
         href: "https://aba.wtf",
