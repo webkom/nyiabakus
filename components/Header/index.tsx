@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
 import Link from "next/link";
+import { MTDT, MTKOM } from "@/utils/constants";
 
 const Header = () => {
   return (
@@ -8,12 +9,12 @@ const Header = () => {
       <img src="/abakus_logo_black.png" alt="Abakus" className={styles.logo} />
       <h1>Velkommen til Abakus!</h1>
       <p>
-        Vi er linjeforeningen for studentene ved Datateknologi og
-        Kommunikasjonsteknologi og digital sikkerhet på NTNU, og drives av
-        studenter ved disse studiene. Som linjeforening jobber vi for at du som
-        student har det bra under studietiden din. Dette gjør vi blant annet ved
-        å arrangere Fadderperioden, bedriftspresentasjoner, kurs, fester,
-        lavterskel arrangementer og mye mer!
+        Vi er linjeforeningen for studentene ved {MTDT.name} og {MTKOM.name} på
+        NTNU, og drives av studenter ved disse studiene. Som linjeforening
+        jobber vi for at du som student har det bra under studietiden din. Dette
+        gjør vi blant annet ved å arrangere Fadderperioden,
+        bedriftspresentasjoner, kurs, fester, lavterskel arrangementer og mye
+        mer!
       </p>
       <p>
         Denne nettsiden er spesielt rettet mot deg som er ny student, for å

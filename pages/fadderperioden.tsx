@@ -10,6 +10,7 @@ import FullscreenImage from "@/components/FullscreenImage";
 import { createClient, groq } from "next-sanity";
 import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
+import { MTDT, MTKOM } from "@/utils/constants";
 
 export type DayDescription = {
   date: string;
@@ -55,17 +56,16 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           noe, sjekk ut NTNU sin side som hører til ditt studie;
           <br />
           <a href="https://www.ntnu.no/studier/mtkom">
-            5-årig: Kommunikasjonsteknologi og digital sikkerhet (Komtek)
+            5-årig: {MTKOM.name} ({MTKOM.shorthand})
           </a>
           <br />
           <a href="https://www.ntnu.no/studier/mtdt">
-            5-årig: Datateknologi (Data)
+            5-årig: {MTDT.name} ({MTDT.shorthand})
           </a>
           <br />
         </p>
         <p>
-          Fadderperioden for Datateknologi og Kommunikasjonsteknologi er
-          arrangert av Abakus.
+          Fadderperioden for {MTDT.name} og {MTKOM.name} er arrangert av Abakus.
         </p>
         <br />
         <p>
@@ -75,24 +75,9 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           <a href="mailto:fadderperioden@abakus.no">fadderperioden@abakus.no</a>{" "}
           for å få en faddergruppe.
         </p>
-        <p>
-          Oppmøte for Datateknologi: Mandag 14. August 12:00 på{" "}
-          <Link href={"https://link.mazemap.com/gqncrU4T"}>Kjel 5</Link>
-        </p>
-        <p>
-          Oppmøte for Kommunikasjonsteknologi: Mandag 14. August 10:00 på{" "}
-          <Link href={"https://link.mazemap.com/Kpd4nMvI"}>EL2</Link>
-        </p>
-        <p>
-          Facebook-gruppe for nye abakuler på 5-årig integrert master{" "}
-          <Link
-            href={"https://www.facebook.com/groups/280352384450789/"}
-            target={"_blank"}
-          >
-            finner du her
-          </Link>
-          .
-        </p>
+        <p>Oppmøte for {MTDT.name}: TBD</p>
+        <p>Oppmøte for {MTKOM.name}: TBD</p>
+        <p>Facebook-gruppe for nye abakuler på 5-årig integrert master: TBD</p>
       </InfoSectionWrapper>
       {/* <InfoSectionWrapper>
         <FullscreenImage
@@ -104,21 +89,6 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
         />
       </InfoSectionWrapper> */}
       <InfoSectionWrapper>
-        {!isLoading && events.length == 0 && dayDescriptions.length !== 0 && (
-          <p>
-            Klarte ikke hente arrangementer fra abakus.no. Du kan fortsatt finne
-            alle arrangementene på{" "}
-            <Link href={"https://abakus.no"}>abakus.no</Link>.<br />
-            <br />
-          </p>
-        )}
-        {!isLoading && events.length === 0 && dayDescriptions.length === 0 && (
-          <p>
-            Klarte ikke hente arrangementer. Hvis problemet vedvarer, sjekk{" "}
-            <Link href={"https://abakus.no"}>abakus.no</Link> eller
-            facebook-gruppa for nye studenter.
-          </p>
-        )}
         <EventsListView
           isLoadingEvents={isLoading}
           events={events}
@@ -143,8 +113,9 @@ const client = createClient({
 export async function getStaticProps() {
   let dayDescriptions: DayDescription[] = [];
   try {
+    const currentYear = new Date().getFullYear();
     dayDescriptions = await client.fetch(
-      groq`*[_type == "fpDayDescription"] | order(date asc)`
+      groq`*[_type == "fpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`
     );
   } catch (e) {}
   return {

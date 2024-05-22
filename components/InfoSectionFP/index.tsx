@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
+import { MIDT, MSTCNNS, MTDT, MTKOM } from "@/utils/constants";
 
 const InfoSectionFP = () => {
   return (
@@ -13,24 +14,23 @@ const InfoSectionFP = () => {
         noe, sjekk ut NTNU sin side som hører til ditt studie;
         <br />
         <a href="https://www.ntnu.no/studier/mtkom">
-          5-årig: Kommunikasjonsteknologi og digital sikkerhet (Komtek)
+          5-årig: {MTKOM.name} ({MTKOM.shorthand})
         </a>
         <br />
         <a href="https://www.ntnu.no/studier/mtdt">
-          5-årig: Datateknologi (Data)
+          5-årig: {MTDT.name} ({MTDT.shorthand})
         </a>
         <br />
         <a href="https://www.ntnu.no/studier/mstcnns">
-          2-årig: Digital Infrastructure and Cyber Security (Komtek)
+          2-årig: {MSTCNNS.name} ({MSTCNNS.shorthand})
         </a>{" "}
         <br />
         <a href="https://www.ntnu.no/studier/midt">
-          2-årig: Datateknologi (Data)
+          2-årig: {MIDT.name} ({MIDT.shorthand})
         </a>
       </p>
       <p>
-        Fadderperioden for Datateknologi og Kommunikasjonsteknologi er arrangert
-        av Abakus.
+        Fadderperioden for {MTDT.name} og {MTKOM.name} er arrangert av Abakus.
       </p>
       <p>
         For å bli med må du møte opp på immatrikuleringen, hvor du blir plassert
@@ -44,37 +44,13 @@ const InfoSectionFP = () => {
         (2-årig master) for å få en faddergruppe.
       </p>
       <h3 className={styles.subTitle}>5-årig integrert master</h3>
-      <p>
-        Oppmøte for Datateknologi: Mandag 14. August 12:00 på{" "}
-        <Link href={"https://link.mazemap.com/gqncrU4T"}>Kjel 5</Link>
-      </p>
-      <p>
-        Oppmøte for Kommunikasjonsteknologi: Mandag 14. August 10:00 på{" "}
-        <Link href={"https://link.mazemap.com/Kpd4nMvI"}>EL2</Link>
-      </p>
-      <p>
-        Facebook-gruppe for nye abakuler på 5-årig integrert master{" "}
-        <Link
-          href={"https://www.facebook.com/groups/280352384450789/"}
-          target={"_blank"}
-        >
-          finner du her
-        </Link>
-        .
-      </p>
+      <p>Oppmøte for {MTDT.name}: TBD</p>
+      <p>Oppmøte for {MTKOM.name}: TBD</p>
+      <p>Facebook-gruppe for nye abakuler på 5-årig integrert master: TBD</p>
       <h3 className={styles.subTitle}>2-årig master</h3>
-      <p>Oppmøte for Datateknologi: TBD</p>
-      <p>Oppmøte for Digital Infrastructure and Cyber Security: TBD</p>
-      <p>
-        Facebook-gruppe for nye abakuler på 2-årig master{" "}
-        <Link
-          href={"https://www.facebook.com/groups/175376555487442/"}
-          target={"_blank"}
-        >
-          finner du her
-        </Link>
-        .
-      </p>
+      <p>Oppmøte for {MIDT.name}: TBD</p>
+      <p>Oppmøte for {MSTCNNS.name}: TBD</p>
+      <p>Facebook-gruppe for nye abakuler på 2-årig master: TBD</p>
       <h3 className={styles.subTitle}>Arrangementer</h3>
       <p>
         Du kan se alle arrangementene i Fadderperioden som arrangeres av Abakus

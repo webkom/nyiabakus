@@ -1,4 +1,5 @@
 import Card, { CardData, CardWrapper } from "@/components/Card";
+import { MTKOM } from "@/utils/constants";
 import Link from "next/link";
 import InfoSectionWrapper from "../InfoSectionWrapper";
 import styles from "./styles.module.css";
@@ -41,11 +42,11 @@ const cardData: CardData[] = [
     buttons: [
       {
         href: "https://www.ntnu.no/studier/mtdt",
-        text: "Info for Datateknologi",
+        text: "Info for Data",
       },
       {
         href: "https://www.ntnu.no/studier/mtkom",
-        text: "Info for Kommunikasjonsteknologi",
+        text: "Info for Cybdat",
       },
     ],
   },
@@ -70,8 +71,7 @@ const cardData: CardData[] = [
   {
     title: "Komtek-loungen",
     icon: "tv",
-    description:
-      "Kommunikasjonsteknologi sitt eget hvileområde, med kjøkkenkrok, sofa, bordtennisbord og TV",
+    description: `${MTKOM.name} sitt eget hvileområde, med kjøkkenkrok, sofa, bordtennisbord og TV`,
     buttons: [
       { href: "https://link.mazemap.com/IXgO7HUW", text: "Finn med Mazemap" },
     ],
