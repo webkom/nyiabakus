@@ -9,6 +9,7 @@ import Link from "next/link";
 import { createClient, groq } from "next-sanity";
 import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
+import { MIDT, MSTCNNS } from "@/utils/constants";
 
 export type DayDescription = {
   date: string;
@@ -54,16 +55,16 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           noe, sjekk ut NTNU sin side som hører til ditt studie;
           <br />
           <a href="https://www.ntnu.no/studier/mstcnns">
-            2-årig: Digital Infrastructure and Cyber Security (Komtek)
+            2-årig: {MSTCNNS.name} ({MSTCNNS.shorthand})
           </a>{" "}
           <br />
           <a href="https://www.ntnu.no/studier/midt">
-            2-årig: Datateknologi (Data)
+            2-årig: {MIDT.name} ({MIDT.shorthand})
           </a>
         </p>
         <p>
-          Fadderperioden for Datateknologi og Kommunikasjonsteknologi er
-          arrangert av Abakus.
+          Fadderperioden for {MIDT.name} og {MSTCNNS.name} er arrangert av
+          Abakus.
         </p>
         <br />
         <p>
@@ -75,35 +76,11 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           </a>{" "}
           for å få en faddergruppe.
         </p>
-        <p>Oppmøte for Datateknologi: TBD</p>
-        <p>Oppmøte for Digital Infrastructure and Cyber Security: TBD</p>
-        <p>
-          Facebook-gruppe for nye abakuler på 2-årig master{" "}
-          <Link
-            href={"https://www.facebook.com/groups/175376555487442/"}
-            target={"_blank"}
-          >
-            finner du her
-          </Link>
-          .
-        </p>
+        <p>Oppmøte for {MIDT.name}: TBD</p>
+        <p>Oppmøte for {MSTCNNS.name}: TBD</p>
+        <p>Facebook-gruppe for nye abakuler på 2-årig master: TBD</p>
       </InfoSectionWrapper>
       <InfoSectionWrapper>
-        {!isLoading && events.length == 0 && dayDescriptions.length !== 0 && (
-          <p>
-            Klarte ikke hente arrangementer fra abakus.no. Du kan fortsatt finne
-            alle arrangementene på{" "}
-            <Link href={"https://abakus.no"}>abakus.no</Link>.<br />
-            <br />
-          </p>
-        )}
-        {!isLoading && events.length === 0 && dayDescriptions.length === 0 && (
-          <p>
-            Klarte ikke hente arrangementer. Hvis problemet vedvarer, sjekk{" "}
-            <Link href={"https://abakus.no"}>abakus.no</Link> eller
-            facebook-gruppa for nye studenter.
-          </p>
-        )}
         <EventsListView
           isLoadingEvents={isLoading}
           events={events}
@@ -128,8 +105,9 @@ const client = createClient({
 export async function getStaticProps() {
   let dayDescriptions: DayDescription[] = [];
   try {
+    const currentYear = new Date().getFullYear();
     dayDescriptions = await client.fetch(
-      groq`*[_type == "mfpDayDescription"] | order(date asc)`
+      groq`*[_type == "mfpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`
     );
   } catch (e) {}
   return {

@@ -68,7 +68,7 @@ const generalFaqItems: FaqItem[] = [
     title: "Pakkeliste til Fadderperioden",
     key: "pakkeliste",
     content:
-      "Til Fadderperioden er det en del arrangementer som har tema, som det kan være smart å tenke på før du reiser hjemmefra.\n\n- Piratkostyme (gjelder ikke 2-årig master)\n- Hvitt laken uten stretch\n- Outfit til Ops, jeg kom feil\n- Hippieklær\n- Bevegelige klær som tåler å bli våte\n- Dress/Gallakjole",
+      "Til Fadderperioden er det en del arrangementer som har tema, som det kan være smart å tenke på før du reiser hjemmefra.\n\n- Hvitt laken uten stretch\n- Outfit til Ops, jeg kom feil\n- Hippieklær\n- Bevegelige klær som tåler å bli våte\n- Dress/Gallakjole",
   },
   {
     title: "Kontaktinformasjon",
@@ -78,22 +78,22 @@ const generalFaqItems: FaqItem[] = [
         <p>
           Leder av Abakus:
           <br />
-          Henriette Bjørheim, 915 86 737, henriette.bjorheim@abakus.no
+          Kristoffer Krogh Wetterhus, 958 04 396, kristoffer.wetterhus@abakus.no
         </p>
         <p>
           Leder av Arrangementskomiteen til Abakus:
-          <br />
-          Håkon Hoelsæter, 479 55 802, hakon.hoelsaeter@abakus.no
-        </p>
-        <p>
-          Ansvarlig for kommunikasjon med faddere og fadderbarn:
           <br />
           Kaisa Øyre Larsen, 916 41 758, kaisa.larsen@abakus.no
         </p>
         <p>
           Ansvarlig for kommunikasjon med faddere og fadderbarn:
           <br />
-          Ingrid Talseth Singstad, 403 28 322, ingrid.singstad@abakus.no
+          Sven Jansen, 416 02 761, sven.jansen@abakus.no
+        </p>
+        <p>
+          Ansvarlig for kommunikasjon med faddere og fadderbarn:
+          <br />
+          Leo Lie McGrath, 407 81 818, leo.mcgrath@abakus.no
         </p>
       </div>
     ),
@@ -144,7 +144,7 @@ const abakusFaqItems: FaqItem[] = [
     content: (
       <div>
         <p>
-          Abakus består av omtrent 1000 studenter, fra Komtek og Data. Alle
+          Abakus består av omtrent 1000 studenter, fra Cybdat og Data. Alle
           medlemmene i Abakus kalles abakuler.
         </p>
         <p>
@@ -270,7 +270,7 @@ const abakusFaqItems: FaqItem[] = [
           <dt>readme</dt>
           <dd>
             readme er Abakus sitt eget magasin, og har siden 1999 gjort sitt
-            ytterste for å gi studieslitne data- og komtekstudenter et artig
+            ytterste for å gi studieslitne data- og cybdatstudenter et artig
             avbrekk fra pensum. Tre ganger i semesteret kommer det en utgave på
             28 fargesider i akkurat passe mange eksemplarer. Av innhold kan de
             by på artikler om Abakus-arrangement, faglig berikelse av ulik sort
@@ -405,7 +405,7 @@ const abakusFaqItems: FaqItem[] = [
           <dd>
             backup er ansvarlig for å arrangere Masterfadderperioden -
             fadderopplegg for nye studenter på de to-årige masterprogrammene til
-            Komtek og Data. Enkelte dager har vi felles opplegg med
+            Cybdat og Data. Enkelte dager har vi felles opplegg med
             Fadderperioden. Faddere består her av abakuler fra 3., 4. og 5.
             trinn.
           </dd>

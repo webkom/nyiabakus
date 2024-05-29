@@ -1,3 +1,4 @@
+import { MTDT, MTKOM } from "@/utils/constants";
 import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 
@@ -7,7 +8,7 @@ export default function Document() {
       <Head>
         <meta
           name="description"
-          content="Informasjon til nye studenter på Datateknologi og Kommunikasjonsteknologi på NTNU"
+          content={`Informasjon til nye studenter på ${MTDT.name} og ${MTKOM.name} på NTNU`}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />

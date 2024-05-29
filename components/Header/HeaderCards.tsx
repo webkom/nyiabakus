@@ -30,12 +30,12 @@ const cardData: CardData[] = [
       "Det meste av informasjon til nye studenter kommer via en egen Facebook-gruppe, som det er anbefalt at du blir med i med en gang!",
     buttons: [
       {
-        href: "https://www.facebook.com/groups/280352384450789/",
-        text: "Gruppe for 5-årig master",
+        href: "",
+        text: "Gruppe for 5-årig master (TBD)",
       },
       {
-        href: "https://www.facebook.com/groups/175376555487442/",
-        text: "Gruppe for 2-årig master",
+        href: "",
+        text: "Gruppe for 2-årig master (TBD)",
       },
     ],
   },

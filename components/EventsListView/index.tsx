@@ -1,15 +1,17 @@
+import { DayDescription } from "@/pages/fadderperioden";
+import { isTBD } from "@/utils/api";
 import {
   dateToDayString,
   isSameCalendarDate,
   numberOfDaysBetweenDates,
 } from "@/utils/date";
 import { Event } from "@/utils/types";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
+import Link from "next/link";
 import { useMemo } from "react";
+import CollapsibleItem from "./CollapsibleItem";
 import EventItem from "./EventItem";
 import styles from "./styles.module.css";
-import { PortableText, PortableTextComponents } from "@portabletext/react";
-import CollapsibleItem from "./CollapsibleItem";
-import { DayDescription } from "@/pages/events";
 
 type EventsListViewProps = {
   events: Event[];
@@ -93,6 +95,29 @@ const EventsListView: React.FC<EventsListViewProps> = ({
       };
     });
   }, [events, dayDescriptions]);
+
+  if (isTBD)
+    return (
+      <p>Programmet for fadderperioden vil publiseres her når det er ferdig</p>
+    );
+
+  if (!isLoadingEvents && events.length === 0 && dayDescriptions.length === 0)
+    return (
+      <p>
+        Klarte ikke hente arrangementer. Hvis problemet vedvarer, sjekk{" "}
+        <Link href={"https://abakus.no"}>abakus.no</Link> eller facebook-gruppa
+        for nye studenter.
+      </p>
+    );
+
+  if (!isLoadingEvents && events.length === 0)
+    return (
+      <p>
+        Klarte ikke hente arrangementer fra abakus.no. Du kan fortsatt finne
+        alle arrangementene på <Link href={"https://abakus.no"}>abakus.no</Link>
+        .
+      </p>
+    );
 
   return (
     <div className={styles.eventsList}>
