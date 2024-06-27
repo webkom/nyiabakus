@@ -10,7 +10,7 @@ import FullscreenImage from "@/components/FullscreenImage";
 import { createClient, groq } from "next-sanity";
 import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
-import { MTDT, MTKOM } from "@/utils/constants";
+import { FACEBOOK_GROUP_FIRSTYEARS, MTDT, MTKOM } from "@/utils/constants";
 
 export type DayDescription = {
   date: string;
@@ -77,7 +77,14 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
         </p>
         <p>Oppmøte for {MTDT.name}: TBD</p>
         <p>Oppmøte for {MTKOM.name}: TBD</p>
-        <p>Facebook-gruppe for nye abakuler på 5-årig integrert master: TBD</p>
+        <p>
+          Facebook-gruppe for nye abakuler på 5-årig integrert master:{" "}
+          {FACEBOOK_GROUP_FIRSTYEARS === "" ? (
+            "TBD"
+          ) : (
+            <a href={FACEBOOK_GROUP_FIRSTYEARS}>facebook.com/groups/...</a>
+          )}
+        </p>
       </InfoSectionWrapper>
       {/* <InfoSectionWrapper>
         <FullscreenImage

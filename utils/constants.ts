@@ -10,3 +10,8 @@ export const MSTCNNS: Degree = {
   name: "Digital Infrastructure and Cyber Security",
   shorthand: "Cybdat",
 };
+
+export const FACEBOOK_GROUP_FIRSTYEARS: string =
+  "https://www.facebook.com/share/tf8EzTZ1guLd3Ad8/";
+
+export const FACEBOOK_GROUP_FOURTHYEARS: string = "";

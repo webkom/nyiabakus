@@ -1,6 +1,10 @@
 import Card, { CardData, CardWrapper } from "@/components/Card";
 import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
+import {
+  FACEBOOK_GROUP_FIRSTYEARS,
+  FACEBOOK_GROUP_FOURTHYEARS,
+} from "@/utils/constants";
 
 const HeaderCards: React.FC = () => {
   return (
@@ -30,12 +34,16 @@ const cardData: CardData[] = [
       "Det meste av informasjon til nye studenter kommer via en egen Facebook-gruppe, som det er anbefalt at du blir med i med en gang!",
     buttons: [
       {
-        href: "",
-        text: "Gruppe for 5-årig master (TBD)",
+        href: FACEBOOK_GROUP_FIRSTYEARS,
+        text:
+          "Gruppe for 5-årig master" +
+          (FACEBOOK_GROUP_FIRSTYEARS === "" ? " (TBD)" : ""),
       },
       {
-        href: "",
-        text: "Gruppe for 2-årig master (TBD)",
+        href: FACEBOOK_GROUP_FOURTHYEARS,
+        text:
+          "Gruppe for 2-årig master" +
+          (FACEBOOK_GROUP_FOURTHYEARS === "" ? " (TBD)" : ""),
       },
     ],
   },
