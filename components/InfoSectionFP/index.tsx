@@ -1,7 +1,14 @@
 import Link from "next/link";
 import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
-import { MIDT, MSTCNNS, MTDT, MTKOM } from "@/utils/constants";
+import {
+  FACEBOOK_GROUP_FIRSTYEARS,
+  FACEBOOK_GROUP_FOURTHYEARS,
+  MIDT,
+  MSTCNNS,
+  MTDT,
+  MTKOM,
+} from "@/utils/constants";
 
 const InfoSectionFP = () => {
   return (
@@ -46,11 +53,25 @@ const InfoSectionFP = () => {
       <h3 className={styles.subTitle}>5-årig integrert master</h3>
       <p>Oppmøte for {MTDT.name}: TBD</p>
       <p>Oppmøte for {MTKOM.name}: TBD</p>
-      <p>Facebook-gruppe for nye abakuler på 5-årig integrert master: TBD</p>
+      <p>
+        Facebook-gruppe for nye abakuler på 5-årig integrert master:{" "}
+        {FACEBOOK_GROUP_FIRSTYEARS === "" ? (
+          "TBD"
+        ) : (
+          <a href={FACEBOOK_GROUP_FIRSTYEARS}>facebook.com/groups/...</a>
+        )}
+      </p>
       <h3 className={styles.subTitle}>2-årig master</h3>
       <p>Oppmøte for {MIDT.name}: TBD</p>
       <p>Oppmøte for {MSTCNNS.name}: TBD</p>
-      <p>Facebook-gruppe for nye abakuler på 2-årig master: TBD</p>
+      <p>
+        Facebook-gruppe for nye abakuler på 2-årig master:{" "}
+        {FACEBOOK_GROUP_FOURTHYEARS === "" ? (
+          "TBD"
+        ) : (
+          <a href={FACEBOOK_GROUP_FOURTHYEARS}>facebook.com/groups/...</a>
+        )}
+      </p>
       <h3 className={styles.subTitle}>Arrangementer</h3>
       <p>
         Du kan se alle arrangementene i Fadderperioden som arrangeres av Abakus

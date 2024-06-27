@@ -9,7 +9,7 @@ import Link from "next/link";
 import { createClient, groq } from "next-sanity";
 import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
-import { MIDT, MSTCNNS } from "@/utils/constants";
+import { FACEBOOK_GROUP_FOURTHYEARS, MIDT, MSTCNNS } from "@/utils/constants";
 
 export type DayDescription = {
   date: string;
@@ -78,7 +78,14 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
         </p>
         <p>Oppmøte for {MIDT.name}: TBD</p>
         <p>Oppmøte for {MSTCNNS.name}: TBD</p>
-        <p>Facebook-gruppe for nye abakuler på 2-årig master: TBD</p>
+        <p>
+          Facebook-gruppe for nye abakuler på 2-årig master:{" "}
+          {FACEBOOK_GROUP_FOURTHYEARS === "" ? (
+            "TBD"
+          ) : (
+            <a href={FACEBOOK_GROUP_FOURTHYEARS}>facebook.com/groups/...</a>
+          )}
+        </p>
       </InfoSectionWrapper>
       <InfoSectionWrapper>
         <EventsListView
