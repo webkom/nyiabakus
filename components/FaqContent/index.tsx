@@ -68,7 +68,7 @@ const generalFaqItems: FaqItem[] = [
     title: "Pakkeliste til Fadderperioden",
     key: "pakkeliste",
     content:
-      "Til Fadderperioden er det en del arrangementer som har tema, som det kan være smart å tenke på før du reiser hjemmefra.\n\n- Hvitt laken uten stretch\n- Outfit til Ops, jeg kom feil\n- Hippieklær\n- Bevegelige klær som tåler å bli våte\n- Dress/Gallakjole",
+      "Til Fadderperioden er det en del arrangementer som har tema, som det kan være smart å tenke på før du reiser hjemmefra.\n\n- Hvitt laken uten stretch\n- Outfit til Ops, jeg kom feil\n- Hippieklær\n- Bevegelige klær som tåler å bli våte\n- Dress/Gallakjole\n- Tysk Techno",
   },
   {
     title: "Kontaktinformasjon",
