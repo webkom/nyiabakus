@@ -10,6 +10,7 @@ const Navbar = () => {
           <Link href={"/fadderperioden"}>Fadderperioden</Link>
           <Link href={"/masterfadderperioden"}>Masterfadderperioden</Link>
           <Link href={"/faq"}>FAQ</Link>
+          <Link href={"/om-abakus"}>Om Abakus</Link>
         </div>
         <div className={styles.logoWrapper}>
           <Link href={"https://abakus.no"}>✨Gå til abakus.no✨</Link>

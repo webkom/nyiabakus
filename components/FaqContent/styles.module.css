@@ -1,5 +1,8 @@
-.faqSectionHeader {
-  margin-bottom: 0.25em;
+.title {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 
 .faqItem {

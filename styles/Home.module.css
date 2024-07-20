@@ -10,7 +10,12 @@
   object-fit: contain;
 }
 
-.fpInfo p {
+.fpInfo p,
+.fpInfo h1,
+.fpInfo h2,
+.fpInfo h3,
+.fpInfo h4,
+.fpInfo ul {
   margin-bottom: 0.5em;
 }
 
