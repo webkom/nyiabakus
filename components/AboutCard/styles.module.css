@@ -8,22 +8,22 @@
   text-align: left;
   background-color: white;
   color: #0d0d0d;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 .header {
   display: flex;
   justify-content: left;
   align-items: center;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 .icon {
-  margin-right: 1em;
+  margin-right: 1rem;
 }
 
 .description {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 .subTitle {
