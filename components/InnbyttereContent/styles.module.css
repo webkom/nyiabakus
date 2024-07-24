@@ -16,7 +16,7 @@
  .infoMeetingSection {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     gap: 20px;
     background-color: var(--red-1);
     color: white;
@@ -42,14 +42,14 @@
   .infoLeft {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     gap: 8px;
   }
 
   .infoRight {
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
     gap: 8px;
 
   }
