@@ -49,7 +49,7 @@ const committees = [
   {
     title: "Webkom",
     description:
-      "Webkom er komiteen som har det tekniske ansvaret for Abakus. Det er Webkom som har laget abakus.no, abanav.abakus.no og mye mer som er helt kritisk for at Abakus skal gå rundt.",
+      "Webkom er komiteen som har det tekniske ansvaret for Abakus. Det er Webkom som har laget abakus.no, ababart.abakus.no og mye mer som er helt kritisk for at Abakus skal gå rundt.",
     contribution:
       "Webkom er gjengen som har lagt ned det herlige arbeidet med å utvikle og publisere nettsiden du nå leser på. I tillegg har de skrevet relevante guider for å lage bruker på abakus.no, og generelt driftet nettsiden slik at den er klar for dere nye studenter.",
   },
@@ -122,20 +122,12 @@ const OmAbakus = () => {
         </p>
         <h4 className={styles.subTitle}>Roller i hovedstyret:</h4>
         <ul>
-          <li>Leder: Henriette Bjørheim</li>
-          <li>Nestleder: Maria Karlsen</li>
-          <li>Økonomiansvarlig: Kristoffer Wetterhus</li>
-          <li>
-            Gruppeansvarlig Inter (ansvarlig for Bedkom og Fagkom): Mona Helness
-          </li>
-          <li>
-            Gruppeansvarlig Media (ansvarlig for PR, readme og Webkom): Elena
-            Willmann
-          </li>
-          <li>
-            Gruppeansvarlig Sosial (ansvarlig for Arrkom, Koskom og LaBamba):
-            Maria Hurtado Beisvåg
-          </li>
+          <li>Leder: Kristoffer Krogh Wetterhus</li>
+          <li>Nestleder: Tiril Sjøberg</li>
+          <li>Økans: Aurora Johansen</li>
+          <li>Øvrig styremedlem: Emrik SJølie Moe</li>
+          <li>Øvrig styremedlem: Hanna Jacobsen</li>
+          <li>Øvrig styremedlem: Ingeborg Lundamo Lien</li>
         </ul>
         <p>
           <a href="https://abakus.no/pages/styrer/12">
