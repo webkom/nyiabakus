@@ -6,10 +6,11 @@ import { deserializeEvents, fetchEvents } from "@/utils/api";
 import { NextPage } from "next";
 import { ApiEvent } from "@/utils/types";
 import Link from "next/link";
-import { createClient, groq } from "next-sanity";
+import { groq } from "next-sanity";
 import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
 import { FACEBOOK_GROUP_FOURTHYEARS, MIDT, MSTCNNS } from "@/utils/constants";
+import { sanityClient } from "@/utils/sanity";
 
 export type DayDescription = {
   date: string;
@@ -98,22 +99,11 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
   );
 };
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
-const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION;
-
-const client = createClient({
-  projectId,
-  dataset,
-  apiVersion, // https://www.sanity.io/docs/api-versioning
-  useCdn: false,
-});
-
 export async function getStaticProps() {
   let dayDescriptions: DayDescription[] = [];
   try {
     const currentYear = new Date().getFullYear();
-    dayDescriptions = await client.fetch(
+    dayDescriptions = await sanityClient.fetch(
       groq`*[_type == "mfpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`
     );
   } catch (e) {}
