@@ -125,7 +125,7 @@ const OmAbakus = () => {
           <li>Leder: Kristoffer Krogh Wetterhus</li>
           <li>Nestleder: Tiril Sjøberg</li>
           <li>Økans: Aurora Johansen</li>
-          <li>Øvrig styremedlem: Emrik SJølie Moe</li>
+          <li>Øvrig styremedlem: Emrik Sjølie Moe</li>
           <li>Øvrig styremedlem: Hanna Jacobsen</li>
           <li>Øvrig styremedlem: Ingeborg Lundamo Lien</li>
         </ul>
@@ -216,9 +216,9 @@ const OmAbakus = () => {
           støtte fra Abakus til å drive med interessen sin. Det er også mulig å
           opprette en egen interessegruppe. Interessegrupper er åpne for alle,
           og ikke bindende i det hele tatt, så man kan bli med på det man vil,
-          når man vil. Eksempler er FormelAba, som ser på Formel 1, Abahæng, som
-          drar på maccern når de er hæng og dunker chili cheese, og Turgruppa,
-          som arrangerer turer i skog og fjell.
+          når man vil. Eksempler er FormelAba som ser på Formel 1, Abahæng som
+          drar på maccern når de er hæng og dunker chili cheese, Turgruppa
+          som arrangerer turer i skog og fjell, og AbaCraft som miner og crafter.
         </p>
         <p>
           <a href="https://abakus.no/interest-groups">
