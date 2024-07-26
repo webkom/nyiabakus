@@ -30,3 +30,7 @@ a {
 
   --shadow-event-1: 0 0 9px -5px #8b8b8b;
 }
+
+ul {
+  margin-left: 1.5rem;
+}
