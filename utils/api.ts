@@ -1,18 +1,15 @@
 import { ApiEvent, ApiResponse, Event } from "./types";
 
-export const isTBD = true;
+export const isTBD = false;
 
 const fromDate = "2024-08-12"; // First day of FP
-const toDate = "2024-08-25"; // One day after Immball
+const toDate = "2024-09-2"; // One day after Immball
 
 // For events in the time period that are not included in FP
-const blackListedEventIds: number[] = [3446, 3420, 3452];
+const blackListedEventIds: number[] = [3693, 3702, 3695, 3670, 3678];
 const specificBlackListedEventIds = {
-  fp: [3461],
-  mfp: [
-    3431, 3460, 3433, 3435, 3439, 3464, 3437, 3449, 3436, 3453, 3432, 3438,
-    3441,
-  ],
+  fp: [3698] as number[],
+  mfp: [3697] as number[],
 };
 
 /**
@@ -41,7 +38,7 @@ export const fetchEvents = async (
 ) => {
   if (isTBD) return [];
   const res = await fetch(
-    `https://lego.abakus.no/api/v1/events?date_after=${fromDate}&date_before=${toDate}`
+    `https://lego.abakus.no/api/v1/events/?date_after=${fromDate}&date_before=${toDate}`
   );
   const data: ApiResponse<ApiEvent[]> = await res.json();
   return removeBlackListedEvents(data.results, type);
