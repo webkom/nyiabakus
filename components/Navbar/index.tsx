@@ -9,6 +9,7 @@ const Navbar = () => {
           <Link href={"/"}>Startside</Link>
           <Link href={"/fadderperioden"}>Fadderperioden</Link>
           <Link href={"/masterfadderperioden"}>Masterfadderperioden</Link>
+          <Link href={"/innbyttere"}>Innbyttere</Link>
           <Link href={"/faq"}>FAQ</Link>
           <Link href={"/om-abakus"}>Om Abakus</Link>
         </div>
