@@ -1,10 +1,6 @@
-import InnbyttereContent from '@/components/InnbyttereContent';
-
-
+import InnbyttereContent from "@/components/InnbyttereContent";
 
 const Innbyttere = () => {
-  return (
-   <InnbyttereContent />
-  );
-}
+  return <InnbyttereContent />;
+};
 export default Innbyttere;

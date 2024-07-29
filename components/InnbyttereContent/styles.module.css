@@ -1,63 +1,48 @@
 .header {
-    text-align: center;
-  }
-  
-  .header > h1,
-  .header > div {
-    margin: 2rem 0;
-  }
-  
-  .header > p {
-    margin: 1rem auto;
-    max-width: 50em;
-    line-height: 1.7;
-  }
-  
- .infoMeetingSection {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    background-color: var(--red-1);
-    color: white;
-    box-shadow: 0 0 10px -5px var(--red-1);
-  }
-  .infoMeetingSection > h2 {
-    margin: 1rem 0;
-  }
+  text-align: center;
+}
 
-  .icon {
-    font-size: xx-large;
-  }
+.header > h1 {
+  margin-bottom: 1.5rem;
+}
 
-  .info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding: 20px;
-  }
+.header > p {
+  margin: 1rem 0;
+  line-height: 1.7;
+}
 
+.infoMeetingSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: var(--red-1);
+  color: white;
+  box-shadow: 0 0 10px -5px var(--red-1);
+}
 
-  .infoLeft {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
+.sectionTitle {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
 
-  .infoRight {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
+.icon {
+  font-size: xx-large;
+  line-height: 0.5;
+}
 
-  }
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
 
-  .flexRow {
+.flexRow {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 20px;
- }
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}

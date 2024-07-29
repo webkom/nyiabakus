@@ -2,7 +2,7 @@
   background-color: var(--red-1);
   padding: 1rem 1.5rem;
   color: white;
-  font-weight: 600;
+  font-weight: 500;
   justify-content: center;
   display: flex;
 }
@@ -11,7 +11,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 80%;
-  gap: 0.5em;
+  gap: 1rem;
 }
 
 @media (max-width: 800px) {
@@ -37,7 +37,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-  gap: 1em 2em;
+  gap: 1rem 2rem;
 }
 
 .logoWrapper {
@@ -46,10 +46,10 @@
 
 .contentWrapper a {
   color: #f0f0f0;
-  text-decoration: underline 0.13em rgba(0, 0, 0, 0);
+  text-decoration: underline 0.13rem rgba(0, 0, 0, 0);
   transition: text-decoration-color 0.3s;
 }
 
 .contentWrapper a:hover {
-  text-decoration: underline 0.13em white;
+  text-decoration: underline 0.13rem white;
 }
