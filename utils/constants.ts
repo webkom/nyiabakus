@@ -14,4 +14,5 @@ export const MSTCNNS: Degree = {
 export const FACEBOOK_GROUP_FIRSTYEARS: string =
   "https://www.facebook.com/share/tf8EzTZ1guLd3Ad8/";
 
-export const FACEBOOK_GROUP_FOURTHYEARS: string = "";
+export const FACEBOOK_GROUP_FOURTHYEARS: string =
+  "https://www.facebook.com/groups/1157689075489431/";
