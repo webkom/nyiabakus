@@ -54,6 +54,10 @@ const Navbar = () => {
         </div>
         <span
           className={styles.drawerBackground}
+          style={{ 
+            opacity: drawerOpen ? .5 : 0, 
+            transitionDuration: animationDuration,
+          }}
           onClick={() => setDrawerOpen(false)}
         />
       </div>

@@ -45,9 +45,8 @@
 }
 
 .drawerBackground {
-  width: inherit;
-  height: inherit;
-  background-color: rgba(0, 0, 0, 50%);
+  width: 100%;
+  background-color: black;
 }
 
 .drawerLinksWrapper {
