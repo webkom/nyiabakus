@@ -9,7 +9,7 @@ const toDate = "2024-09-2"; // One day after Immball
 const blackListedEventIds: number[] = [3693, 3702, 3695, 3670, 3678];
 const specificBlackListedEventIds = {
   fp: [3698] as number[],
-  mfp: [3697] as number[],
+  mfp: [3697, 3700, 3705, 3643, 3661, 3659, 3655] as number[],
 };
 
 /**
