@@ -23,7 +23,6 @@ const NavLinks = ({ onClick }: { onClick?: () => void }) => (
   </>
 );
 
-
 /** Normal navbar on desktop, drawer on mobile */
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
