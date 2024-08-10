@@ -3,24 +3,33 @@ import styles from "./styles.module.css";
 import Icon from "../Icon";
 import { useEffect, useState } from "react";
 
-const NavLinks = () => (
+const links = [
+  ["/", "Startside"],
+  ["/fadderperioden", "Fadderperioden"],
+  ["/masterfadderperioden", "Masterfadderperioden"],
+  ["/innbyttere", "Innbyttere"],
+  ["/faq", "FAQ"],
+  ["/om-abakus", "Om Abakus"],
+  ["https://abakus.no", "✨Gå til abakus.no✨"],
+];
+
+const NavLinks = ({ onClick }: { onClick?: () => void }) => (
   <>
-    <Link href={"/"}>Startside</Link>
-    <Link href={"/fadderperioden"}>Fadderperioden</Link>
-    <Link href={"/masterfadderperioden"}>Masterfadderperioden</Link>
-    <Link href={"/innbyttere"}>Innbyttere</Link>
-    <Link href={"/faq"}>FAQ</Link>
-    <Link href={"/om-abakus"}>Om Abakus</Link>
-    <Link href={"https://abakus.no"}>✨Gå til abakus.no✨</Link>
+    {links.map((link) => (
+      <Link href={link[0]} key={link[0]} onClick={onClick}>
+        {link[1]}
+      </Link>
+    ))}
   </>
 );
+
 
 /** Normal navbar on desktop, drawer on mobile */
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerClosing, setDrawerClosing] = useState(false);
   const animationDuration = ".25s";
-  
+
   // Needed for correct timing
   useEffect(() => {
     setDrawerClosing(drawerOpen);
@@ -50,12 +59,12 @@ const Navbar = () => {
             transitionDuration: animationDuration,
           }}
         >
-          <NavLinks />
+          <NavLinks onClick={() => setDrawerOpen(false)} />
         </div>
         <span
           className={styles.drawerBackground}
-          style={{ 
-            opacity: drawerOpen ? .5 : 0, 
+          style={{
+            opacity: drawerOpen ? 0.5 : 0,
             transitionDuration: animationDuration,
           }}
           onClick={() => setDrawerOpen(false)}
