@@ -2,11 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   async redirects() {
-    return [{
-      source: '/events',
-      destination: '/fadderperioden',
-      permanent: true,
-    }];
+    return [
+      {
+        source: "/events",
+        destination: "/fadderperioden",
+        permanent: true,
+      },
+    ];
   },
 };
 
