@@ -36,7 +36,14 @@ const InnbyttereContent: React.FC = () => {
           flere tips og triks til hvordan man kan trives best mulig i en av
           NTNU´s feteste lineforeninger.
         </p>
-        <h3>Dato og Sted kommer!</h3>
+        <div className={styles.flexRow}>
+          <h3>Når:</h3>
+          <p> 26. Aug kl 17.15</p>
+        </div>
+        <div className={styles.flexRow}>
+          <h3>Hvor: </h3>
+          <p>VE20, Verkstedtekniske laberatorier</p>
+        </div>
       </InfoSectionWrapper>
       <InfoSectionWrapper className={styles.info}>
         <h2>Hvilken fadderperiode skal jeg delta på?</h2>
@@ -47,7 +54,7 @@ const InnbyttereContent: React.FC = () => {
           hvilke klassetrinn du helst ønsker bli kjent med!{" "}
         </p>
 
-        <div className={styles.flexRow}>
+        <div className={styles.flexRowCenter}>
           <Card
             icon={"sparkles-outline"}
             title="Fadderperioden"
