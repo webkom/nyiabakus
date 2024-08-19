@@ -38,11 +38,16 @@
   gap: 2rem;
 }
 
-.flexRow {
+.flexRowCenter {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 1.5rem;
+}
+
+.flexRow {
+  display: flex;
+  gap: 8px;
 }
