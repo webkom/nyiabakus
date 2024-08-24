@@ -164,7 +164,7 @@ const OmAbakus = () => {
         <b>Interessegrupper</b>
         <p>
           Interessegruppene i Abakus er åpne for alle. Man kan melde seg inn ved
-          å trykke på {'"'}Bli med i gruppen{'"'} på interessegruppens side på{" "}
+          å trykke på &quot;Bli med i gruppen&quot; på interessegruppens side på{" "}
           <Link href="https://abakus.no/interest-groups">abakus.no</Link>. I
           tillegg har de fleste interessegruppene en Facebook-gruppe for
           kommunikasjon.
