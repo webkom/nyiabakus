@@ -137,7 +137,42 @@ const OmAbakus = () => {
       </AboutCard>
       <br />
 
-      <h3 className={styles.subTitle}>Komiteer</h3>
+      <AboutCard title="Hvordan engasjere seg?">
+        <b>Komiteene og revyen</b>
+        <p>
+          Opptak til{" "}
+          <Link href="https://abakus.no/pages/grupper/104-revyen">revyen</Link>{" "}
+          og <Link href="#comittees">komiteene</Link> skjer vanligvis i
+          september etter semesterstart.{" "}
+          <Link href="https://abakus.no/pages/komiteer/5">backup</Link> har
+          vanligvis opptak i februar. \n Opptaket gjennomføres på{" "}
+          <Link href="https://opptak.abakus.no">opptak.abakus.no</Link> og vil
+          annonseres på <Link href="https://abakus.no">abakus.no</Link> og i
+          sosiale medier.
+        </p>
+        <br />
+        <b>Undergrupper</b>
+        <p>
+          Undergruppene sine opptak varierer fra gruppe til gruppe. Se hver
+          enkelt undergruppe sin side på{" "}
+          <Link href="https://abakus.no">abakus.no</Link> for mer informasjon.
+        </p>
+        <br />
+        <b>Interessegrupper</b>
+        <p>
+          Interessegruppene i Abakus er åpne for alle. Man kan melde seg inn ved
+          å trykke på {'"'}Bli med i gruppen{'"'} på interessegruppens side på{" "}
+          <Link href="https://abakus.no/interest-groups">abakus.no</Link>. I
+          tillegg har de fleste interessegruppene en Facebook-gruppe for
+          kommunikasjon.
+        </p>
+      </AboutCard>
+
+      <br />
+
+      <h3 id="comittees" className={styles.subTitle}>
+        Komiteer
+      </h3>
       <p>
         En komité er en gjeng som gjør forskjellig type arbeid for å drifte
         linjeforeningen og arrangere faglige og sosiale arrangementer for
