@@ -145,7 +145,7 @@ const OmAbakus = () => {
           og <Link href="#comittees">komiteene</Link> skjer vanligvis i
           september etter semesterstart.{" "}
           <Link href="https://abakus.no/pages/komiteer/5">backup</Link> har
-          vanligvis opptak i februar. \n Opptaket gjennomføres på{" "}
+          vanligvis opptak i februar. <br /> Opptaket gjennomføres på{" "}
           <Link href="https://opptak.abakus.no">opptak.abakus.no</Link> og vil
           annonseres på <Link href="https://abakus.no">abakus.no</Link> og i
           sosiale medier.
@@ -155,7 +155,10 @@ const OmAbakus = () => {
         <p>
           Undergruppene sine opptak varierer fra gruppe til gruppe. Se hver
           enkelt undergruppe sin side på{" "}
-          <Link href="https://abakus.no">abakus.no</Link> for mer informasjon.
+          <Link href="https://abakus.no/pages/grupper/31-undergrupper">
+            abakus.no
+          </Link>{" "}
+          for mer informasjon.
         </p>
         <br />
         <b>Interessegrupper</b>
