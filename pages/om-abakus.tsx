@@ -16,7 +16,7 @@ const committees = [
     description:
       "Bedkom er bedriftskomiteen til Abakus og arbeider for å oppnå tettere kontakt mellom bedrifter og våre studenter. Dette gjør de blant annet ved å arrangere bedriftspresentasjoner, der bedrifter kommer til campus for å presentere seg selv. I presentasjonen forteller bedriftene om hvilke prosjekter de er involvert i og hvordan hverdagen fortoner seg i bedriften. Etter presentasjonen drar studentene og bedriften til et spisested i byen for å mingle.",
     contribution:
-      "Torsdag etter Teknostart vil mange av dere oppleve deres første bedriftspresentasjon. Dette er det Bedkom som arrangerer, i samarbeid med Abakus sin samarbeidspartner, Netcompany.",
+      "Torsdag etter Teknostart vil mange av dere oppleve deres første bedriftspresentasjon. Dette er det Bedkom som arrangerer, i samarbeid med Abakus sin samarbeidspartner, Bekk.",
   },
   {
     title: "Bankkom",
@@ -122,12 +122,12 @@ const OmAbakus = () => {
         </p>
         <h4 className={styles.subTitle}>Roller i hovedstyret:</h4>
         <ul>
-          <li>Leder: Kristoffer Krogh Wetterhus</li>
-          <li>Nestleder: Tiril Sjøberg</li>
-          <li>Økans: Aurora Johansen</li>
-          <li>Øvrig styremedlem: Emrik Sjølie Moe</li>
-          <li>Øvrig styremedlem: Hanna Jacobsen</li>
-          <li>Øvrig styremedlem: Ingeborg Lundamo Lien</li>
+          <li>Leder: Torjus Østensen</li>
+          <li>Nestleder: Peder Brennum</li>
+          <li>Økans: Attal Ahmadjan</li>
+          <li>Øvrig styremedlem: Agnes Nørve</li>
+          <li>Øvrig styremedlem: Andrea Møller</li>
+          <li>Øvrig styremedlem: Oskar Larsen</li>
         </ul>
         <p>
           <a href="https://abakus.no/pages/styrer/12">
