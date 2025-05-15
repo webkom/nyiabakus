@@ -5,7 +5,7 @@ import EventsListView from "@/components/EventsListView";
 import { deserializeEvents, fetchEvents } from "@/utils/api";
 import { NextPage } from "next";
 import { ApiEvent } from "@/utils/types";
-import Link from "next/link";
+import Link from "@/components/Link";
 import FullscreenImage from "@/components/FullscreenImage";
 import { groq } from "next-sanity";
 import { TypedObject } from "sanity";
@@ -56,13 +56,13 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           instituttet/fakultetet. For å være sikker på at du ikke går glipp av
           noe, sjekk ut NTNU sin side som hører til ditt studie;
           <br />
-          <a href="https://www.ntnu.no/studier/mtkom">
+          <Link href="https://www.ntnu.no/studier/mtkom">
             5-årig: {MTKOM.name} ({MTKOM.shorthand})
-          </a>
+          </Link>
           <br />
-          <a href="https://www.ntnu.no/studier/mtdt">
+          <Link href="https://www.ntnu.no/studier/mtdt">
             5-årig: {MTDT.name} ({MTDT.shorthand})
-          </a>
+          </Link>
           <br />
         </p>
         <p>
@@ -73,7 +73,9 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           For å bli med må du møte opp på immatrikuleringen, hvor du blir
           plassert i en faddergruppe og får mer informasjon. Hvis du ikke får
           møtt opp, send en epost til{" "}
-          <a href="mailto:fadderperioden@abakus.no">fadderperioden@abakus.no</a>{" "}
+          <Link href="mailto:fadderperioden@abakus.no">
+            fadderperioden@abakus.no
+          </Link>{" "}
           for å få en faddergruppe.
         </p>
         <p>Oppmøte for {MTDT.name}: TBD</p>
@@ -83,7 +85,9 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           {FACEBOOK_GROUP_FIRSTYEARS === "" ? (
             "TBD"
           ) : (
-            <a href={FACEBOOK_GROUP_FIRSTYEARS}>facebook.com/groups/...</a>
+            <Link href={FACEBOOK_GROUP_FIRSTYEARS}>
+              facebook.com/groups/...
+            </Link>
           )}
         </p>
       </InfoSectionWrapper>

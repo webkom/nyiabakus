@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 const InfoSectionStudentPub = () => {
   return (

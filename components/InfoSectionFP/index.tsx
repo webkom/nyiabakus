@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
 import {
@@ -20,21 +20,21 @@ const InfoSectionFP = () => {
         instituttet/fakultetet. For å være sikker på at du ikke går glipp av
         noe, sjekk ut NTNU sin side som hører til ditt studie;
         <br />
-        <a href="https://www.ntnu.no/studier/mtkom">
+        <Link href="https://www.ntnu.no/studier/mtkom">
           5-årig: {MTKOM.name} ({MTKOM.shorthand})
-        </a>
+        </Link>
         <br />
-        <a href="https://www.ntnu.no/studier/mtdt">
+        <Link href="https://www.ntnu.no/studier/mtdt">
           5-årig: {MTDT.name} ({MTDT.shorthand})
-        </a>
+        </Link>
         <br />
-        <a href="https://www.ntnu.no/studier/mstcnns">
+        <Link href="https://www.ntnu.no/studier/mstcnns">
           2-årig: {MSTCNNS.name} ({MSTCNNS.shorthand})
-        </a>{" "}
+        </Link>{" "}
         <br />
-        <a href="https://www.ntnu.no/studier/midt">
+        <Link href="https://www.ntnu.no/studier/midt">
           2-årig: {MIDT.name} ({MIDT.shorthand})
-        </a>
+        </Link>
       </p>
       <p>
         Fadderperioden for {MTDT.name} og {MTKOM.name} er arrangert av Abakus.
@@ -43,11 +43,13 @@ const InfoSectionFP = () => {
         For å bli med må du møte opp på immatrikuleringen, hvor du blir plassert
         i en faddergruppe og får mer informasjon. Hvis du ikke får møtt opp,
         send en epost til{" "}
-        <a href="mailto:fadderperioden@abakus.no">fadderperioden@abakus.no</a>{" "}
+        <Link href="mailto:fadderperioden@abakus.no">
+          fadderperioden@abakus.no
+        </Link>{" "}
         (5-årig integrert master) eller{" "}
-        <a href="mailto:masterfadderperioden@abakus.no">
+        <Link href="mailto:masterfadderperioden@abakus.no">
           masterfadderperioden@abakus.no
-        </a>{" "}
+        </Link>{" "}
         (2-årig master) for å få en faddergruppe.
       </p>
       <h3 className={styles.subTitle}>5-årig integrert master</h3>
@@ -58,7 +60,7 @@ const InfoSectionFP = () => {
         {FACEBOOK_GROUP_FIRSTYEARS === "" ? (
           "TBD"
         ) : (
-          <a href={FACEBOOK_GROUP_FIRSTYEARS}>facebook.com/groups/...</a>
+          <Link href={FACEBOOK_GROUP_FIRSTYEARS}>facebook.com/groups/...</Link>
         )}
       </p>
       <h3 className={styles.subTitle}>2-årig master</h3>
@@ -69,7 +71,7 @@ const InfoSectionFP = () => {
         {FACEBOOK_GROUP_FOURTHYEARS === "" ? (
           "TBD"
         ) : (
-          <a href={FACEBOOK_GROUP_FOURTHYEARS}>facebook.com/groups/...</a>
+          <Link href={FACEBOOK_GROUP_FOURTHYEARS}>facebook.com/groups/...</Link>
         )}
       </p>
       <h3 className={styles.subTitle}>Arrangementer</h3>

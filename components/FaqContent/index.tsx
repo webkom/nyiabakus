@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import InfoSectionWrapper from "../InfoSectionWrapper";
@@ -33,8 +33,8 @@ const FaqContent: React.FC = () => {
       {renderFaqItems(generalFaqItems)}
       <p>
         Lurer du på noe mer? Send en mail til Webkom på{" "}
-        <a href="mailto:webkom@abakus.no">webkom@abakus.no</a>, så hjelper vi
-        deg finne svaret - og legger det ut her så andre også kan finne det.
+        <Link href="mailto:webkom@abakus.no">webkom@abakus.no</Link>, så hjelper
+        vi deg finne svaret - og legger det ut her så andre også kan finne det.
       </p>
     </InfoSectionWrapper>
   );
@@ -114,8 +114,8 @@ const generalFaqItems: FaqItem[] = [
         </p>
         <p>
           Om du går inn på{" "}
-          <a href="https://abakus.no/events">abakus.no/events</a> på PC og blar
-          helt nederst på siden, får du alternativene mellom tre mulige
+          <Link href="https://abakus.no/events">abakus.no/events</Link> på PC og
+          blar helt nederst på siden, får du alternativene mellom tre mulige
           kalendere. Enten alle arrangementer, alle registreringstidspunkter
           (påmeldingstidspunkt) eller dine møter og favorittarrangementer.
         </p>

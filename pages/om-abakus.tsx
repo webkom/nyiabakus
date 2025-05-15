@@ -1,6 +1,6 @@
 import styles from "@/styles/Home.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
-import Link from "next/link";
+import Link from "@/components/Link";
 import AboutCard from "../components/AboutCard";
 
 const committees = [
@@ -130,9 +130,9 @@ const OmAbakus = () => {
           <li>Øvrig styremedlem: Oskar Larsen</li>
         </ul>
         <p>
-          <a href="https://abakus.no/pages/styrer/12">
+          <Link href="https://abakus.no/pages/styrer/12">
             Les mer om Hovedstyret på abakus.no (krever innlogging)
-          </a>
+          </Link>
         </p>
       </AboutCard>
       <br />
@@ -186,9 +186,9 @@ const OmAbakus = () => {
       </p>
 
       <p>
-        <a href="https://abakus.no/pages/komiteer/4">
+        <Link href="https://abakus.no/pages/komiteer/4">
           Les mer om komitéene på abakus.no (krever innlogging)
-        </a>
+        </Link>
       </p>
 
       {committees.map((committee) => (
@@ -222,9 +222,9 @@ const OmAbakus = () => {
           Immatrikuleringsballet.
         </p>
         <p>
-          <a href="https://abakus.no/pages/grupper/104-revyen">
+          <Link href="https://abakus.no/pages/grupper/104-revyen">
             Les mer om revyen på abakus.no
-          </a>
+          </Link>
         </p>
       </AboutCard>
 
@@ -240,9 +240,9 @@ const OmAbakus = () => {
           med andre ord mye å finne på gjennom undergrupper.
         </p>
         <p>
-          <a href="https://abakus.no/pages/grupper/31-undergrupper">
+          <Link href="https://abakus.no/pages/grupper/31-undergrupper">
             Les mer om undergrupper på abakus.no
-          </a>
+          </Link>
         </p>
       </AboutCard>
 
@@ -259,9 +259,9 @@ const OmAbakus = () => {
           arrangerer turer i skog og fjell, og AbaCraft som miner og crafter.
         </p>
         <p>
-          <a href="https://abakus.no/interest-groups">
+          <Link href="https://abakus.no/interest-groups">
             Finn alle interessegruppene på abakus.no (krever innlogging)
-          </a>
+          </Link>
           <br />
           NB: Interessegruppene pleier å kommunisere via Facebook - dette står
           det informasjon om inne på siden til den enkelte interessegruppen. Om
@@ -269,9 +269,9 @@ const OmAbakus = () => {
           interessegruppe&quot; i navnet for å være lettere å søke etter.
         </p>
         <p>
-          <a href="https://abakus.no/pages/grupper/39-praktisk-informasjon">
+          <Link href="https://abakus.no/pages/grupper/39-praktisk-informasjon">
             Les mer om interessegrupper på abakus.no
-          </a>
+          </Link>
         </p>
       </AboutCard>
     </InfoSectionWrapper>

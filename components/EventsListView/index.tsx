@@ -7,7 +7,7 @@ import {
 } from "@/utils/date";
 import { Event } from "@/utils/types";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useMemo } from "react";
 import CollapsibleItem from "./CollapsibleItem";
 import EventItem from "./EventItem";
@@ -34,13 +34,13 @@ const components: PortableTextComponents = {
         ? "_blank"
         : undefined;
       return (
-        <a
+        <Link
           href={value?.href}
           target={target}
           rel={target === "_blank" ? "noindex nofollow" : undefined}
         >
           {children}
-        </a>
+        </Link>
       );
     },
   },
@@ -150,7 +150,7 @@ const EventsListView: React.FC<EventsListViewProps> = ({
       ))}
       <p>
         Se alle Abakus sine arrangementer på{" "}
-        <a href="https://abakus.no/events">abakus.no/events</a>
+        <Link href="https://abakus.no/events">abakus.no/events</Link>
       </p>
     </div>
   );

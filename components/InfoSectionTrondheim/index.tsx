@@ -1,6 +1,6 @@
 import Card, { CardData, CardWrapper } from "@/components/Card";
 import { MTKOM } from "@/utils/constants";
-import Link from "next/link";
+import Link from "@/components/Link";
 import InfoSectionWrapper from "../InfoSectionWrapper";
 import styles from "./styles.module.css";
 
