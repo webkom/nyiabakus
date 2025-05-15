@@ -26,7 +26,10 @@ type EventsProps = {
   settings: Settings;
 };
 
-export const Events: NextPage<EventsProps> = ({ dayDescriptions, settings }) => {
+export const Events: NextPage<EventsProps> = ({
+  dayDescriptions,
+  settings,
+}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [apiEvents, setApiEvents] = useState<ApiEvent[]>([]);
   const events = useMemo(() => deserializeEvents(apiEvents), [apiEvents]);
@@ -35,7 +38,7 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions, settings }) => 
       try {
         const apiEvents = await fetchEvents({
           ...settings,
-          blacklist: settings.blacklists[BlacklistType.FP]
+          blacklist: settings.blacklists[BlacklistType.FP],
         });
         setApiEvents(apiEvents);
       } catch (error) {

@@ -25,7 +25,10 @@ type EventsProps = {
   settings: Settings;
 };
 
-export const Events: NextPage<EventsProps> = ({ dayDescriptions, settings }) => {
+export const Events: NextPage<EventsProps> = ({
+  dayDescriptions,
+  settings,
+}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [apiEvents, setApiEvents] = useState<ApiEvent[]>([]);
   const events = useMemo(() => deserializeEvents(apiEvents), [apiEvents]);
@@ -34,7 +37,7 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions, settings }) => 
       try {
         const apiEvents = await fetchEvents({
           ...settings,
-          blacklist: settings.blacklists[BlacklistType.MFP]
+          blacklist: settings.blacklists[BlacklistType.MFP],
         });
         setApiEvents(apiEvents);
       } catch (error) {
@@ -113,7 +116,7 @@ export async function getStaticProps() {
       groq`*[_type == "mfpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`
     );
   } catch (e) {}
-  
+
   return {
     props: await withSettings({
       dayDescriptions,

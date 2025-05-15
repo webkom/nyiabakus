@@ -11,14 +11,12 @@ const structure = (S: StructureBuilder) =>
       S.listItem()
         .title("Site Settings")
         .child(
-          S.document()
-            .schemaType("siteSettings")
-            .documentId("siteSettings")
-      ),
+          S.document().schemaType("siteSettings").documentId("siteSettings")
+        ),
       ...S.documentTypeListItems().filter(
         (listItem) => !["siteSettings"].includes(listItem.getId() ?? "")
       ),
-    ])
+    ]);
 
 export default defineConfig({
   basePath: "/studio",
@@ -29,7 +27,7 @@ export default defineConfig({
 
   plugins: [
     structureTool({
-      structure: structure
+      structure: structure,
     }),
   ],
 

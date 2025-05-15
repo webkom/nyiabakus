@@ -7,22 +7,20 @@ import { Blacklist, Settings } from "./withSettings";
  *
  * @returns List of deserialized Event objects
  */
-export const fetchEvents = async (
-  {
-    fromDate,
-    toDate,
-    blacklist,
-    isTBD,
-  }: Settings & {
-    blacklist: Blacklist
-  }
-) => {
+export const fetchEvents = async ({
+  fromDate,
+  toDate,
+  blacklist,
+  isTBD,
+}: Settings & {
+  blacklist: Blacklist;
+}) => {
   if (isTBD) return [];
   const res = await fetch(
     `https://lego.abakus.no/api/v1/events/?date_after=${fromDate}&date_before=${toDate}`
   );
   const data: ApiResponse<ApiEvent[]> = await res.json();
-  return data.results.filter((event) => !blacklist.includes(event.id))
+  return data.results.filter((event) => !blacklist.includes(event.id));
   // return removeBlackListedEvents(data.results, type);
 };
 

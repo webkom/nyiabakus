@@ -11,24 +11,25 @@ type Meta = {
 
 export enum BlacklistType {
   FP = "fp",
-  MFP = "mfp"
+  MFP = "mfp",
 }
 
-type APISettings = Meta & Settings & {
-  blacklist: Array<{
-    _key: string;
-    id: number;
-    [BlacklistType.FP]: boolean;
-    [BlacklistType.MFP]: boolean;
-  }>;
-};
+type APISettings = Meta &
+  Settings & {
+    blacklist: Array<{
+      _key: string;
+      id: number;
+      [BlacklistType.FP]: boolean;
+      [BlacklistType.MFP]: boolean;
+    }>;
+  };
 
 export type Blacklist = number[];
 
 type Blacklists = {
   [BlacklistType.FP]: Blacklist;
   [BlacklistType.MFP]: Blacklist;
-}
+};
 
 export type Settings = {
   fromDate: string;
@@ -37,11 +38,11 @@ export type Settings = {
   isTBD: boolean;
 };
 /**
-* Fetch SiteSettings from Sanity and dezerialize it to Settings
-*
-* @returns a settings object
-*/
-export async function getSettings(): Promise<Settings | undefined> {
+ * Fetch SiteSettings from Sanity and dezerialize it to Settings
+ *
+ * @returns a settings object
+ */
+export async function getSettings(): Promise<Settings | undefined> {
   let data: APISettings | undefined;
   try {
     data = await sanityClient
@@ -49,19 +50,22 @@ export async function getSettings(): Promise<Settings | undefined> {
       .then((res: APISettings[]) =>
         res.find((item) => item._id === "siteSettings")
       );
-  } catch (e) { }
+  } catch (e) {}
   if (!data) return undefined;
   return {
     ...data,
-    blacklists: data.blacklist.reduce<Blacklists>((acc, item) => {
-      if (item.fp) acc[BlacklistType.FP].push(item.id);
-      if (item.mfp) acc[BlacklistType.MFP].push(item.id);
-      return acc;
-    }, {
+    blacklists: data.blacklist.reduce<Blacklists>(
+      (acc, item) => {
+        if (item.fp) acc[BlacklistType.FP].push(item.id);
+        if (item.mfp) acc[BlacklistType.MFP].push(item.id);
+        return acc;
+      },
+      {
         [BlacklistType.FP]: [],
         [BlacklistType.MFP]: [],
-    }),
-  } 
+      }
+    ),
+  };
 }
 
 /**
