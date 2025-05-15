@@ -52,6 +52,7 @@ const EventsListView: React.FC<EventsListViewProps> = ({
   isLoadingEvents,
   expandDayDescriptionsByDefault,
 }) => {
+  console.log(dayDescriptions)
   const days = useMemo<Day[]>(() => {
     if (events.length === 0 && dayDescriptions.length === 0) return [];
     let firstDate: Date;
