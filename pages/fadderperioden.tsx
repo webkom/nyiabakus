@@ -12,7 +12,7 @@ import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
 import { FACEBOOK_GROUP_FIRSTYEARS, MTDT, MTKOM } from "@/utils/constants";
 import { sanityClient } from "@/utils/sanity";
-import withSettings, { BlacklistType, Settings } from "@/utils/withSettings";
+import getSettings, { BlacklistType, Settings } from "@/utils/settings";
 
 export type DayDescription = {
   date: string;
@@ -125,9 +125,10 @@ export async function getStaticProps() {
     );
   } catch (e) {}
   return {
-    props: await withSettings({
+    props: {
       dayDescriptions,
-    }),
+      settings: await getSettings(),
+    },
   };
 }
 

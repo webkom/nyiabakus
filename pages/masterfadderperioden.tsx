@@ -3,7 +3,7 @@ import InfoSectionWrapper from "@/components/InfoSectionWrapper";
 import { useEffect, useMemo, useState } from "react";
 import EventsListView from "@/components/EventsListView";
 import { deserializeEvents, fetchEvents } from "@/utils/api";
-import { InferGetStaticPropsType, NextPage } from "next";
+import { NextPage } from "next";
 import { ApiEvent } from "@/utils/types";
 import Link from "next/link";
 import { groq } from "next-sanity";
@@ -11,7 +11,7 @@ import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
 import { FACEBOOK_GROUP_FOURTHYEARS, MIDT, MSTCNNS } from "@/utils/constants";
 import { sanityClient } from "@/utils/sanity";
-import withSettings, { BlacklistType, Settings } from "@/utils/withSettings";
+import getSettings, { BlacklistType, Settings } from "@/utils/settings";
 
 export type DayDescription = {
   date: string;
@@ -118,9 +118,10 @@ export async function getStaticProps() {
   } catch (e) {}
 
   return {
-    props: await withSettings({
+    props: {
       dayDescriptions,
-    }),
+      settings: await getSettings(),
+    },
   };
 }
 

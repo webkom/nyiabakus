@@ -37,8 +37,17 @@ export type Settings = {
   blacklists: Blacklists;
   isTBD: boolean;
 };
+
 /**
  * Fetch SiteSettings from Sanity and dezerialize it to Settings
+ *
+ * @example
+ * return {
+ *   props: {
+ *     myProp,
+ *     settings: await getSettings(),
+ *   }),
+ * };
  *
  * @returns a settings object
  */
@@ -83,7 +92,7 @@ export async function getSettings(): Promise<Settings | undefined> {
  * @param props
  * @returns `props` with `settings` (siteSettings defined in sanity)
  */
-async function withSettings<T extends object>(
+export async function withSettings<T extends object>(
   props: T
 ): Promise<T & { settings?: Settings }> {
   return {
@@ -92,4 +101,4 @@ async function withSettings<T extends object>(
   };
 }
 
-export default withSettings;
+export default getSettings;
