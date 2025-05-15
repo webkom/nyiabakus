@@ -12,6 +12,7 @@ import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
 import { FACEBOOK_GROUP_FIRSTYEARS, MTDT, MTKOM } from "@/utils/constants";
 import { sanityClient } from "@/utils/sanity";
+import withSettings, { BlacklistType, Settings } from "@/utils/withSettings";
 
 export type DayDescription = {
   date: string;
@@ -22,16 +23,20 @@ export type DayDescription = {
 
 type EventsProps = {
   dayDescriptions: DayDescription[];
+  settings: Settings;
 };
 
-export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
+export const Events: NextPage<EventsProps> = ({ dayDescriptions, settings }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [apiEvents, setApiEvents] = useState<ApiEvent[]>([]);
   const events = useMemo(() => deserializeEvents(apiEvents), [apiEvents]);
   useEffect(() => {
     (async () => {
       try {
-        const apiEvents = await fetchEvents("fp");
+        const apiEvents = await fetchEvents({
+          ...settings,
+          blacklist: settings.blacklists[BlacklistType.FP]
+        });
         setApiEvents(apiEvents);
       } catch (error) {
         console.error(error);
@@ -101,6 +106,7 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           isLoadingEvents={isLoading}
           events={events}
           dayDescriptions={dayDescriptions}
+          isTBD={settings.isTBD}
         />
       </InfoSectionWrapper>
     </>
@@ -116,9 +122,9 @@ export async function getStaticProps() {
     );
   } catch (e) {}
   return {
-    props: {
+    props: await withSettings({
       dayDescriptions,
-    },
+    }),
   };
 }
 

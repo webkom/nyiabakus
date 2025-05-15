@@ -3,7 +3,7 @@ import InfoSectionWrapper from "@/components/InfoSectionWrapper";
 import { useEffect, useMemo, useState } from "react";
 import EventsListView from "@/components/EventsListView";
 import { deserializeEvents, fetchEvents } from "@/utils/api";
-import { NextPage } from "next";
+import { InferGetStaticPropsType, NextPage } from "next";
 import { ApiEvent } from "@/utils/types";
 import Link from "next/link";
 import { groq } from "next-sanity";
@@ -11,6 +11,7 @@ import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
 import { FACEBOOK_GROUP_FOURTHYEARS, MIDT, MSTCNNS } from "@/utils/constants";
 import { sanityClient } from "@/utils/sanity";
+import withSettings, { BlacklistType, Settings } from "@/utils/withSettings";
 
 export type DayDescription = {
   date: string;
@@ -21,16 +22,20 @@ export type DayDescription = {
 
 type EventsProps = {
   dayDescriptions: DayDescription[];
+  settings: Settings;
 };
 
-export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
+export const Events: NextPage<EventsProps> = ({ dayDescriptions, settings }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [apiEvents, setApiEvents] = useState<ApiEvent[]>([]);
   const events = useMemo(() => deserializeEvents(apiEvents), [apiEvents]);
   useEffect(() => {
     (async () => {
       try {
-        const apiEvents = await fetchEvents("mfp");
+        const apiEvents = await fetchEvents({
+          ...settings,
+          blacklist: settings.blacklists[BlacklistType.MFP]
+        });
         setApiEvents(apiEvents);
       } catch (error) {
         console.error(error);
@@ -93,6 +98,7 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           isLoadingEvents={isLoading}
           events={events}
           dayDescriptions={dayDescriptions}
+          isTBD={settings.isTBD}
         />
       </InfoSectionWrapper>
     </>
@@ -107,10 +113,11 @@ export async function getStaticProps() {
       groq`*[_type == "mfpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`
     );
   } catch (e) {}
+  
   return {
-    props: {
+    props: await withSettings({
       dayDescriptions,
-    },
+    }),
   };
 }
 

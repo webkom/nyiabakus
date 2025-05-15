@@ -1,5 +1,4 @@
 import { DayDescription } from "@/pages/fadderperioden";
-import { isTBD } from "@/utils/api";
 import {
   dateToDayString,
   isSameCalendarDate,
@@ -18,6 +17,7 @@ type EventsListViewProps = {
   dayDescriptions: DayDescription[];
   isLoadingEvents: boolean;
   expandDayDescriptionsByDefault?: boolean;
+  isTBD: boolean;
 };
 
 type Day = {
@@ -51,6 +51,7 @@ const EventsListView: React.FC<EventsListViewProps> = ({
   dayDescriptions,
   isLoadingEvents,
   expandDayDescriptionsByDefault,
+  isTBD,
 }) => {
   const days = useMemo<Day[]>(() => {
     if (events.length === 0 && dayDescriptions.length === 0) return [];
