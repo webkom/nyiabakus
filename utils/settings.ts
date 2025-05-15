@@ -41,17 +41,9 @@ export type Settings = {
 /**
  * Fetch SiteSettings from Sanity and dezerialize it to Settings
  *
- * @example
- * return {
- *   props: {
- *     myProp,
- *     settings: await getSettings(),
- *   }),
- * };
- *
  * @returns a settings object
  */
-export async function getSettings(): Promise<Settings | undefined> {
+export async function getSettings(): Promise<Settings | null> {
   let data: APISettings | undefined;
   try {
     data = await sanityClient
@@ -60,7 +52,7 @@ export async function getSettings(): Promise<Settings | undefined> {
         res.find((item) => item._id === "siteSettings")
       );
   } catch (e) {}
-  if (!data) return undefined;
+  if (!data) return null;
   return {
     ...data,
     blacklists: data.blacklist.reduce<Blacklists>(
@@ -94,11 +86,14 @@ export async function getSettings(): Promise<Settings | undefined> {
  */
 export async function withSettings<T extends object>(
   props: T
-): Promise<T & { settings?: Settings }> {
-  return {
-    ...props,
-    settings: await getSettings(),
-  };
+): Promise<T | (T & { settings: Settings })> {
+  const settings = await getSettings();
+  if (settings)
+    return {
+      ...props,
+      settings,
+    };
+  return props;
 }
 
 export default getSettings;
