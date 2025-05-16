@@ -4,8 +4,6 @@ import styles from "./styles.module.css";
 
 interface LinkProps extends React.ComponentProps<typeof NextLink> {
   children: React.ReactNode;
-  internal?: boolean;
-  external?: boolean;
 }
 
 const internalRegEx = /^(#.*|\/.*|(.*(abakus\.no|localhost:\d)(\/.*)?))$/;
@@ -22,21 +20,18 @@ const internalRegEx = /^(#.*|\/.*|(.*(abakus\.no|localhost:\d)(\/.*)?))$/;
  * - <string>localhost:<digit>
  * - <string>localhost:<digit>/<string>
  *
- * @param external - overrides the above mentioned check (takes precedence over `internal`)
- * @param internal - overrides the above mentioned check
  * @returns a next link with or without icon appended
  */
-export function Link({ children, external, internal, ...props }: LinkProps) {
-  const isExternal =
-    external ?? internal ?? !internalRegEx.test(props.href.toString());
+const Link = ({ children, ...props }: LinkProps) => {
+  const isExternal = !internalRegEx.test(props.href.toString());
   return (
-    <NextLink {...props}>
+    <NextLink target={isExternal ? "_blank" : "_self"} {...props}>
       <span className={styles.children}>
         {children}
         {isExternal && <Icon className={styles.icon} name="open-outline" />}
       </span>
     </NextLink>
   );
-}
+};
 
 export default Link;
