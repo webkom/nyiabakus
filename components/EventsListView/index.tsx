@@ -17,7 +17,7 @@ type EventsListViewProps = {
   dayDescriptions: DayDescription[];
   isLoadingEvents: boolean;
   expandDayDescriptionsByDefault?: boolean;
-  isTBD: boolean;
+  isTBD?: boolean;
 };
 
 type Day = {

@@ -98,7 +98,7 @@ export const Events: NextPage<EventsProps> = ({
           isLoadingEvents={isLoading}
           events={events}
           dayDescriptions={dayDescriptions}
-          isTBD={settings.isTBD}
+          isTBD={settings?.isTBD}
         />
       </InfoSectionWrapper>
     </>

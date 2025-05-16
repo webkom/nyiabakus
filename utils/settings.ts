@@ -18,7 +18,7 @@ type Blacklist = {
 export type Settings = SiteSettings & {
   blacklist: Blacklist;
   isTBD: boolean;
-};
+} | undefined;
 
 /**
  * Fetch SiteSettings from Sanity and dezerialize it to Settings
@@ -29,7 +29,7 @@ export type Settings = SiteSettings & {
  *
  * @returns a settings object
  */
-export async function getSettings(): Promise<Settings | null> {
+export async function getSettings(): Promise<Settings> {
   let data: SiteSettings | undefined;
   try {
     data = await sanityClient
@@ -39,7 +39,7 @@ export async function getSettings(): Promise<Settings | null> {
       );
   } catch (e) {}
 
-  if (!data) return null;
+  if (!data) return;
 
   const emptyBlacklists = {
     [BlacklistType.FP]: [] as number[],
@@ -54,8 +54,6 @@ export async function getSettings(): Promise<Settings | null> {
       }
       return acc;
     }, emptyBlacklists) || emptyBlacklists;
-
-  // delete data.blacklist;
 
   return {
     ...data,
@@ -81,7 +79,7 @@ export async function getSettings(): Promise<Settings | null> {
  */
 export async function withSettings<T extends object>(
   props: T
-): Promise<T | (T & { settings: Settings })> {
+): Promise<T | (T & { settings: Settings | undefined })> {
   const settings = await getSettings();
   if (settings)
     return {

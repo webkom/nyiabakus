@@ -9,9 +9,10 @@ import { BlacklistType, Settings } from "./settings";
  */
 export const fetchEvents = async (
   type: BlacklistType,
-  { fromDate, toDate, blacklist, isTBD }: Settings
+  settings: Settings
 ) => {
-  if (isTBD) return [];
+  if (!settings || settings.isTBD) return [];
+  const { fromDate, toDate, blacklist } = settings;
   const res = await fetch(
     `https://lego.abakus.no/api/v1/events/?date_after=${fromDate}&date_before=${toDate}`
   );
