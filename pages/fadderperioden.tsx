@@ -36,10 +36,7 @@ export const Events: NextPage<EventsProps> = ({
   useEffect(() => {
     (async () => {
       try {
-        const apiEvents = await fetchEvents({
-          ...settings,
-          blacklist: settings.blacklists[BlacklistType.FP],
-        });
+        const apiEvents = await fetchEvents(BlacklistType.FP, settings);
         setApiEvents(apiEvents);
       } catch (error) {
         console.error(error);

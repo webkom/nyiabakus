@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier '**/*.{js,ts,tsx,css,md,yml}' --write",
-    "lint:prettier": "prettier '**/*.{js,css,md,ts,tsx}' --check"
+    "lint:prettier": "prettier '**/*.{js,css,md,ts,tsx}' --check",
+    "sanity:typegen": "sanity schema extract && sanity typegen generate"
   },
   "dependencies": {
     "@portabletext/react": "^3.0.2",

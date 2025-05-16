@@ -1,72 +1,67 @@
 import { groq } from "next-sanity";
 import { sanityClient } from "./sanity";
-
-type Meta = {
-  _id: string;
-  _rev: string;
-  _type: string;
-  _createdAt: string;
-  _updatedAt: string;
-};
+import { SiteSettings } from "@/sanity.types";
 
 export enum BlacklistType {
   FP = "fp",
   MFP = "mfp",
 }
 
-type APISettings = Meta &
-  Settings & {
-    blacklist: Array<{
-      _key: string;
-      id: number;
-      [BlacklistType.FP]: boolean;
-      [BlacklistType.MFP]: boolean;
-    }>;
-  };
-
-export type Blacklist = number[];
-
-type Blacklists = {
-  [BlacklistType.FP]: Blacklist;
-  [BlacklistType.MFP]: Blacklist;
+type Blacklist = {
+  [BlacklistType.FP]: number[];
+  [BlacklistType.MFP]: number[];
 };
 
-export type Settings = {
-  fromDate: string;
-  toDate: string;
-  blacklists: Blacklists;
+/**
+ * SiteSettings with certain properties modified for easier usage
+ */
+export type Settings = SiteSettings & {
+  blacklist: Blacklist;
   isTBD: boolean;
 };
 
 /**
  * Fetch SiteSettings from Sanity and dezerialize it to Settings
  *
+ * Transform certain properties for easier use elsewhere in the app:
+ * - group blacklist into two blacklists for fp and mfp.
+ * - if isTBD is undefined default it to false
+ *
  * @returns a settings object
  */
-export async function getSettings(): Promise<Settings | null> {
-  let data: APISettings | undefined;
+export async function getSettings(): Promise<Settings | null> {
+  let data: SiteSettings | undefined;
   try {
     data = await sanityClient
       .fetch(groq`*[_type == "siteSettings"]`)
-      .then((res: APISettings[]) =>
+      .then((res: SiteSettings[]) =>
         res.find((item) => item._id === "siteSettings")
       );
   } catch (e) {}
+
   if (!data) return null;
-  return {
-    ...data,
-    blacklists: data.blacklist.reduce<Blacklists>(
-      (acc, item) => {
+
+  const emptyBlacklists = {
+    [BlacklistType.FP]: [] as number[],
+    [BlacklistType.MFP]: [] as number[],
+  };
+
+  const modifiedBlacklist =
+    data.blacklist?.reduce<Blacklist>((acc, item) => {
+      if (item.id) {
         if (item.fp) acc[BlacklistType.FP].push(item.id);
         if (item.mfp) acc[BlacklistType.MFP].push(item.id);
-        return acc;
-      },
-      {
-        [BlacklistType.FP]: [],
-        [BlacklistType.MFP]: [],
       }
-    ),
-  };
+      return acc;
+    }, emptyBlacklists) || emptyBlacklists;
+
+  // delete data.blacklist;
+
+  return {
+    ...data,
+    blacklist: modifiedBlacklist,
+    isTBD: !!data.isTBD,
+  } as Settings;
 }
 
 /**
