@@ -1,47 +1,23 @@
 import { ApiEvent, ApiResponse, Event } from "./types";
-
-export const isTBD = false;
-
-const fromDate = "2024-08-12"; // First day of FP
-const toDate = "2024-09-2"; // One day after Immball
-
-// For events in the time period that are not included in FP
-const blackListedEventIds: number[] = [3693, 3702, 3695, 3670, 3678];
-const specificBlackListedEventIds = {
-  fp: [3698] as number[],
-  mfp: [3697, 3700, 3705, 3643, 3661, 3659, 3655] as number[],
-};
-
-/**
- * Remove events from the list that are not included in FP
- *
- * @param apiEvents Complete list of ApiEvent objects
- * @returns Filtered list of ApiEvent objects
- */
-export const removeBlackListedEvents = (
-  apiEvents: ApiEvent[],
-  type: keyof typeof specificBlackListedEventIds
-) =>
-  apiEvents.filter(
-    (apiEvent) =>
-      !blackListedEventIds.includes(apiEvent.id) &&
-      !specificBlackListedEventIds[type].includes(apiEvent.id)
-  );
+import { BlacklistType, Settings } from "./settings";
 
 /**
  * Fetch list of events from LEGO API
+ * Filters out blacklisted events
  *
  * @returns List of deserialized Event objects
  */
 export const fetchEvents = async (
-  type: keyof typeof specificBlackListedEventIds
+  type: BlacklistType,
+  settings: Settings
 ) => {
-  if (isTBD) return [];
+  if (!settings || settings.isTBD) return [];
+  const { fromDate, toDate, blacklist } = settings;
   const res = await fetch(
     `https://lego.abakus.no/api/v1/events/?date_after=${fromDate}&date_before=${toDate}`
   );
   const data: ApiResponse<ApiEvent[]> = await res.json();
-  return removeBlackListedEvents(data.results, type);
+  return data.results.filter((event) => !blacklist[type].includes(event.id));
 };
 
 /**
