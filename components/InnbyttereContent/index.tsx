@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import { MTDT, MTKOM } from "@/utils/constants";
 import Card from "@/components/Card";
 import Icon from "@/components/Icon";
+import Link from "@/components/Link";
 
 const InnbyttereContent: React.FC = () => {
   return (
@@ -16,9 +17,9 @@ const InnbyttereContent: React.FC = () => {
         <p>
           Her finner du informasjon som kan være nyttig for deg som innbytter.
           Hvis du lurer på noe mer, er det bare å ta kontakt med{" "}
-          <a href="mailto:prosjekt-innbyttere@abakus.no">
+          <Link href="mailto:prosjekt-innbyttere@abakus.no">
             prosjekt-innbyttere@abakus.no
-          </a>
+          </Link>
           .
         </p>
       </InfoSectionWrapper>

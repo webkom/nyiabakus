@@ -5,7 +5,7 @@ import EventsListView from "@/components/EventsListView";
 import { deserializeEvents, fetchEvents } from "@/utils/api";
 import { NextPage } from "next";
 import { ApiEvent } from "@/utils/types";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { groq } from "next-sanity";
 import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
@@ -55,13 +55,13 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           instituttet/fakultetet. For å være sikker på at du ikke går glipp av
           noe, sjekk ut NTNU sin side som hører til ditt studie;
           <br />
-          <a href="https://www.ntnu.no/studier/mstcnns">
+          <Link href="https://www.ntnu.no/studier/mstcnns">
             2-årig: {MSTCNNS.name} ({MSTCNNS.shorthand})
-          </a>{" "}
+          </Link>{" "}
           <br />
-          <a href="https://www.ntnu.no/studier/midt">
+          <Link href="https://www.ntnu.no/studier/midt">
             2-årig: {MIDT.name} ({MIDT.shorthand})
-          </a>
+          </Link>
         </p>
         <p>
           Fadderperioden for {MIDT.name} og {MSTCNNS.name} er arrangert av
@@ -72,9 +72,9 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           For å bli med må du møte opp på immatrikuleringen, hvor du blir
           plassert i en faddergruppe og får mer informasjon. Hvis du ikke får
           møtt opp, send en epost til{" "}
-          <a href="mailto:masterfadderperioden@abakus.no">
+          <Link href="mailto:masterfadderperioden@abakus.no">
             masterfadderperioden@abakus.no
-          </a>{" "}
+          </Link>{" "}
           for å få en faddergruppe.
         </p>
         <p>Oppmøte for {MIDT.name}: 12.15 i H1, Hovedbygget</p>
@@ -84,7 +84,9 @@ export const Events: NextPage<EventsProps> = ({ dayDescriptions }) => {
           {FACEBOOK_GROUP_FOURTHYEARS === "" ? (
             "TBD"
           ) : (
-            <a href={FACEBOOK_GROUP_FOURTHYEARS}>facebook.com/groups/...</a>
+            <Link href={FACEBOOK_GROUP_FOURTHYEARS}>
+              facebook.com/groups/...
+            </Link>
           )}
         </p>
       </InfoSectionWrapper>

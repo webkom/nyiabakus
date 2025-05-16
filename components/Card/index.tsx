@@ -1,5 +1,5 @@
 import Icon from "@/components/Icon";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { PropsWithChildren } from "react";
 import Button from "../Button";
 import styles from "./styles.module.css";
