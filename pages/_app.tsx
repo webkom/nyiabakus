@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Ny i Abakus</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         {!router.asPath.includes("studio") && <Navbar />}
