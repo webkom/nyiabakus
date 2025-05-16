@@ -11,7 +11,7 @@ import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
 import { FACEBOOK_GROUP_FOURTHYEARS, MIDT, MSTCNNS } from "@/utils/constants";
 import { sanityClient } from "@/utils/sanity";
-import { BlacklistType, Settings, withSettings } from "@/utils/settings";
+import getSettings, { BlacklistType, Settings } from "@/utils/settings";
 
 export type DayDescription = {
   date: string;
@@ -113,11 +113,13 @@ export async function getStaticProps() {
       groq`*[_type == "mfpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`
     );
   } catch (e) {}
-
+  
+  const settings = await getSettings();
   return {
-    props: await withSettings({
+    props: {
       dayDescriptions,
-    }),
+      settings,
+    },
   };
 }
 

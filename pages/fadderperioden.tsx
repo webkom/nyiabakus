@@ -12,7 +12,7 @@ import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
 import { FACEBOOK_GROUP_FIRSTYEARS, MTDT, MTKOM } from "@/utils/constants";
 import { sanityClient } from "@/utils/sanity";
-import getSettings, { BlacklistType, Settings, withSettings } from "@/utils/settings";
+import getSettings, { BlacklistType, Settings } from "@/utils/settings";
 
 export type DayDescription = {
   date: string;
