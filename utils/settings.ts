@@ -1,5 +1,5 @@
 import { groq } from "next-sanity";
-import { sanityClient } from "./sanity";
+import { sanityClient, sanityFetch } from "./sanity";
 import { SiteSettings } from "@/sanity.types";
 
 export enum BlacklistType {
@@ -32,11 +32,11 @@ export type Settings = SiteSettings & {
 export async function getSettings(): Promise<Settings> {
   let data: SiteSettings | undefined;
   try {
-    data = await sanityClient
-      .fetch(groq`*[_type == "siteSettings"]`)
-      .then((res: SiteSettings[]) =>
-        res.find((item) => item._id === "siteSettings")
-      );
+    data = await sanityFetch({
+      query: groq`*[_type == "siteSettings"]`,
+    }).then((res: SiteSettings[]) =>
+      res.find((item) => item._id === "siteSettings")
+    );
   } catch (e) {}
 
   if (!data) return null;
@@ -64,7 +64,7 @@ export async function getSettings(): Promise<Settings> {
 
 /**
  * Inject settings into a props object
- * Intended to be used in eg. `getServerSideProps()` to also be able to access siteSettings
+ * Intended to be used in eg. `getStaticProps()` to also be able to access siteSettings
  *
  * @example
  * // returns { props: { myProp, settings } }
