@@ -117,7 +117,7 @@ export const Events: NextPage<EventsProps> = ({
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   let dayDescriptions: DayDescription[] = [];
   try {
     const currentYear = new Date().getFullYear();

@@ -64,7 +64,7 @@ export async function getSettings(): Promise<Settings> {
 
 /**
  * Inject settings into a props object
- * Intended to be used in eg. `getStaticProps()` to also be able to access siteSettings
+ * Intended to be used in eg. `getServerSideProps()` to also be able to access siteSettings
  *
  * @example
  * // returns { props: { myProp, settings } }
