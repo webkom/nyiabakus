@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
 import Card, { CardData, CardWrapper } from "@/components/Card";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 const InfoSectionStudy = () => {
   return (

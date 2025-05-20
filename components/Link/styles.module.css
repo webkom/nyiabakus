@@ -1,0 +1,9 @@
+.icon {
+  display: inline-flex;
+}
+
+.children {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
