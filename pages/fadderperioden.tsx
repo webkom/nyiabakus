@@ -11,7 +11,7 @@ import { groq } from "next-sanity";
 import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
 import { FACEBOOK_GROUP_FIRSTYEARS, MTDT, MTKOM } from "@/utils/constants";
-import { sanityClient, sanityFetch } from "@/utils/sanity";
+import { sanityFetch } from "@/utils/sanity";
 import getSettings, { BlacklistType, Settings } from "@/utils/settings";
 
 export type DayDescription = {

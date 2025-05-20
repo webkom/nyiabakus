@@ -1,5 +1,5 @@
 import { groq } from "next-sanity";
-import { sanityClient, sanityFetch } from "./sanity";
+import { sanityFetch } from "./sanity";
 import { SiteSettings } from "@/sanity.types";
 
 export enum BlacklistType {
