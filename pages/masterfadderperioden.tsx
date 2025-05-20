@@ -10,7 +10,7 @@ import { groq } from "next-sanity";
 import { TypedObject } from "sanity";
 import { FPGroups } from "@/schemas/dayDescription";
 import { FACEBOOK_GROUP_FOURTHYEARS, MIDT, MSTCNNS } from "@/utils/constants";
-import { sanityFetch } from "@/utils/sanity";
+import { sanityClient } from "@/utils/sanity";
 import getSettings, { BlacklistType, Settings } from "@/utils/settings";
 
 export type DayDescription = {
@@ -111,17 +111,18 @@ export async function getStaticProps() {
   let dayDescriptions: DayDescription[] = [];
   try {
     const currentYear = new Date().getFullYear();
-    dayDescriptions = await sanityFetch({
-      query: groq`*[_type == "mfpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`,
-    });
+    dayDescriptions = await sanityClient.fetch(
+      groq`*[_type == "mfpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`
+    );
   } catch (e) {}
-
+  
   const settings = await getSettings();
   return {
     props: {
       dayDescriptions,
       settings,
     },
+    revalidate: 60,
   };
 }
 

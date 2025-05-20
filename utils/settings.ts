@@ -1,5 +1,5 @@
 import { groq } from "next-sanity";
-import { sanityFetch } from "./sanity";
+import { sanityClient } from "./sanity";
 import { SiteSettings } from "@/sanity.types";
 
 export enum BlacklistType {
@@ -32,11 +32,11 @@ export type Settings = SiteSettings & {
 export async function getSettings(): Promise<Settings> {
   let data: SiteSettings | undefined;
   try {
-    data = await sanityFetch({
-      query: groq`*[_type == "siteSettings"]`,
-    }).then((res: SiteSettings[]) =>
-      res.find((item) => item._id === "siteSettings")
-    );
+    data = await sanityClient
+      .fetch(groq`*[_type == "siteSettings"]`)
+      .then((res: SiteSettings[]) =>
+        res.find((item) => item._id === "siteSettings")
+      );
   } catch (e) {}
 
   if (!data) return null;
