@@ -122,6 +122,7 @@ export async function getStaticProps() {
       dayDescriptions,
       settings,
     },
+    revalidate: 60,
   };
 }
 

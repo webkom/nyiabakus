@@ -10,5 +10,5 @@ export const sanityClient = createClient({
   dataset,
   token,
   apiVersion, // https://www.sanity.io/docs/api-versioning
-  useCdn: false,
+  useCdn: true, // https://www.sanity.io/docs/apis-and-sdks/asset-cdn
 });
