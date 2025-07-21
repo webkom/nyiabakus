@@ -82,22 +82,22 @@ const generalFaqItems: FaqItem[] = [
         <p>
           Leder av Abakus:
           <br />
-          Kristoffer Krogh Wetterhus, 958 04 396, kristoffer.wetterhus@abakus.no
+          Torjus Østensen, 46744072, torjus.ostensen@abakus.no
         </p>
         <p>
           Leder av Arrangementskomiteen til Abakus:
           <br />
-          Kaisa Øyre Larsen, 916 41 758, kaisa.larsen@abakus.no
-        </p>
-        <p>
-          Ansvarlig for kommunikasjon med faddere og fadderbarn:
-          <br />
-          Sven Jansen, 416 02 761, sven.jansen@abakus.no
-        </p>
-        <p>
-          Ansvarlig for kommunikasjon med faddere og fadderbarn:
-          <br />
           Leo Lie McGrath, 407 81 818, leo.mcgrath@abakus.no
+        </p>
+        <p>
+          Ansvarlig for kommunikasjon med faddere og fadderbarn:
+          <br />
+          Andrea Udnæs, 411 31 432, andrea.udnaes@abakus.no
+        </p>
+        <p>
+          Ansvarlig for kommunikasjon med faddere og fadderbarn:
+          <br />
+          Eivind Geiran, 983 04 768, eivind.geiran@abakus.no 
         </p>
       </div>
     ),
