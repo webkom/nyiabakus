@@ -18,7 +18,7 @@ type Blacklist = {
 export type Settings = SiteSettings & {
   blacklist: Blacklist;
   isTBD: boolean;
-} | null;
+} | null;
 
 /**
  * Fetch SiteSettings from Sanity and dezerialize it to Settings
