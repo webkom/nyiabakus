@@ -15,12 +15,12 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem 2rem;
 }
 
 @media (min-width: 900px) {
   .membersContainer {
-    gap: 3.5rem;
+    gap: 1.5rem 3.5rem;
   }
 }
 
