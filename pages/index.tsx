@@ -6,8 +6,15 @@ import InfoSectionStudy from "@/components/InfoSectionStudy";
 import InfoSectionStudentPub from "@/components/InfoSectionStudentPub";
 import QuickLinks from "@/components/QuickLinks";
 import HeaderCards from "@/components/Header/HeaderCards";
+import getTaskforce from "@/utils/taskforce";
+import { Taskforce } from "@/sanity.types";
+import InfoSectionTaskforce from "@/components/InfoSectionTaskForce";
 
-export default function Home() {
+type HomeProps = {
+  taskforce: Taskforce | null;
+};
+
+export default function Home({ taskforce }: HomeProps) {
   return (
     <>
       <Header />
@@ -17,7 +24,18 @@ export default function Home() {
       <InfoSectionTrondheim />
       <InfoSectionFP />
       <InfoSectionStudentPub />
+      <InfoSectionTaskforce taskforce={taskforce} />
       <InfoSectionStudy />
     </>
   );
+}
+
+
+export async function getStaticProps() {
+  return {
+    props: {
+      taskforce: await getTaskforce(),
+    },
+    revalidate: 60,
+  };
 }
