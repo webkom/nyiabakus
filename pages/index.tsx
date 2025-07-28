@@ -6,7 +6,7 @@ import InfoSectionStudy from "@/components/InfoSectionStudy";
 import InfoSectionStudentPub from "@/components/InfoSectionStudentPub";
 import QuickLinks from "@/components/QuickLinks";
 import HeaderCards from "@/components/Header/HeaderCards";
-import getTaskforce from "@/studio/api/taskforce";
+import getTaskforce from "@/studio/queries/taskforce";
 import { Taskforce } from "@/studio/generated/sanity.types";
 import InfoSectionTaskforce from "@/components/InfoSectionTaskForce";
 

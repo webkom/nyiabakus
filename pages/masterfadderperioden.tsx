@@ -9,8 +9,8 @@ import Link from "@/components/Link";
 import { TypedObject } from "sanity";
 import { FPGroups } from "@/studio/schemas/dayDescription";
 import { FACEBOOK_GROUP_FOURTHYEARS, MIDT, MSTCNNS } from "@/utils/constants";
-import getSettings, { BlacklistType, Settings } from "@/studio/api/settings";
-import { getMfpDayDescriptions } from "@/studio/api/dayDescriptions";
+import getSettings, { BlacklistType, Settings } from "@/studio/queries/settings";
+import { getMfpDayDescriptions } from "@/studio/queries/dayDescriptions";
 
 export type DayDescription = {
   date: string;

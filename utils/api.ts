@@ -1,5 +1,5 @@
 import { ApiEvent, ApiResponse, Event } from "@/utils/types";
-import { BlacklistType, Settings } from "@/studio/api/settings";
+import { BlacklistType, Settings } from "@/studio/queries/settings";
 
 /**
  * Fetch list of events from LEGO API
