@@ -1,5 +1,5 @@
-import { Taskforce } from './../sanity.types';
-import { sanityClient } from './sanity';
+import { Taskforce } from '../generated/sanity.types';
+import { sanityClient } from './client';
 import { groq } from 'next-sanity';
 
 

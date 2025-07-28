@@ -6,8 +6,8 @@ import InfoSectionStudy from "@/components/InfoSectionStudy";
 import InfoSectionStudentPub from "@/components/InfoSectionStudentPub";
 import QuickLinks from "@/components/QuickLinks";
 import HeaderCards from "@/components/Header/HeaderCards";
-import getTaskforce from "@/utils/taskforce";
-import { Taskforce } from "@/sanity.types";
+import getTaskforce from "@/studio/api/taskforce";
+import { Taskforce } from "@/studio/generated/sanity.types";
 import InfoSectionTaskforce from "@/components/InfoSectionTaskForce";
 
 type HomeProps = {

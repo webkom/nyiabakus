@@ -12,3 +12,13 @@ export const sanityClient = createClient({
   apiVersion, // https://www.sanity.io/docs/api-versioning
   useCdn: true, // https://www.sanity.io/docs/apis-and-sdks/asset-cdn
 });
+
+export const genericFetch = async <T>(query: string, params: Record<string, any> = {}): Promise<T> => {
+  try {
+    const data = await sanityClient.fetch<T>(query, params);
+    return data;
+  } catch (error) {
+    console.error("Error fetching data from Sanity:", error);
+    throw error;
+  }
+}

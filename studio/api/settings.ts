@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
-import { sanityClient } from "./sanity";
-import { SiteSettings } from "@/sanity.types";
+import { sanityClient } from "./client";
+import { SiteSettings } from "@/studio/generated/sanity.types";
 
 export enum BlacklistType {
   FP = "fp",

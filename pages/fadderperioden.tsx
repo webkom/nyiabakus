@@ -9,10 +9,10 @@ import Link from "@/components/Link";
 import FullscreenImage from "@/components/FullscreenImage";
 import { groq } from "next-sanity";
 import { TypedObject } from "sanity";
-import { FPGroups } from "@/schemas/dayDescription";
+import { FPGroups } from "@/studio/schemas/dayDescription";
 import { FACEBOOK_GROUP_FIRSTYEARS, MTDT, MTKOM } from "@/utils/constants";
-import { sanityClient } from "@/utils/sanity";
-import getSettings, { BlacklistType, Settings } from "@/utils/settings";
+import { sanityClient } from "@/studio/api/client";
+import getSettings, { BlacklistType, Settings } from "@/studio/api/settings";
 
 export type DayDescription = {
   date: string;
