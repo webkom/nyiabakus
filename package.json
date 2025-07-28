@@ -9,7 +9,7 @@
     "lint": "next lint",
     "prettier": "prettier '**/*.{js,ts,tsx,css,md,yml}' --write",
     "lint:prettier": "prettier '**/*.{js,css,md,ts,tsx}' --check",
-    "sanity:generate-schema": "sanity schema extract --path ./studio/generated/sanity-schema.json",
+    "sanity:generate-schema": "sanity schema extract --path ./studio/generated/sanity-schema.json --enforce-required-fields",
     "sanity:generate-types": "sanity typegen generate --config-path ./studio/sanity-typegen.json",
     "sanity:typegen": "yarn sanity:generate-schema && yarn sanity:generate-types"
     },

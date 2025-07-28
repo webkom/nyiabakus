@@ -70,7 +70,7 @@ export type Geopoint = {
 
 export type Slug = {
   _type: "slug";
-  current?: string;
+  current: string;
   source?: string;
 };
 
@@ -81,8 +81,8 @@ export type Taskforce = {
   _updatedAt: string;
   _rev: string;
   members?: Array<{
-    name?: string;
-    role?: "leader" | "viceLeader" | "member";
+    name: string;
+    role: "leader" | "viceLeader" | "member";
     picture?: {
       asset?: {
         _ref: string;
@@ -168,7 +168,7 @@ export type SiteSettings = {
   fromDate?: string;
   toDate?: string;
   blacklist?: Array<{
-    id?: number;
+    id: number;
     fp?: boolean;
     mfp?: boolean;
     _key: string;
@@ -181,8 +181,8 @@ export type MfpDayDescription = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  date?: string;
-  content?: Array<{
+  date: string;
+  content: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -208,8 +208,8 @@ export type FpDayDescription = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  date?: string;
-  content?: Array<{
+  date: string;
+  content: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -231,7 +231,7 @@ export type FpDayDescription = {
 
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Taskforce | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SiteSettings | MfpDayDescription | FpDayDescription;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ./studio/api/dayDescriptions.ts
+// Source: ./studio/queries/dayDescriptions.ts
 // Variable: fetchFpDayDescriptions
 // Query: *[_type == "fpDayDescription" && date > $startDate] | order(date asc)
 export type FetchFpDayDescriptionsResult = Array<{
@@ -240,8 +240,36 @@ export type FetchFpDayDescriptionsResult = Array<{
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  date?: string;
-  content?: Array<{
+  date: string;
+  content: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+}>;
+// Variable: fetchMfpDayDescriptions
+// Query: *[_type == "mfpDayDescription" && date > $startDate] | order(date asc)
+export type FetchMfpDayDescriptionsResult = Array<{
+  _id: string;
+  _type: "mfpDayDescription";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  date: string;
+  content: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -261,10 +289,63 @@ export type FetchFpDayDescriptionsResult = Array<{
   }>;
 }>;
 
+// Source: ./studio/queries/settings.ts
+// Variable: fetchSiteSettings
+// Query: *[_type == "siteSettings"][0]
+export type FetchSiteSettingsResult = {
+  _id: string;
+  _type: "siteSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  isTBD?: boolean;
+  fromDate?: string;
+  toDate?: string;
+  blacklist?: Array<{
+    id: number;
+    fp?: boolean;
+    mfp?: boolean;
+    _key: string;
+  }>;
+} | null;
+
+// Source: ./studio/queries/taskforce.ts
+// Variable: fetchTaskforce
+// Query: *[_type == "taskforce"][0]
+export type FetchTaskforceResult = {
+  _id: string;
+  _type: "taskforce";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  members?: Array<{
+    name: string;
+    role: "leader" | "member" | "viceLeader";
+    picture?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _type: "member";
+    _key: string;
+  }>;
+  description?: string;
+} | null;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"fpDayDescription\" && date > $startDate] | order(date asc)": FetchFpDayDescriptionsResult;
+    "*[_type == \"mfpDayDescription\" && date > $startDate] | order(date asc)": FetchMfpDayDescriptionsResult;
+    "*[_type == \"siteSettings\"][0]": FetchSiteSettingsResult;
+    "*[_type == \"taskforce\"][0]": FetchTaskforceResult;
   }
 }

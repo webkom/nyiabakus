@@ -1,4 +1,3 @@
-import { DayDescription } from "@/pages/fadderperioden";
 import {
   dateToDayString,
   isSameCalendarDate,
@@ -11,10 +10,11 @@ import { useMemo } from "react";
 import CollapsibleItem from "./CollapsibleItem";
 import EventItem from "./EventItem";
 import styles from "./styles.module.css";
+import { FpDayDescription, MfpDayDescription } from "@/studio/generated/sanity.types";
 
 type EventsListViewProps = {
   events: Event[];
-  dayDescriptions: DayDescription[];
+  dayDescriptions: (FpDayDescription | MfpDayDescription)[];
   isLoadingEvents: boolean;
   expandDayDescriptionsByDefault?: boolean;
   isTBD?: boolean;
@@ -23,7 +23,7 @@ type EventsListViewProps = {
 type Day = {
   title: string;
   events: Event[];
-  description?: DayDescription;
+  description?: (FpDayDescription | MfpDayDescription);
 };
 
 const components: PortableTextComponents = {
@@ -125,7 +125,7 @@ const EventsListView: React.FC<EventsListViewProps> = ({
       {days.map((day) => (
         <div key={day.title}>
           <p className={styles.dayTitle}>{day.title}</p>
-          {day.description && (
+          {day.description?.content && (
             <CollapsibleItem
               title=""
               minHeight={expandDayDescriptionsByDefault ? undefined : "60px"}

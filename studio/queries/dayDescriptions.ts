@@ -1,28 +1,26 @@
-import { groq } from "next-sanity";
+import { defineQuery, groq } from "next-sanity";
 import { sanityClient } from "./client";
-import { DayDescription } from "@/pages/fadderperioden";
 
+const fetchFpDayDescriptions = defineQuery(
+  `*[_type == "fpDayDescription" && date > $startDate] | order(date asc)`
+);
 
-export async function getFpDayDescriptions(): Promise<DayDescription[]> {
-    let dayDescriptions: DayDescription[] = [];
-  try {
-    const currentYear = new Date().getFullYear();
-    dayDescriptions = await sanityClient.fetch(
-      groq`*[_type == "fpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`
-    );
-  } catch (e) {}
+const fetchMfpDayDescriptions = defineQuery(
+  `*[_type == "mfpDayDescription" && date > $startDate] | order(date asc)`
+);
 
-  return dayDescriptions;
+export async function getFpDayDescriptions() {
+  const currentYear = new Date().getFullYear();
+  return await sanityClient
+    .fetch(fetchFpDayDescriptions, {
+      startDate: `${currentYear}-01-01`,
+    })
 }
 
-export async function getMfpDayDescriptions(): Promise<DayDescription[]> {
-  let dayDescriptions: DayDescription[] = [];
-  try {
-    const currentYear = new Date().getFullYear();
-    dayDescriptions = await sanityClient.fetch(
-      groq`*[_type == "mfpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`
-    );
-  } catch (e) {}
-
-  return dayDescriptions;
+export async function getMfpDayDescriptions() {
+  const currentYear = new Date().getFullYear();
+  return await sanityClient
+    .fetch(fetchMfpDayDescriptions, {
+      startDate: `${currentYear}-01-01`,
+    })
 }
