@@ -6,13 +6,11 @@ import { deserializeEvents, fetchEvents } from "@/utils/api";
 import { NextPage } from "next";
 import { ApiEvent } from "@/utils/types";
 import Link from "@/components/Link";
-import FullscreenImage from "@/components/FullscreenImage";
-import { groq } from "next-sanity";
 import { TypedObject } from "sanity";
 import { FPGroups } from "@/studio/schemas/dayDescription";
 import { FACEBOOK_GROUP_FIRSTYEARS, MTDT, MTKOM } from "@/utils/constants";
-import { sanityClient } from "@/studio/api/client";
 import getSettings, { BlacklistType, Settings } from "@/studio/api/settings";
+import { getFpDayDescriptions } from "@/studio/api/dayDescriptions";
 
 export type DayDescription = {
   date: string;
@@ -118,13 +116,7 @@ export const Events: NextPage<EventsProps> = ({
 };
 
 export async function getStaticProps() {
-  let dayDescriptions: DayDescription[] = [];
-  try {
-    const currentYear = new Date().getFullYear();
-    dayDescriptions = await sanityClient.fetch(
-      groq`*[_type == "fpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`
-    );
-  } catch (e) {}
+  const dayDescriptions = await getFpDayDescriptions()
   const settings = await getSettings();
   return {
     props: {
