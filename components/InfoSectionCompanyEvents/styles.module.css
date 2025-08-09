@@ -1,0 +1,34 @@
+.companyEventsSection {
+  padding: 3vw 0;
+  margin: 2em 0;
+  background-color: var(--course-blue);
+  transform: skew(0, -2deg);
+}
+
+.companyEventsSectionContent {
+  transform: skew(0, 2deg);
+}
+
+.title {
+  width: 100%;
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: xx-large;
+}
+
+.companyEventsSection * p {
+  margin: 0.3em 0;
+}
+
+.textWrapper {
+  display: flex;
+  max-width: 100%;
+  min-width: 200px;
+  flex-direction: column;
+  word-break: break-word;
+  hyphens: auto;
+  justify-content: center;
+  text-align: left;
+}

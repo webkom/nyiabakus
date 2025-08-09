@@ -1,5 +1,6 @@
 import InfoSectionTrondheim from "@/components/InfoSectionTrondheim";
 import Header from "@/components/Header";
+import InfoSectionCompanyEvents from "@/components/InfoSectionCompanyEvents";
 import InfoSectionPreparation from "@/components/InfoSectionPreparation";
 import InfoSectionFP from "@/components/InfoSectionFP";
 import InfoSectionStudy from "@/components/InfoSectionStudy";
@@ -20,6 +21,7 @@ export default function Home({ taskforce }: HomeProps) {
       <HeaderCards />
       <InfoSectionPreparation />
       <InfoSectionTrondheim />
+      <InfoSectionCompanyEvents />
       <InfoSectionFP />
       <InfoSectionStudentPub />
       <InfoSectionTaskforce taskforce={taskforce} />
@@ -27,7 +29,6 @@ export default function Home({ taskforce }: HomeProps) {
     </>
   );
 }
-
 
 export async function getStaticProps() {
   return {
