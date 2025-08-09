@@ -5,7 +5,7 @@ import Link from "@/components/Link";
 const InfoSectionCompanyEvents = () => {
   return (
     <InfoSectionWrapper
-      id="labamba"
+      id="company-events"
       className={styles.companyEventsSection}
       contentClassName={styles.companyEventsSectionContent}
     >
