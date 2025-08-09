@@ -6,13 +6,11 @@ import InfoSectionStudy from "@/components/InfoSectionStudy";
 import InfoSectionStudentPub from "@/components/InfoSectionStudentPub";
 import QuickLinks from "@/components/QuickLinks";
 import HeaderCards from "@/components/Header/HeaderCards";
-import getTaskforce from "@/utils/taskforce";
-import { Taskforce } from "@/sanity.types";
+import getTaskforce from "@/studio/queries/taskforce";
 import InfoSectionTaskforce from "@/components/InfoSectionTaskForce";
+import { InferGetStaticPropsType } from "next";
 
-type HomeProps = {
-  taskforce: Taskforce | null;
-};
+type HomeProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function Home({ taskforce }: HomeProps) {
   return (

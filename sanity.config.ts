@@ -1,30 +1,8 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
-import { schemaTypes } from "./schemas";
-import { dataset, projectId } from "./utils/sanity";
-import { StructureBuilder } from "sanity/structure";
-
-const structure = (S: StructureBuilder) =>
-  S.list()
-    .title("Ny i Abakus")
-    .items([
-      // Single document for site settings
-      S.listItem()
-        .title("Site Settings")
-        .child(
-          S.document().schemaType("siteSettings").documentId("siteSettings")
-        ),
-      // Single document for taskforce
-      S.listItem()
-        .title("Taskforce")
-        .child(
-          S.document().schemaType("taskforce").documentId("taskforce")
-        ),
-      // All other document types except siteSettings and taskforce
-      ...S.documentTypeListItems().filter(
-        (listItem) => !["siteSettings", "taskforce"].includes(listItem.getId() ?? "")
-      ),
-    ]);
+import { schemaTypes } from "@/studio/schemas";
+import { dataset, projectId } from "@/studio/queries/client";
+import { structure } from "@/studio/sanity-structure";
 
 export default defineConfig({
   basePath: "/studio",
@@ -35,7 +13,7 @@ export default defineConfig({
 
   plugins: [
     structureTool({
-      structure: structure,
+      structure,
     }),
   ],
 

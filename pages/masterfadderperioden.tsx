@@ -3,27 +3,14 @@ import InfoSectionWrapper from "@/components/InfoSectionWrapper";
 import { useEffect, useMemo, useState } from "react";
 import EventsListView from "@/components/EventsListView";
 import { deserializeEvents, fetchEvents } from "@/utils/api";
-import { NextPage } from "next";
+import { InferGetStaticPropsType, NextPage } from "next";
 import { ApiEvent } from "@/utils/types";
 import Link from "@/components/Link";
-import { groq } from "next-sanity";
-import { TypedObject } from "sanity";
-import { FPGroups } from "@/schemas/dayDescription";
 import { FACEBOOK_GROUP_FOURTHYEARS, MIDT, MSTCNNS } from "@/utils/constants";
-import { sanityClient } from "@/utils/sanity";
-import getSettings, { BlacklistType, Settings } from "@/utils/settings";
+import getSettings, { BlacklistType } from "@/studio/queries/settings";
+import { getMfpDayDescriptions } from "@/studio/queries/dayDescriptions";
 
-export type DayDescription = {
-  date: string;
-  title: string;
-  content: TypedObject[];
-  fpGroup?: (typeof FPGroups)[number]["value"];
-};
-
-type EventsProps = {
-  dayDescriptions: DayDescription[];
-  settings: Settings;
-};
+type EventsProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const Events: NextPage<EventsProps> = ({
   dayDescriptions,
@@ -108,19 +95,10 @@ export const Events: NextPage<EventsProps> = ({
 };
 
 export async function getStaticProps() {
-  let dayDescriptions: DayDescription[] = [];
-  try {
-    const currentYear = new Date().getFullYear();
-    dayDescriptions = await sanityClient.fetch(
-      groq`*[_type == "mfpDayDescription" && date > '${currentYear}-01-01'] | order(date asc)`
-    );
-  } catch (e) {}
-  
-  const settings = await getSettings();
   return {
     props: {
-      dayDescriptions,
-      settings,
+      dayDescriptions: await getMfpDayDescriptions(),
+      settings: await getSettings(),
     },
     revalidate: 60,
   };

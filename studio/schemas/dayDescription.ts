@@ -1,3 +1,5 @@
+import { Rule } from "sanity";
+
 export const FPGroups = [
   { title: "2-årig", value: "2_YEAR" },
   { title: "5-årig", value: "5_YEAR" },
@@ -32,12 +34,14 @@ const baseSchema = {
       name: "date",
       type: "date",
       title: "Dato",
+      validation: (rule: Rule) => rule.required(),
     },
     {
       title: "Innhold",
       name: "content",
       type: "array",
       of: [{ type: "block" }],
+      validation: (rule: Rule) => rule.required(),
     },
   ],
   orderings: [

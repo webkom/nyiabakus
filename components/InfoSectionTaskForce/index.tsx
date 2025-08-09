@@ -1,7 +1,7 @@
 import InfoSectionWrapper from "../InfoSectionWrapper";
 import styles from "./styles.module.css";
-import { Taskforce } from "@/sanity.types";
-import { urlFor } from "@/utils/sanityImageUrl";
+import { Taskforce } from "@/studio/generated/sanity.types";
+import { urlFor } from "@/studio/sanityImageUrl";
 import Image from "next/image";
 
 type Member = NonNullable<Taskforce["members"]>[number];

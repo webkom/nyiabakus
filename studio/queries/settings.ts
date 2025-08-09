@@ -1,6 +1,6 @@
-import { groq } from "next-sanity";
-import { sanityClient } from "./sanity";
-import { SiteSettings } from "@/sanity.types";
+import { defineQuery, groq } from "next-sanity";
+import { sanityClient } from "./client";
+import { SiteSettings } from "@/studio/generated/sanity.types";
 
 export enum BlacklistType {
   FP = "fp",
@@ -20,6 +20,8 @@ export type Settings = SiteSettings & {
   isTBD: boolean;
 } | null;
 
+const fetchSiteSettings = defineQuery(`*[_type == "siteSettings"][0]`);
+
 /**
  * Fetch SiteSettings from Sanity and dezerialize it to Settings
  *
@@ -30,14 +32,7 @@ export type Settings = SiteSettings & {
  * @returns a settings object
  */
 export async function getSettings(): Promise<Settings> {
-  let data: SiteSettings | undefined;
-  try {
-    data = await sanityClient
-      .fetch(groq`*[_type == "siteSettings"]`)
-      .then((res: SiteSettings[]) =>
-        res.find((item) => item._id === "siteSettings")
-      );
-  } catch (e) {}
+  const data = await sanityClient.fetch(fetchSiteSettings);
 
   if (!data) return null;
 
@@ -60,31 +55,6 @@ export async function getSettings(): Promise<Settings> {
     blacklist: modifiedBlacklist,
     isTBD: !!data.isTBD,
   } as Settings;
-}
-
-/**
- * Inject settings into a props object
- * Intended to be used in eg. `getStaticProps()` to also be able to access siteSettings
- *
- * @example
- * // returns { props: { myProp, settings } }
- * return {
- *   props: await withSettings({
- *     myProp
- *   }),
- * };
- *
- * @param props
- * @returns `props` with `settings` (siteSettings defined in sanity)
- */
-export async function withSettings<T extends object>(
-  props: T
-): Promise<T | (T & { settings: Settings })> {
-  const settings = await getSettings();
-  return {
-    ...props,
-    settings,
-  };
 }
 
 export default getSettings;
