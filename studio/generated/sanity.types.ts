@@ -99,6 +99,7 @@ export type Taskforce = {
     _key: string;
   }>;
   description?: string;
+  mail?: string;
 };
 
 export type SanityImageCrop = {
@@ -229,7 +230,22 @@ export type FpDayDescription = {
   }>;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Taskforce | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SiteSettings | MfpDayDescription | FpDayDescription;
+export type AllSanitySchemaTypes =
+  | SanityImagePaletteSwatch
+  | SanityImagePalette
+  | SanityImageDimensions
+  | SanityFileAsset
+  | Geopoint
+  | Slug
+  | Taskforce
+  | SanityImageCrop
+  | SanityImageHotspot
+  | SanityImageAsset
+  | SanityAssetSourceData
+  | SanityImageMetadata
+  | SiteSettings
+  | MfpDayDescription
+  | FpDayDescription;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./studio/queries/dayDescriptions.ts
 // Variable: fetchFpDayDescriptions
@@ -337,15 +353,16 @@ export type FetchTaskforceResult = {
     _key: string;
   }>;
   description?: string;
+  mail?: string;
 } | null;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"fpDayDescription\" && date > $startDate] | order(date asc)": FetchFpDayDescriptionsResult;
-    "*[_type == \"mfpDayDescription\" && date > $startDate] | order(date asc)": FetchMfpDayDescriptionsResult;
-    "*[_type == \"siteSettings\"][0]": FetchSiteSettingsResult;
-    "*[_type == \"taskforce\"][0]": FetchTaskforceResult;
+    '*[_type == "fpDayDescription" && date > $startDate] | order(date asc)': FetchFpDayDescriptionsResult;
+    '*[_type == "mfpDayDescription" && date > $startDate] | order(date asc)': FetchMfpDayDescriptionsResult;
+    '*[_type == "siteSettings"][0]': FetchSiteSettingsResult;
+    '*[_type == "taskforce"][0]': FetchTaskforceResult;
   }
 }
