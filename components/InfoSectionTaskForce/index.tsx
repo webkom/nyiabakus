@@ -22,13 +22,26 @@ const roleDisplayName = {
   member: "Medlem",
 };
 
-const InfoSectionStudy = ({ taskforce }: { taskforce: Taskforce | null }) => {
+const InfoSectionTaskforce = ({
+  taskforce,
+}: {
+  taskforce: Taskforce | null;
+}) => {
   if (!taskforce) return null;
 
   return (
     <InfoSectionWrapper id="taskforce">
       <h2 className={styles.title}>1. Klasse Taskforce</h2>
-      <p className={styles.description}>{taskforce.description}</p>
+      <div className={styles.textWrapper}>
+        <p>{taskforce.description}</p>
+
+        {taskforce.mail && (
+          <p>
+            Gjerne ta kontakt dersom du lurer på noe:{" "}
+            <a href={`mailto:${taskforce.mail}`}>{taskforce.mail}</a>
+          </p>
+        )}
+      </div>
 
       {taskforce.members && taskforce.members.length > 0 && (
         <div className={`${styles.membersContainer} ${styles.grids}`}>
@@ -63,4 +76,4 @@ const InfoSectionStudy = ({ taskforce }: { taskforce: Taskforce | null }) => {
   );
 };
 
-export default InfoSectionStudy;
+export default InfoSectionTaskforce;

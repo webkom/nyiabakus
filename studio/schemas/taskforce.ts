@@ -66,6 +66,12 @@ const TaskforceSchema = {
       type: "text",
       description: "A brief description of the task force and its purpose",
     },
+    {
+      title: "Mail",
+      name: "mail",
+      type: "string",
+      description: "Contact email for the task force",
+    },
   ],
   preview: {
     prepare() {
