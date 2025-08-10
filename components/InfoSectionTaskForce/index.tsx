@@ -2,6 +2,7 @@ import InfoSectionWrapper from "../InfoSectionWrapper";
 import styles from "./styles.module.css";
 import { Taskforce } from "@/studio/generated/sanity.types";
 import { urlFor } from "@/studio/sanityImageUrl";
+import { PortableText } from "next-sanity";
 import Image from "next/image";
 
 type Member = NonNullable<Taskforce["members"]>[number];
@@ -33,14 +34,7 @@ const InfoSectionTaskforce = ({
     <InfoSectionWrapper id="taskforce">
       <h2 className={styles.title}>1. Klasse Taskforce</h2>
       <div className={styles.textWrapper}>
-        <p>{taskforce.description}</p>
-
-        {taskforce.mail && (
-          <p>
-            Gjerne ta kontakt dersom du lurer på noe:{" "}
-            <a href={`mailto:${taskforce.mail}`}>{taskforce.mail}</a>
-          </p>
-        )}
+        {taskforce.description && <PortableText value={taskforce.description} />}
       </div>
 
       {taskforce.members && taskforce.members.length > 0 && (
