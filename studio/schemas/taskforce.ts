@@ -63,7 +63,8 @@ const TaskforceSchema = {
     {
       title: "Description",
       name: "description",
-      type: "text",
+      type: "array",
+      of: [{ type: "block" }],
       description: "A brief description of the task force and its purpose",
     },
   ],
