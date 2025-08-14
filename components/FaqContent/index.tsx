@@ -13,12 +13,9 @@ const FaqContent: React.FC<{ faq?: FetchFaqResult }> = ({ faq }) => {
   useEffect(() => setHash(asPath.split("#")[1]), [asPath]);
 
   const renderFaqItems = () =>
-    faq?.map(({ question, answer }) => {
-      const key = encodeURIComponent(
-        question.replace(/\s+/g, "-").toLowerCase()
-      );
+    faq?.map(({ question, answer, slug }) => {
+      const key = slug.current;
       const togglePath = () => replace(hash !== key ? "#" + key : "");
-
       return (
         <div className={styles.faqItem} key={key} id={key}>
           <details open={hash === key}>

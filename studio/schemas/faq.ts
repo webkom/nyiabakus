@@ -9,15 +9,27 @@ const FAQSchema = {
       title: "Spørsmål",
       name: "question",
       type: "string",
-      validation: (Rule: Rule) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
     {
       title: "Svar",
       name: "answer",
       type: "array",
       of: [{ type: "block" }],
-      validation: (Rule: Rule) => Rule.required(),
-    }
+      validation: (rule: Rule) => rule.required(),
+    },
+    {
+      title: "Slug",
+      description:
+        "En unik identifikator for spørsmålet, til bruk i URL-er. Å endre denne kan medføre at lenker til spørsmålet blir brutt.",
+      name: "slug",
+      type: "slug",
+      options: {
+        source: "question",
+        maxLength: 96,
+      },
+      validation: (rule: Rule) => rule.required(),
+    },
   ],
   preview: {
     select: {

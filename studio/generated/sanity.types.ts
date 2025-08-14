@@ -68,12 +68,6 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type Slug = {
-  _type: "slug";
-  current: string;
-  source?: string;
-};
-
 export type Faq = {
   _id: string;
   _type: "faq";
@@ -99,6 +93,13 @@ export type Faq = {
     _type: "block";
     _key: string;
   }>;
+  slug: Slug;
+};
+
+export type Slug = {
+  _type: "slug";
+  current: string;
+  source?: string;
 };
 
 export type Taskforce = {
@@ -273,7 +274,7 @@ export type FpDayDescription = {
   }>;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Faq | Taskforce | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SiteSettings | MfpDayDescription | FpDayDescription;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Faq | Slug | Taskforce | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SiteSettings | MfpDayDescription | FpDayDescription;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./studio/queries/dayDescriptions.ts
 // Variable: fetchFpDayDescriptions
@@ -361,6 +362,7 @@ export type FetchFaqResult = Array<{
     _type: "block";
     _key: string;
   }>;
+  slug: Slug;
 }>;
 
 // Source: ./studio/queries/settings.ts
