@@ -2,6 +2,7 @@ import InfoSectionWrapper from "../InfoSectionWrapper";
 import styles from "./styles.module.css";
 import { Taskforce } from "@/studio/generated/sanity.types";
 import { urlFor } from "@/studio/sanityImageUrl";
+import { PortableText } from "next-sanity";
 import Image from "next/image";
 
 type Member = NonNullable<Taskforce["members"]>[number];
@@ -22,13 +23,21 @@ const roleDisplayName = {
   member: "Medlem",
 };
 
-const InfoSectionStudy = ({ taskforce }: { taskforce: Taskforce | null }) => {
+const InfoSectionTaskforce = ({
+  taskforce,
+}: {
+  taskforce: Taskforce | null;
+}) => {
   if (!taskforce) return null;
 
   return (
     <InfoSectionWrapper id="taskforce">
       <h2 className={styles.title}>1. Klasse Taskforce</h2>
-      <p className={styles.description}>{taskforce.description}</p>
+        {taskforce.description && 
+        	(<div className={styles.textWrapper}>
+        		<PortableText value={taskforce.description} />
+      		</div>)
+      	} 
 
       {taskforce.members && taskforce.members.length > 0 && (
         <div className={`${styles.membersContainer} ${styles.grids}`}>
@@ -63,4 +72,4 @@ const InfoSectionStudy = ({ taskforce }: { taskforce: Taskforce | null }) => {
   );
 };
 
-export default InfoSectionStudy;
+export default InfoSectionTaskforce;
