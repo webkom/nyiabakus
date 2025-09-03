@@ -33,6 +33,8 @@ All types from sanity should be inferred on its own if you remember to:
 - use `defineQuery` instead of `groq`
 - use `InferGetStaticProps` to create page props.
 
+The sanity studio can be found at https://ny.abakus.no/studio
+
 ## Contributing`
 
 We would love your contributions. To find out how to, read our [CONTRIBUTING.md](./CONTRIBUTING.md)
