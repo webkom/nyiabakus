@@ -15,10 +15,12 @@ type Blacklist = {
 /**
  * SiteSettings with certain properties modified for easier usage
  */
-export type Settings = SiteSettings & {
-  blacklist: Blacklist;
-  isTBD: boolean;
-} | null;
+export type Settings =
+  | (SiteSettings & {
+      blacklist: Blacklist;
+      isTBD: boolean;
+    })
+  | null;
 
 const fetchSiteSettings = defineQuery(`*[_type == "siteSettings"][0]`);
 

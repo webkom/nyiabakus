@@ -40,7 +40,7 @@ const Header = () => {
             Fadderperioden
           </Link>
           <Link className={styles.quickLink} href={"#taskforce"}>
-            1. Klasse Taskforce 
+            1. Klasse Taskforce
           </Link>
           <Link className={styles.quickLink} href={"#studiestart"}>
             Studiestart
