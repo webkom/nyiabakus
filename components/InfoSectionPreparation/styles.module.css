@@ -1,7 +1,7 @@
 .preparationSection {
-  background-color: var(--red-1);
+  background-color: var(--abakus-dark-red);
   color: white;
-  box-shadow: 0 0 10px -5px var(--red-1);
+  box-shadow: 0 0 10px -5px var(--abakus-dark-red);
 }
 
 .title {
