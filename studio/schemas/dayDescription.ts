@@ -58,14 +58,14 @@ const baseSchema = {
   ],
 };
 
-export const FPSchema = {
+export const FPDayDescriptionSchema = {
   ...baseSchema,
   name: "fpDayDescription",
-  title: "Fadderperioden",
+  title: "FP dagbeskrivelser",
 };
 
-export const MFPSchema = {
+export const MFPDayDescriptionSchema = {
   ...baseSchema,
   name: "mfpDayDescription",
-  title: "Masterfadderperioden",
+  title: "MFP dagbeskrivelser",
 };

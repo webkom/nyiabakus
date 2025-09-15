@@ -6,7 +6,7 @@ type FaqProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 const FAQ = ({ faq }: FaqProps) => {
   return <FaqContent faq={faq} />;
-}
+};
 
 export async function getStaticProps() {
   return {

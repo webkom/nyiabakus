@@ -7,10 +7,7 @@ import { BlacklistType, Settings } from "@/studio/queries/settings";
  *
  * @returns List of deserialized Event objects
  */
-export const fetchEvents = async (
-  type: BlacklistType,
-  settings: Settings
-) => {
+export const fetchEvents = async (type: BlacklistType, settings: Settings) => {
   if (!settings || settings.isTBD) return [];
   const { fromDate, toDate, blacklist } = settings;
   const res = await fetch(

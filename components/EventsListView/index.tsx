@@ -10,7 +10,10 @@ import { useMemo } from "react";
 import CollapsibleItem from "./CollapsibleItem";
 import EventItem from "./EventItem";
 import styles from "./styles.module.css";
-import { FpDayDescription, MfpDayDescription } from "@/studio/generated/sanity.types";
+import {
+  FpDayDescription,
+  MfpDayDescription,
+} from "@/studio/generated/sanity.types";
 
 type EventsListViewProps = {
   events: Event[];
@@ -23,7 +26,7 @@ type EventsListViewProps = {
 type Day = {
   title: string;
   events: Event[];
-  description?: (FpDayDescription | MfpDayDescription);
+  description?: FpDayDescription | MfpDayDescription;
 };
 
 const components: PortableTextComponents = {

@@ -33,11 +33,11 @@ const InfoSectionTaskforce = ({
   return (
     <InfoSectionWrapper id="taskforce">
       <h2 className={styles.title}>1. Klasse Taskforce</h2>
-        {taskforce.description && 
-        	(<div className={styles.textWrapper}>
-        		<PortableText value={taskforce.description} />
-      		</div>)
-      	} 
+      {taskforce.description && (
+        <div className={styles.textWrapper}>
+          <PortableText value={taskforce.description} />
+        </div>
+      )}
 
       {taskforce.members && taskforce.members.length > 0 && (
         <div className={`${styles.membersContainer} ${styles.grids}`}>
