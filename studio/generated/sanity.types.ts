@@ -300,24 +300,7 @@ export type FpDayDescription = {
   }>;
 };
 
-export type AllSanitySchemaTypes =
-  | SanityImagePaletteSwatch
-  | SanityImagePalette
-  | SanityImageDimensions
-  | SanityFileAsset
-  | Geopoint
-  | FpDescription
-  | Faq
-  | Slug
-  | Taskforce
-  | SanityImageCrop
-  | SanityImageHotspot
-  | SanityImageAsset
-  | SanityAssetSourceData
-  | SanityImageMetadata
-  | SiteSettings
-  | MfpDayDescription
-  | FpDayDescription;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | FpDescription | Faq | Slug | Taskforce | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SiteSettings | MfpDayDescription | FpDayDescription;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./studio/queries/dayDescriptions.ts
 // Variable: fetchFpDayDescriptions
@@ -408,6 +391,35 @@ export type FetchFaqResult = Array<{
   slug: Slug;
 }>;
 
+// Source: ./studio/queries/fpDescription.ts
+// Variable: fetchFpDescription
+// Query: *[_type == "fpDescription"][0]
+export type FetchFpDescriptionResult = {
+  _id: string;
+  _type: "fpDescription";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+} | null;
+
 // Source: ./studio/queries/settings.ts
 // Variable: fetchSiteSettings
 // Query: *[_type == "siteSettings"][0]
@@ -479,10 +491,11 @@ export type FetchTaskforceResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '*[_type == "fpDayDescription" && date > $startDate] | order(date asc)': FetchFpDayDescriptionsResult;
-    '*[_type == "mfpDayDescription" && date > $startDate] | order(date asc)': FetchMfpDayDescriptionsResult;
-    '*[_type == "faq"]': FetchFaqResult;
-    '*[_type == "siteSettings"][0]': FetchSiteSettingsResult;
-    '*[_type == "taskforce"][0]': FetchTaskforceResult;
+    "*[_type == \"fpDayDescription\" && date > $startDate] | order(date asc)": FetchFpDayDescriptionsResult;
+    "*[_type == \"mfpDayDescription\" && date > $startDate] | order(date asc)": FetchMfpDayDescriptionsResult;
+    "*[_type == \"faq\"]": FetchFaqResult;
+    "*[_type == \"fpDescription\"][0]": FetchFpDescriptionResult;
+    "*[_type == \"siteSettings\"][0]": FetchSiteSettingsResult;
+    "*[_type == \"taskforce\"][0]": FetchTaskforceResult;
   }
 }

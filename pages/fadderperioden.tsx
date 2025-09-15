@@ -39,7 +39,7 @@ export const Events: NextPage<EventsProps> = ({
     <>
       <InfoSectionWrapper contentClassName={styles.fpInfo}>
         <h2 className={styles.title}>Fadderperioden</h2>
-        {fpDescription.description && (
+        {fpDescription?.description && (
           <div className={styles.textWrapper}>
             <PortableText value={fpDescription.description} />
           </div>
