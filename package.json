@@ -12,14 +12,14 @@
     "sanity:generate-schema": "sanity schema extract --path ./studio/generated/sanity-schema.json --enforce-required-fields",
     "sanity:generate-types": "sanity typegen generate --config-path ./studio/sanity-typegen.json",
     "sanity:typegen": "yarn sanity:generate-schema && yarn sanity:generate-types"
-    },
+  },
   "dependencies": {
     "@portabletext/react": "^3.0.2",
     "@sanity/client": "^7.2.1",
     "@sanity/image-url": "^1.1.0",
     "@sanity/ui": "^2.15.17",
     "@sanity/vision": "^3.88.3",
-    "next": "^15.3.2",
+    "next": "15.3.8",
     "next-sanity": "^9.11.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
