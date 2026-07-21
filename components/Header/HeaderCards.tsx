@@ -42,7 +42,7 @@ const cardData: CardData[] = [
       {
         href: FACEBOOK_GROUP_FOURTHYEARS,
         text:
-          "Gruppe for 2-årig master" +
+          "Gruppe for 2-årig master (utdatert)" +
           (FACEBOOK_GROUP_FOURTHYEARS === "" ? " (TBD)" : ""),
       },
     ],

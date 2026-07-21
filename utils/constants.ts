@@ -12,7 +12,7 @@ export const MSTCNNS: Degree = {
 };
 
 export const FACEBOOK_GROUP_FIRSTYEARS: string =
-  "https://www.facebook.com/groups/1346608269757907/";
+  "https://www.facebook.com/groups/1021304597481296/";
 
 export const FACEBOOK_GROUP_FOURTHYEARS: string =
   "https://www.facebook.com/groups/625829386593933/";
