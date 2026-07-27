@@ -3,7 +3,8 @@ import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
 import {
   FACEBOOK_GROUP_FIRSTYEARS,
-  FACEBOOK_GROUP_FOURTHYEARS,
+  FACEBOOK_GROUP_MIDT,
+  FACEBOOK_GROUP_MSTCNNS,
   MIDT,
   MSTCNNS,
   MTDT,
@@ -67,11 +68,19 @@ const InfoSectionFP = () => {
       <p>Oppmøte for {MIDT.name}: 11:15 i F1, IT-bygget</p>
       <p>Oppmøte for {MSTCNNS.name}: 11:30 i G108, Gamle Elektro</p>
       <p>
-        Facebook-gruppe for nye abakuler på 2-årig master:{" "}
-        {FACEBOOK_GROUP_FOURTHYEARS === "" ? (
+        Facebook-gruppe for nye abakuler på {MIDT.name}:{" "}
+        {FACEBOOK_GROUP_MIDT === "" ? (
           "TBD"
         ) : (
-          <Link href={FACEBOOK_GROUP_FOURTHYEARS}>facebook.com/groups/...</Link>
+          <Link href={FACEBOOK_GROUP_MIDT}>facebook.com/groups/...</Link>
+        )}
+      </p>
+      <p>
+        Facebook-gruppe for nye abakuler på {MSTCNNS.name}:{" "}
+        {FACEBOOK_GROUP_MSTCNNS === "" ? (
+          "TBD"
+        ) : (
+          <Link href={FACEBOOK_GROUP_MSTCNNS}>facebook.com/groups/...</Link>
         )}
       </p>
       <h3 className={styles.subTitle}>Arrangementer</h3>
