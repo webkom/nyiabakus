@@ -1,6 +1,7 @@
 import Card, { CardData, CardWrapper } from "@/components/Card";
 import styles from "./styles.module.css";
 import InfoSectionWrapper from "@/components/InfoSectionWrapper";
+import Link from "@/components/Link";
 import {
   FACEBOOK_GROUP_FIRSTYEARS,
   FACEBOOK_GROUP_FOURTHYEARS,
@@ -90,7 +91,24 @@ const cardData: CardData[] = [
   {
     title: "Følg oss på Instagram",
     icon: "logo-instagram",
-    description:
-      "@abakusntnu - For jevnlig oppdateringer i både fadderuken og det påfølgende semesteret\n@abakusbedrift - For å holde deg oppdatert på relevante bedrifter og bedriftsarrangementer\n@labambakjelleren - Kjelleren til linjeforeningen",
+    description: [
+      <>
+        <Link href="https://www.instagram.com/AbakusNTNU/">@abakusntnu</Link> -
+        For jevnlig oppdateringer i både fadderuken og det påfølgende semesteret
+      </>,
+      <>
+        <Link href="https://www.instagram.com/abakusbedrift/">
+          @abakusbedrift
+        </Link>{" "}
+        - For å holde deg oppdatert på relevante bedrifter og
+        bedriftsarrangementer
+      </>,
+      <>
+        <Link href="https://www.instagram.com/labambakjelleren/">
+          @labambakjelleren
+        </Link>{" "}
+        - Kjelleren til linjeforeningen
+      </>,
+    ],
   },
 ];

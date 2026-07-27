@@ -7,7 +7,7 @@ import styles from "./styles.module.css";
 export type CardData = {
   icon: string;
   title: string;
-  description: string;
+  description: string | React.ReactNode[];
   buttons?: {
     href: string;
     text: string;
@@ -15,6 +15,9 @@ export type CardData = {
 };
 
 const Card: React.FC<CardData> = ({ icon, title, description, buttons }) => {
+  const paragraphs =
+    typeof description === "string" ? description.split("\n") : description;
+
   return (
     <div className={styles.card}>
       <h3 className={styles.title}>
@@ -22,8 +25,8 @@ const Card: React.FC<CardData> = ({ icon, title, description, buttons }) => {
         <span>{title}</span>
       </h3>
       <div className={styles.description}>
-        {description.split("\n").map((line) => (
-          <p key={line}>{line}</p>
+        {paragraphs.map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
         ))}
       </div>
       {buttons &&
