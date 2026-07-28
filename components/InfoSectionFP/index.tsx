@@ -65,7 +65,7 @@ const InfoSectionFP = () => {
         )}
       </p>
       <h3 className={styles.subTitle}>2-årig master</h3>
-      <p>Oppmøte for {MIDT.name}: 11:15 i F1, IT-bygget</p>
+      <p>Oppmøte for {MIDT.name}: 11.00 i R5, Realfagsbygget</p>
       <p>Oppmøte for {MSTCNNS.name}: 11:30 i G108, Gamle Elektro</p>
       <p>
         Facebook-gruppe for nye abakuler på {MIDT.name}:{" "}
