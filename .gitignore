@@ -41,6 +41,9 @@ jspm_packages
 .node_repl_history
 .next
 
+# TypeScript incremental build cache
+*.tsbuildinfo
+
 .DS_Store
 
 .vscode
