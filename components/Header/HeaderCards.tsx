@@ -43,13 +43,14 @@ const cardData: CardData[] = [
       {
         href: FACEBOOK_GROUP_MIDT,
         text:
-          "Gruppe for Dateteknologi" +
+          "Gruppe for Dateteknologi (2-årig master)" +
           (FACEBOOK_GROUP_MIDT === "" ? " (TBD)" : ""),
       },
       {
         href: FACEBOOK_GROUP_MSTCNNS,
         text:
-          "Gruppe for DigSec" + (FACEBOOK_GROUP_MSTCNNS === "" ? " (TBD)" : ""),
+          "Gruppe for DigSec (2-årig master)" +
+          (FACEBOOK_GROUP_MSTCNNS === "" ? " (TBD)" : ""),
       },
     ],
   },
