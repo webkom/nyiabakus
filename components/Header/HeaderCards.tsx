@@ -4,7 +4,8 @@ import InfoSectionWrapper from "@/components/InfoSectionWrapper";
 import Link from "@/components/Link";
 import {
   FACEBOOK_GROUP_FIRSTYEARS,
-  FACEBOOK_GROUP_FOURTHYEARS,
+  FACEBOOK_GROUP_MIDT,
+  FACEBOOK_GROUP_MSTCNNS,
 } from "@/utils/constants";
 
 const HeaderCards: React.FC = () => {
@@ -41,10 +42,16 @@ const cardData: CardData[] = [
           (FACEBOOK_GROUP_FIRSTYEARS === "" ? " (TBD)" : ""),
       },
       {
-        href: FACEBOOK_GROUP_FOURTHYEARS,
+        href: FACEBOOK_GROUP_MIDT,
         text:
-          "Gruppe for 2-årig master (utdatert)" +
-          (FACEBOOK_GROUP_FOURTHYEARS === "" ? " (TBD)" : ""),
+          "Gruppe for Dateteknologi (2-årig master)" +
+          (FACEBOOK_GROUP_MIDT === "" ? " (TBD)" : ""),
+      },
+      {
+        href: FACEBOOK_GROUP_MSTCNNS,
+        text:
+          "Gruppe for DigSec (2-årig master)" +
+          (FACEBOOK_GROUP_MSTCNNS === "" ? " (TBD)" : ""),
       },
     ],
   },
