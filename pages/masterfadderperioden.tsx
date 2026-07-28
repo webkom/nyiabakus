@@ -74,7 +74,7 @@ export const Events: NextPage<EventsProps> = ({
           </Link>{" "}
           for å få en faddergruppe.
         </p>
-        <p>Oppmøte for {MIDT.name}: 11:15 i F1, IT-bygget</p>
+        <p>Oppmøte for {MIDT.name}: 11.00 i R5, Realfagsbygget</p>
         <p>Oppmøte for {MSTCNNS.name}: 11:30 i G108, Gamle Elektro</p>
         <p>
           Facebook-gruppe for nye abakuler på {MIDT.name}:{" "}
