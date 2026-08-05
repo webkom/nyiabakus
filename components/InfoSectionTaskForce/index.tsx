@@ -7,7 +7,7 @@ import Image from "next/image";
 
 type Member = NonNullable<Taskforce["members"]>[number];
 
-const roleOrder = ["leader", "viceLeader", "member"];
+const roleOrder = ["leader", "viceLeader", "PR", "economy", "social",  "member"];
 const memberSort = (a: Member, b: Member) => {
   const aRole = a.role ?? "member";
   const bRole = b.role ?? "member";
@@ -21,6 +21,9 @@ const roleDisplayName = {
   leader: "Leder",
   viceLeader: "Nestleder",
   member: "Medlem",
+  PR: "PR",
+  economy: "Økonomiansvarlig",
+  social: "Sosialansvarlig",
 };
 
 const InfoSectionTaskforce = ({

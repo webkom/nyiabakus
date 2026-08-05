@@ -136,7 +136,7 @@ export type Taskforce = {
   _rev: string;
   members?: Array<{
     name: string;
-    role: "leader" | "viceLeader" | "member";
+    role: "leader" | "viceLeader" | "member" | "PR" | "economy" | "social";
     picture?: {
       asset?: {
         _ref: string;
@@ -451,7 +451,7 @@ export type FetchTaskforceResult = {
   _rev: string;
   members?: Array<{
     name: string;
-    role: "leader" | "member" | "viceLeader";
+    role: "economy" | "leader" | "member" | "PR" | "social" | "viceLeader";
     picture?: {
       asset?: {
         _ref: string;
