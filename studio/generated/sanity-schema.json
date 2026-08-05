@@ -867,6 +867,18 @@
                     {
                       "type": "string",
                       "value": "member"
+                    },
+                    {
+                      "type": "string",
+                      "value": "PR"
+                    },
+                    {
+                      "type": "string",
+                      "value": "economy"
+                    },
+                    {
+                      "type": "string",
+                      "value": "social"
                     }
                   ]
                 },

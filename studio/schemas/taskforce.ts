@@ -19,6 +19,9 @@ const Member = {
         list: [
           { title: "Leader", value: "leader" },
           { title: "Vice Leader", value: "viceLeader" },
+          { title: "PR", value: "PR" },
+          { title: "Economy", value: "economy" },
+          { title: "Social", value: "social" },
           { title: "Member", value: "member" },
         ],
         layout: "dropdown",
