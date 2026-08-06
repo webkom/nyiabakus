@@ -44,7 +44,7 @@ const cardData: CardData[] = [
       {
         href: FACEBOOK_GROUP_MIDT,
         text:
-          "Gruppe for Dateteknologi (2-årig master)" +
+          "Gruppe for Datateknologi (2-årig master)" +
           (FACEBOOK_GROUP_MIDT === "" ? " (TBD)" : ""),
       },
       {

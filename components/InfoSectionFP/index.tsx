@@ -5,6 +5,10 @@ import {
   FACEBOOK_GROUP_FIRSTYEARS,
   FACEBOOK_GROUP_MIDT,
   FACEBOOK_GROUP_MSTCNNS,
+  MEETING_MIDT,
+  MEETING_MSTCNNS,
+  MEETING_MTDT,
+  MEETING_MTKOM,
   MIDT,
   MSTCNNS,
   MTDT,
@@ -54,8 +58,8 @@ const InfoSectionFP = () => {
         (2-årig master) for å få en faddergruppe.
       </p>
       <h3 className={styles.subTitle}>5-årig integrert master</h3>
-      <p>Oppmøte for {MTDT.name}: TBD</p>
-      <p>Oppmøte for {MTKOM.name}: TBD</p>
+      <p>Oppmøte for {MTDT.name}: {MEETING_MTDT.time} i <Link href={MEETING_MTDT.url}>{MEETING_MTDT.room}</Link></p>
+      <p>Oppmøte for {MTKOM.name}: {MEETING_MTKOM.time}, <Link href={MEETING_MTKOM.url}>{MEETING_MTKOM.room}</Link></p>
       <p>
         Facebook-gruppe for nye abakuler på 5-årig integrert master:{" "}
         {FACEBOOK_GROUP_FIRSTYEARS === "" ? (
@@ -65,8 +69,8 @@ const InfoSectionFP = () => {
         )}
       </p>
       <h3 className={styles.subTitle}>2-årig master</h3>
-      <p>Oppmøte for {MIDT.name}: 11.00 i R5, Realfagsbygget</p>
-      <p>Oppmøte for {MSTCNNS.name}: 11:30 i G108, Gamle Elektro</p>
+      <p>Oppmøte for {MIDT.name}: {MEETING_MIDT.time} i <Link href={MEETING_MIDT.url}>{MEETING_MIDT.room}</Link></p>
+      <p>Oppmøte for {MSTCNNS.name}: {MEETING_MSTCNNS.time} i <Link href={MEETING_MSTCNNS.url}>{MEETING_MSTCNNS.room}</Link></p>
       <p>
         Facebook-gruppe for nye abakuler på {MIDT.name}:{" "}
         {FACEBOOK_GROUP_MIDT === "" ? (
