@@ -83,7 +83,7 @@ const OmAbakus = () => {
 
       <h3 className={styles.subTitle}>Hva er Abakus?</h3>
       <p>
-        Abakus er linjeforeningen for studentene ved <b>Dateteknologi</b> og{" "}
+        Abakus er linjeforeningen for studentene ved <b>Datateknologi</b> og{" "}
         <b>Cybersikkerhet og datakommunikasjon</b> på NTNU. Linjeforeningen
         består av omtrent 1000 studenter og har som formål å gi studentene
         veiledning i studiesituasjonen, arrangere faglige kurs, fremme kontakten
@@ -122,12 +122,12 @@ const OmAbakus = () => {
         </p>
         <h4 className={styles.subTitle}>Roller i hovedstyret:</h4>
         <ul>
-          <li>Leder: Torjus Østensen</li>
-          <li>Nestleder: Peder Brennum</li>
-          <li>Økans: Attal Ahmadjan</li>
-          <li>Øvrig styremedlem: Agnes Nørve</li>
-          <li>Øvrig styremedlem: Andrea Møller</li>
-          <li>Øvrig styremedlem: Oskar Larsen</li>
+          <li>Leder: Oskar Larsen</li>
+          <li>Nestleder: Karin Dalbye</li>
+          <li>Økans: Sigrid Vist</li>
+          <li>Øvrig styremedlem: Mina Sonerud</li>
+          <li>Øvrig styremedlem: William Robstad</li>
+          <li>Øvrig styremedlem: Milos Pilipovic</li>
         </ul>
         <p>
           <Link href="https://abakus.no/pages/styrer/12">
